@@ -3,7 +3,7 @@
 <head>
     <x-header-tag></x-header-tag>
 </head>
-<body class="">
+<body>
 <x-header></x-header>
 </body>
 </html>

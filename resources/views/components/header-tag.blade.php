@@ -5,7 +5,11 @@
 <title>Woodside Academy</title>
 
 {{--css--}}
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 {{--scripts--}}
 <script src="https://cdn.tailwindcss.com"></script>
@@ -14,18 +18,6 @@
         theme: {
             colors: {
                 'blue': '#1fb6ff',
-                'purple': '#7e5bef',
-                'pink': '#ff49db',
-                'orange': '#ff7849',
-                'green': '#13ce66',
-                'yellow': '#ffc82c',
-                'gray-dark': '#273444',
-                'gray': '#8492a6',
-                'gray-light': '#d3dce6',
-            },
-            fontFamily: {
-                sans: ['Graphik', 'sans-serif'],
-                serif: ['Merriweather', 'serif'],
             },
             extend: {
                 spacing: {

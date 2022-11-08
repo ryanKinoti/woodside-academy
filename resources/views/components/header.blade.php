@@ -1,15 +1,12 @@
-<div class="header">
-    <nav class="navbar">
-        <div class="navbar__container flex">
+<div class="">
+    <nav class="">
+        <div class="flex">
 
-            <a href="/" id="navbar__logo">Heaven Taste</a>
+            <a href="/">
+                Heaven Taste
+            </a>
 
-            <div class="navbar__toggle" id="mobile-menu">
-                <span class="bar"></span> <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <ul class="navbar__menu flex ">
+            <ul class="flex">
                 <li class="navbar__item">
                     <a href="/" class="navbar__links" id="home-page" style="background: rgba(25,23,27,0.5);
     background: linear-gradient(to right, rgba(51,39,23,0.5), rgba(55,49,49,0.5), rgba(39,32,43,0.5));color: white">Home</a>

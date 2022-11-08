@@ -20,12 +20,12 @@ return new class extends Migration {
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->enum('roles', ['admin', 'student', 'lecturer'])->default('student');
+            $table->enum('roles', ['superadmin', 'admin', 'student', 'lecturer'])->default('student');
             $table->string('profile_photo');
             $table->timestamps();
         });
 
-        DB::update("ALTER TABLE users AUTO_INCREMENT=100001; ");
+        DB::update("ALTER TABLE users AUTO_INCREMENT=20220001; ");
     }
 
     /**
