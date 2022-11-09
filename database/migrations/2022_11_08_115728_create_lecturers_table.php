@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -14,6 +15,7 @@ return new class extends Migration {
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('unit_id')->unsigned();
             $table->string('lec_first_name');
             $table->string('lec_second_name');
             $table->string('lec_last_name');
@@ -23,6 +25,8 @@ return new class extends Migration {
             $table->integer('lec_phone_number');
             $table->string('current_residence_location');
             $table->timestamps();
+
+            $table->foreign("unit_id")->references("id")->on("units");
         });
 
         DB::update("ALTER TABLE lecturers AUTO_INCREMENT=50001; ");

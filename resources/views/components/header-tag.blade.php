@@ -6,9 +6,11 @@
 
 {{--css--}}
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<link rel="shortcut icon" href="" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+      rel="stylesheet">
 <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
 {{--scripts--}}
@@ -17,12 +19,28 @@
     tailwind.config = {
         theme: {
             colors: {
-                'blue': '#1fb6ff',
+                'blue': '#9BA59C',
+                'gray':'#BABDB2',
+                'gray-op':'rgba(186,189,178,2)',
+                'brown':'#E7A164',
+                'green':'#084C61',
+                'green-op':'rgba(8,76,97,0.9)',
+                'green-op-1':'rgba(8,76,97,2)',
             },
             extend: {
                 spacing: {
-                    '8xl': '96rem',
-                    '9xl': '128rem',
+                    'space-0.1': '10px',
+                    'space-0.2': '20px',
+                    'space-0.3': '30px',
+                    'space-0.5': '50px',
+                    'space-0.9': '90px',
+
+                    'space-1.0': '100px',
+
+                    'fit': 'fit',
+
+                    '100-p': '100%,',
+                    'v-w': '100vw'
                 },
                 borderRadius: {
                     '4xl': '2rem',

@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+
+// -- Student start ----
+Route::name("student")->prefix("student")->group(function () {
+});
+// -- Student end ----
+
+// -- Lecturer start ----
+Route::name("lecturer")->prefix("lecturer")->group(function () {
+});
+// -- Lecturer end ----
+
+// -- Admin start ----
+Route::name("admin")->prefix("admin")->group(function () {
+});
+// -- Admin end ----

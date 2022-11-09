@@ -22,8 +22,8 @@ return new class extends Migration {
             $table->string('password');
             $table->string('phone_number');
             $table->string('gender');
-            $table->enum('roles', ['superadmin', 'admin', 'student', 'lecturer'])->default('student');
-            $table->string('profile_photo');
+            $table->enum('roles', ['superadmin', 'admin', 'student', 'lecturer'])->default('admin');
+            $table->string('course_applied');
             $table->rememberToken();
             $table->timestamps();
         });
