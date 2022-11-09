@@ -20,10 +20,13 @@ Route::get('/', function () {
 });
 
 // -- Emails start ----
-Route::name("emails")->prefix("emails")->group(function () {
-    Route::get('/made-application', function () {
+Route::name("applications")->prefix("applications")->group(function () {
+    Route::get('/email', function () {
         Mail::to('student@woodside.edu')->send(new ApplicationMail());
         return new ApplicationMail();
+    });
+    Route::get('choice',function (){
+        return view('auth.choice');
     });
 });
 // -- Emails end ----

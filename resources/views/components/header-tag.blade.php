@@ -5,8 +5,7 @@
 <title>Woodside Academy</title>
 
 {{--css--}}
-<link rel="stylesheet" href="{{asset('css/style.css')}}">
-<link rel="shortcut icon" href="" type="image/x-icon">
+<link rel="shortcut icon" href="{{asset('icons/briefcase.png')}}" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
@@ -36,6 +35,7 @@
                     'space-0.9': '90px',
 
                     'space-1.0': '100px',
+                    'space-1.5': '150px',
 
                     'fit': 'fit',
 
