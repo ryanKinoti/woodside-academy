@@ -19,10 +19,10 @@ return new class extends Migration {
             $table->string('lec_first_name');
             $table->string('lec_second_name');
             $table->string('lec_last_name');
+            $table->integer('lec_phone_number');
             $table->string('lec_personal_email');
             $table->string('lec_password');
             $table->enum('gender', ['Male', 'Female', 'Unknown']);
-            $table->integer('lec_phone_number');
             $table->string('current_residence_location');
             $table->timestamps();
 

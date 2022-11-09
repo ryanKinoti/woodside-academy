@@ -33,6 +33,7 @@ Route::name("applications")->prefix("applications")->group(function () {
 
 // -- Student start ----
 Route::name("student")->prefix("student")->group(function () {
+
 });
 // -- Student end ----
 

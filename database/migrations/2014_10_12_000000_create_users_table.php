@@ -23,6 +23,7 @@ return new class extends Migration {
             $table->string('gender');
             $table->enum('roles', ['superadmin', 'admin', 'student', 'lecturer'])->default('admin');
             $table->string('course_applied');
+            $table->string('position_applied');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,6 +23,8 @@ return new class extends Migration
             $table->foreign("unit_id")->references("id")->on("units");
             $table->foreign("lecturer_id")->references("id")->on("lecturers");
         });
+
+        DB::update("ALTER TABLE lecturers_unit_registration AUTO_INCREMENT=80001; ");
     }
 
     /**
