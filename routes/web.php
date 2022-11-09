@@ -1,5 +1,7 @@
 <?php
 
+use App\Mail\ApplicationMail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +19,14 @@ Route::get('/', function () {
     return view('index');
 });
 
+// -- Emails start ----
+Route::name("emails")->prefix("emails")->group(function () {
+    Route::get('/made-application', function () {
+        Mail::to('student@woodside.edu')->send(new ApplicationMail());
+        return new ApplicationMail();
+    });
+});
+// -- Emails end ----
 
 // -- Student start ----
 Route::name("student")->prefix("student")->group(function () {
