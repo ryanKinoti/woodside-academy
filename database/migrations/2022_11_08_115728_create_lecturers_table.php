@@ -15,7 +15,7 @@ return new class extends Migration {
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('unit_id')->unsigned();
+            $table->bigInteger('course_id')->unsigned();
             $table->string('lec_first_name');
             $table->string('lec_second_name');
             $table->string('lec_last_name');
@@ -26,7 +26,7 @@ return new class extends Migration {
             $table->string('current_residence_location');
             $table->timestamps();
 
-            $table->foreign("unit_id")->references("id")->on("units");
+            $table->foreign("course_id")->references("id")->on("courses");
         });
 
         DB::update("ALTER TABLE lecturers AUTO_INCREMENT=50001; ");

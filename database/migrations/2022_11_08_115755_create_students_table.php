@@ -17,7 +17,6 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('course_id')->unsigned();
-            $table->bigInteger('unit_id')->unsigned();
             $table->string('first_name');
             $table->string('second_name');
             $table->string('last_name');
@@ -32,7 +31,7 @@ return new class extends Migration
             $table->integer('parent_phone_number');
             $table->timestamps();
 
-            $table->foreign("unit_id")->references("id")->on("units");
+            $table->foreign("course_id")->references("id")->on("courses");
         });
 
         DB::update("ALTER TABLE students AUTO_INCREMENT=60001; ");
