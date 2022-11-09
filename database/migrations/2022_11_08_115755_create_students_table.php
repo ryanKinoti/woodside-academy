@@ -20,10 +20,10 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('second_name');
             $table->string('last_name');
+            $table->integer('phone_number');
             $table->string('personal_email');
             $table->string('password');
             $table->enum('gender',['Male','Female','Unknown']);
-            $table->integer('phone_number');
             $table->string('profile_photo')->nullable();
             $table->string('current_residence_location');
             $table->string('parent_name');

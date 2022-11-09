@@ -30,6 +30,7 @@ Route::name("emails")->prefix("emails")->group(function () {
 
 // -- Student start ----
 Route::name("student")->prefix("student")->group(function () {
+
 });
 // -- Student end ----
 
