@@ -1,33 +1,30 @@
-<div class="">
-    <nav class="">
-        <div class="flex">
+<section class="w-v-w h-space-0.9 bg-green-op">
+    <nav class="flex mx-space-1.0 justify-between">
 
-            <a href="/">
-                Heaven Taste
-            </a>
+        <a href="/" class="mx-space-0.5 my-space-0.2 p-space-0.1 text-brown rounded-xl text-2xl">
+            Woodside Academy
+        </a>
 
-            <ul class="flex">
-                <li class="navbar__item">
-                    <a href="/" class="navbar__links" id="home-page" style="background: rgba(25,23,27,0.5);
-    background: linear-gradient(to right, rgba(51,39,23,0.5), rgba(55,49,49,0.5), rgba(39,32,43,0.5));color: white">Home</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/about" class="navbar__links" id="about-page">About</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="/#menu" class="navbar__links" id="services-page">Menu</a>
-                </li>
-                <li class="navbar__item">
-                    <a href="" class="navbar__links" id="services-page">Orders</a>
-                </li>
-                <li class="navbar__btn">
-                    <a href="/admin" class="button" id="signup">Login </a>
-                </li>
-                <li class="navbar__btn">
-                    <a href="/register" class="button" id="signup">Sign Up</a>
-                </li>
-            </ul>
+        <ul class="flex space-x-space-0.5 my-space-0.3">
+            <li>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Home</a>
+            </li>
+            <li>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">About</a>
+            </li>
+            <li>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Academy Library</a>
+            </li>
+            <li>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Academy Databank</a>
+            </li>
+            <li>
+                <a href="" class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Login </a>
+            </li>
+            <li>
+                <a href="" class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Sign Up</a>
+            </li>
+        </ul>
 
-        </div>
     </nav>
-</div>
+</section>
