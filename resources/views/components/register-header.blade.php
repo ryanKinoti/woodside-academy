@@ -15,16 +15,7 @@
                 <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Home</a>
             </li>
             <li>
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">About</a>
-            </li>
-            <li>
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">University Library</a>
-            </li>
-            <li>
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">University Data-bank</a>
-            </li>
-            <li>
-                <a href="" class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Login</a>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Login Instead</a>
             </li>
             <li>
                 <div class="dropdown mt-[-10px]">
@@ -40,8 +31,3 @@
 
     </nav>
 </section>
-@if($errors->any())
-    <h3 class="m-auto p-2 f text-rose-500 text-center" style="font-family: 'Outfit',sans-serif; font-size: 35px;">
-        {{$errors->first()}}
-    </h3>
-@endif

@@ -30,6 +30,8 @@ Route::name("applications")->prefix("applications")->group(function () {
 
     Route::name("choice")->prefix("choice")->group(function () {
 
+        Route::post('submission',[AuthController::class, 'choiceApplication']);
+
         Route::get('students', [AuthController::class, 'studentChoice']);
         Route::post('students', [AuthController::class, 'studentApplication']);
 

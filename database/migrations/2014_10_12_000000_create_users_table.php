@@ -18,12 +18,12 @@ return new class extends Migration {
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('email')->unique();
             $table->string('phone_number');
+            $table->string('email')->unique();
             $table->string('gender');
             $table->enum('roles', ['superadmin', 'admin', 'student', 'lecturer'])->default('admin');
-            $table->string('course_applied');
-            $table->string('position_applied');
+            $table->string('course_applied')->nullable();
+            $table->string('position_applied')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
