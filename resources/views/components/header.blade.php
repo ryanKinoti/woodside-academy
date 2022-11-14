@@ -2,15 +2,12 @@
     <nav class="flex mx-space-1.0 justify-between">
 
         <div class="mx-space-0.5 my-space-0.1 text-brown rounded-xl text-2xl flex">
-            <div class="w-100-p">
-                <img class="w-100-p" src="{{asset('icons/books.png')}}" alt="">
-            </div>
             <a href="/" class="text-brown text-2xl w-space-1.5">
-                Celestia University
+                Woodside Academy
             </a>
         </div>
 
-        <ul class="flex space-x-space-0.5 my-space-0.3">
+        <ul class="flex space-x-space-0.5 m-auto text-center">
             <li>
                 <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Home</a>
             </li>
@@ -41,7 +38,7 @@
     </nav>
 </section>
 @if($errors->any())
-    <h3 class="m-auto p-2 f text-rose-500 text-center" style="font-family: 'Outfit',sans-serif; font-size: 35px;">
+    <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit" style="font-family: 'Outfit',sans-serif; font-size: 35px;">
         {{$errors->first()}}
     </h3>
 @endif

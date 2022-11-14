@@ -6,7 +6,7 @@
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-register-header></x-register-header>
 <section>
-    <div>
+    <div class="m-auto p-space-0.5 text-center">
         <form action="/applications/choice/submission" method="POST" class="grid items-center">
             @csrf
             <span class="my-space-0.2">
@@ -31,12 +31,19 @@
 
             <span class="my-space-0.2">
                 <label for="gender">Gender :</label>
-                <input type="text" name="gender" id="gender" required>
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
             </span>
 
             <span class="my-space-0.2">
                 <label for="course">Course to Apply to :</label>
-                <input type="text" name="course" id="course" required>
+                <select name="course" id="course" class="w-fit">
+                    @foreach($courses as $course)
+                        <option value="{{$course->id}}">{{$course->course_name}}</option>
+                    @endforeach
+                </select>
             </span>
 
             <div class="my-space-0.2">
