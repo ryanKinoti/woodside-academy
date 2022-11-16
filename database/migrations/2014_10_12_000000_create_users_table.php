@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->string('phone_number');
             $table->string('email')->unique();
             $table->string('gender');
-            $table->enum('roles', ['superadmin', 'admin', 'student', 'lecturer','staff'])->default('admin');
+            $table->enum('roles', ['admin', 'student', 'lecturer','staff'])->default('admin');
 
             $table->bigInteger('faculty_id')->unsigned()->nullable();
             $table->bigInteger('course_id')->unsigned()->nullable();

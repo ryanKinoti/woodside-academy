@@ -24,7 +24,14 @@ return new class extends Migration
             $table->enum('gender', ['Male', 'Female', 'Unknown']);
             $table->string('current_residence_location');
             $table->enum('role',['superAdmin','admin'])->default('superAdmin');
+
+            $table->bigInteger('faculty_id')->unsigned()->nullable();
+            $table->bigInteger('course_id')->unsigned()->nullable();
+
             $table->timestamps();
+
+            $table->foreign("faculty_id")->references("id")->on("faculties");
+            $table->foreign("course_id")->references("id")->on("courses");
         });
 
         DB::update("ALTER TABLE administrators AUTO_INCREMENT=1001; ");
