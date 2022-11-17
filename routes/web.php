@@ -25,7 +25,7 @@ Route::name("applications")->prefix("applications")->group(function () {
 
     Route::get('/email', function () {
         Mail::to('student@woodside.edu')->send(new ApplicationMail());
-        return new ApplicationMail();
+        return view('index');
     });
 
     Route::name("choice")->prefix("choice")->group(function () {

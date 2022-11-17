@@ -31,7 +31,7 @@ class ApplicationMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Application to Celestia University',
+            subject: 'Application to Woodside Aca',
         );
     }
 

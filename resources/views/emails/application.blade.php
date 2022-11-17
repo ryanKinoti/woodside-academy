@@ -1,10 +1,12 @@
 <x-mail::message>
 # Your Application Was Successful
 
-The body of your message.
+Congratulations,
+    Your Application to our Academy has been accepted,
+    Kindly click the button bellow to proceed to registration
 
-<x-mail::button :url="''">
-Click to Complete Registration
+<x-mail::button :url="'http://127.0.0.1:8000'">
+Complete Registration
 </x-mail::button>
 
 Kindest Regards,<br>
