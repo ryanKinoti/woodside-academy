@@ -9,10 +9,10 @@
 
         <ul class="flex space-x-space-0.5 m-auto text-center">
             <li>
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Home</a>
+                <a href="/" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Home</a>
             </li>
             <li>
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Login Instead</a>
+                <a href="/login" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Login Instead</a>
             </li>
             <li>
                 <div class="dropdown mt-[-10px]">

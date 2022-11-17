@@ -20,6 +20,13 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::name("login")->prefix("login")->group(function (){
+    Route::get('/',function (){
+        return view('login');
+    });
+    Route::post('/validation',[AuthController::class, 'login']);
+});
+
 // -- Applications start ----
 Route::name("applications")->prefix("applications")->group(function () {
 

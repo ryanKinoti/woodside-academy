@@ -21,7 +21,7 @@
                 <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">University Data-bank</a>
             </li>
             <li>
-                <a href="" class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Login</a>
+                <a href="/login" class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Login</a>
             </li>
             <li>
                 <div class="dropdown mt-[-10px]">

@@ -6,6 +6,10 @@ use App\Models\Course;
 use App\Models\Faculty;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isNull;
 
 class AuthController extends Controller
 {
@@ -91,5 +95,32 @@ class AuthController extends Controller
     public function staffApplication(Request $request)
     {
         $data = $request->all();
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+//        $admin = DB::table('administrators')
+//            ->where('admin_personal_email', $request->input('email'))
+//            ->get('id')
+//            ->first()->id;
+//        $lecturer = DB::table('lecturers')
+//            ->where('lec_personal_email', $request->input('email'))
+//            ->get('id')
+//            ->first()->id;
+//        $staff = DB::table('staff_members')
+//            ->where('staff_personal_email', $request->input('email'))
+//            ->get('id')
+//            ->first()->id;
+//        $student = DB::table('students')
+//            ->where('personal_email', $request->input('email'))
+//            ->get('id')
+//            ->first()->id;
+//        if (isEmpty($admin)){
+//            return view('index');
+//        }else{
+//            return view('login');
+//        }
     }
 }
