@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Application;
 use App\Models\Course;
 use App\Models\Faculty;
 use App\Models\User;
@@ -48,7 +49,7 @@ class AuthController extends Controller
     public function choiceApplication(Request $request)
     {
         $data = $request->all();
-        $newUser = new User();
+        $newUser = new Application();
 
         $newUser->first_name = $data['firstName'];
         $newUser->last_name = $data['lastName'];
@@ -65,7 +66,7 @@ class AuthController extends Controller
     public function staff_choiceApplication(Request $request)
     {
         $data = $request->all();
-        $newUser = new User();
+        $newUser = new Application();
 
         $newUser->first_name = $data['firstName'];
         $newUser->last_name = $data['lastName'];
@@ -85,43 +86,52 @@ class AuthController extends Controller
         $data = $request->all();
     }
 
-
     public function lecturerApplication(Request $request)
     {
         $data = $request->all();
     }
-
 
     public function staffApplication(Request $request)
     {
         $data = $request->all();
     }
 
+    //login method after account creation
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
-//        $admin = DB::table('administrators')
-//            ->where('admin_personal_email', $request->input('email'))
-//            ->get('id')
-//            ->first()->id;
+        if (Auth::attempt($credentials)) {
 
-//        $lecturer = DB::table('lecturers')
-//            ->where('lec_personal_email', $request->input('email'))
-//            ->get('id')
-//            ->first()->id;
-//        $staff = DB::table('staff_members')
-//            ->where('staff_personal_email', $request->input('email'))
-//            ->get('id')
-//            ->first()->id;
-//        $student = DB::table('students')
-//            ->where('personal_email', $request->input('email'))
-//            ->get('id')
-//            ->first()->id;
-//        if (isEmpty($admin)){
-//            return view('index');
-//        }else{
-//            return view('login');
-//        }
+            //selecting roles and user id
+            $selectRole = DB::table('users')->where('email', $request->input('email'))->get('user_role')->first()->user_role;
+            $selectID = DB::table('users')->where('email', $request->input('email'))->get('id')->first()->id;
+
+            //creating and storing session variables
+            $request->session()->regenerate();
+            $request->session()->put('email', $request->input('email'));
+            $request->session()->put('userRole', $selectRole,);
+            $request->session()->put('userID', $selectID,);
+
+            if ($selectRole == 'admin') {
+                return redirect()->intended('/admin');
+            } else {
+                return redirect()->intended('/');
+            }
+        } else {
+            return redirect("/login?window=login")->withErrors(['msg' => "Invalid Login Credentials"]);
+        }
+    }
+
+    //logout method
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
     }
 }

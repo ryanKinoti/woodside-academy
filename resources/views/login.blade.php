@@ -7,6 +7,12 @@
 <x-register-header></x-register-header>
 <section>
     <div class="m-auto p-space-0.5 text-center">
+        @if($errors->any())
+            <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit"
+                style="font-family: 'Outfit',sans-serif; font-size: 35px;">
+                {{$errors->first()}}
+            </h3>
+        @endif
         <form action="/login/validation" method="POST" class="grid items-center">
             @csrf
 

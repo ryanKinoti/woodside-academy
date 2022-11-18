@@ -5,5 +5,6 @@
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-header></x-header>
+admin dashboard
 </body>
 </html>

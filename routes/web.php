@@ -27,6 +27,8 @@ Route::name("login")->prefix("login")->group(function (){
     Route::post('/validation',[AuthController::class, 'login']);
 });
 
+Route::get('logout',[AuthController::class, 'logout']);
+
 // -- Applications start ----
 Route::name("applications")->prefix("applications")->group(function () {
 
@@ -67,5 +69,8 @@ Route::name("lecturer")->prefix("lecturer")->group(function () {
 
 // -- Admin start ----
 Route::name("admin")->prefix("admin")->group(function () {
+    Route::get('/',function (){
+        return view('admin.dashboard');
+    });
 });
 // -- Admin end ----

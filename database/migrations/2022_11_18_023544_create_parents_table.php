@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
         });
+
+        DB::update("ALTER TABLE parents AUTO_INCREMENT=60001; ");
     }
 
     /**
