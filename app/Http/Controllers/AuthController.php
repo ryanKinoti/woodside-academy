@@ -105,6 +105,7 @@ class AuthController extends Controller
 //            ->where('admin_personal_email', $request->input('email'))
 //            ->get('id')
 //            ->first()->id;
+
 //        $lecturer = DB::table('lecturers')
 //            ->where('lec_personal_email', $request->input('email'))
 //            ->get('id')

@@ -14,17 +14,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('lecturers_unit_registration', function (Blueprint $table) {
+        Schema::create('units', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('unit_id')->unsigned();
-            $table->bigInteger('lecturer_id')->unsigned();
+            $table->bigInteger('course_id')->unsigned();
+            $table->string('unit_name');
+            $table->enum('unit_status', ['closed', 'available'])->default('available');
+            $table->bigInteger('lecturer_id')->unsigned()->nullable();
             $table->timestamps();
 
-            $table->foreign("unit_id")->references("id")->on("units");
-            $table->foreign("lecturer_id")->references("id")->on("lecturers");
+            $table->foreign("course_id")->references("id")->on("courses");
         });
 
-        DB::update("ALTER TABLE lecturers_unit_registration AUTO_INCREMENT=80001; ");
+        DB::update("ALTER TABLE units AUTO_INCREMENT=40001; ");
     }
 
     /**
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lecturers_unit_registration');
+        Schema::dropIfExists('units');
     }
 };

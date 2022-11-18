@@ -18,12 +18,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('/');
 
 Route::name("login")->prefix("login")->group(function (){
     Route::get('/',function (){
         return view('login');
-    });
+    })->name('login-page');
     Route::post('/validation',[AuthController::class, 'login']);
 });
 

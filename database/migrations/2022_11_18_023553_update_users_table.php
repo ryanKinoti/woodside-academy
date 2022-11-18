@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        //
         Schema::table('users',function (Blueprint $table){
             $table->foreign("faculty_id")->references("id")->on("faculties");
             $table->foreign("course_id")->references("id")->on("courses");
+            $table->foreign("parent_id")->references("id")->on("parents");
         });
     }
 
