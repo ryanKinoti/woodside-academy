@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RestrictedAreasController;
 use App\Mail\ApplicationMail;
+use App\Mail\StudentMail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
@@ -32,11 +34,6 @@ Route::get('logout',[AuthController::class, 'logout']);
 // -- Applications start ----
 Route::name("applications")->prefix("applications")->group(function () {
 
-    Route::get('/email', function () {
-        Mail::to('student@woodside.edu')->send(new ApplicationMail());
-        return view('index');
-    });
-
     Route::name("choice")->prefix("choice")->group(function () {
 
         //user choices
@@ -59,6 +56,9 @@ Route::name("applications")->prefix("applications")->group(function () {
 // -- Student start ----
 Route::name("student")->prefix("student")->group(function () {
 
+    Route::get('application',function (){
+        return view('students.register');
+    });
 });
 // -- Student end ----
 
@@ -69,8 +69,10 @@ Route::name("lecturer")->prefix("lecturer")->group(function () {
 
 // -- Admin start ----
 Route::name("admin")->prefix("admin")->group(function () {
-    Route::get('/',function (){
-        return view('admin.dashboard');
+    Route::get('/',[RestrictedAreasController::class,'admin']);
+    Route::get('student-email', function () {
+        Mail::to('ryankinotikathurima@gmail.com')->send(new StudentMail());
+        return view('index');
     });
 });
 // -- Admin end ----

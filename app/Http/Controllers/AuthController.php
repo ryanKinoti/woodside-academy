@@ -106,12 +106,14 @@ class AuthController extends Controller
             //selecting roles and user id
             $selectRole = DB::table('users')->where('email', $request->input('email'))->get('user_role')->first()->user_role;
             $selectID = DB::table('users')->where('email', $request->input('email'))->get('id')->first()->id;
+            $selectName = DB::table('users')->where('email', $request->input('email'))->get('firstName')->first()->firstName;
 
             //creating and storing session variables
             $request->session()->regenerate();
             $request->session()->put('email', $request->input('email'));
             $request->session()->put('userRole', $selectRole,);
             $request->session()->put('userID', $selectID,);
+            $request->session()->put('userName',$selectName);
 
             if ($selectRole == 'admin') {
                 return redirect()->intended('/admin');

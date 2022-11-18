@@ -22,9 +22,15 @@
             </li>
             @if(session()->has('email'))
                 <li class="w-fit h-fit">
+                    @if(session('userRole')=='admin')
                     <a href="/admin" title="Administrator: {{session('userName')}}">
                         <i class="uil uil-user-square text-[40px]"></i>
                     </a>
+                    @else
+                        <a href="/" title="User: {{session('userName')}}">
+                            <i class="uil uil-user-square text-[40px]"></i>
+                        </a>
+                    @endif
                 </li>
                 <li class="w-fit h-fit">
                     <a href="/logout" class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl"
