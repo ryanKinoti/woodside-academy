@@ -16,6 +16,10 @@ return new class extends Migration {
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->enum('user_role', ['admin', 'student', 'lecturer','staff']);
+            $table->bigInteger('faculty_id')->unsigned();
+            $table->bigInteger('course_id')->unsigned();
+            $table->bigInteger('parent_id')->unsigned();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('lastName');
@@ -27,12 +31,6 @@ return new class extends Migration {
             $table->string('profile_photo')->nullable();
             $table->string('country');
             $table->string('city');
-            $table->enum('user_role', ['admin', 'student', 'lecturer','staff'])->default('admin');
-
-            $table->bigInteger('faculty_id')->unsigned()->nullable();
-            $table->bigInteger('course_id')->unsigned()->nullable();
-            $table->bigInteger('parent_id')->unsigned()->nullable();
-
             $table->rememberToken();
             $table->timestamps();
         });
