@@ -20,7 +20,7 @@ class FacultySeeder extends Seeder
             ->insert(
                 [
                     [
-                        'faculty_name' => 'Academy Of Computing and Science'
+                        'faculty_name' => 'Academy of Computing and Science'
                     ],
                     [
                         'faculty_name' => 'Academy of Law'

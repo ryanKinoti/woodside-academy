@@ -57,8 +57,14 @@
     </nav>
 </section>
 @if($errors->any())
-    <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit"
-        style="font-family: 'Outfit',sans-serif; font-size: 35px;">
+    <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
+        style="font-family: 'Outfit',sans-serif; font-size: 35px;" id="hideMe">
         {{$errors->first()}}
+        <script>
+            setTimeout(() => {
+                const elem = document.getElementById("hideMe");
+                elem.parentNode.removeChild(elem);
+            }, 5000);
+        </script>
     </h3>
 @endif

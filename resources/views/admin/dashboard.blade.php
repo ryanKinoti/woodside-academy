@@ -10,6 +10,18 @@
     <span class="text-brown text-xl p-space-0.1">
         WOODSIDE ACADEMY ADMINISTRATOR DASHBOARD
     </span>
+    @if($errors->any())
+        <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
+            style="font-family: 'Outfit',sans-serif; font-size: 35px;" id="hideMe">
+            {{$errors->first()}}
+            <script>
+                setTimeout(() => {
+                    const elem = document.getElementById("hideMe");
+                    elem.parentNode.removeChild(elem);
+                }, 5000);
+            </script>
+        </h3>
+    @endif
 </div>
 
 <div class="flex h-full">

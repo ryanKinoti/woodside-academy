@@ -13,14 +13,22 @@ class LecturerMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $firstname;
+    public $lastname;
+    public $course;
+    public $faculty;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($firstName, $lastName, $course, $faculty)
     {
         //
+        $this->firstname = $firstName;
+        $this->lastname = $lastName;
+        $this->course = $course;
+        $this->faculty = $faculty;
     }
 
     /**

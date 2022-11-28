@@ -49,7 +49,6 @@
             </span>
 
             <div class="my-space-0.2">
-                <input type="hidden" name="role" value="{{$studentRole}}">
                 <button type="submit">Complete Registration</button>
             </div>
         </form>

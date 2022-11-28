@@ -32,6 +32,19 @@ class UserSeeder extends Seeder
                     'country' => 'Britain',
                     'city' => 'London',
                 ],
+                [
+                    'user_role' => 'student',
+                    'firstName' => 'Alaya',
+                    'secondName' => 'Marcus',
+                    'lastName' => 'Elroy',
+                    'id_number' => '5638957',
+                    'phoneNumber' => '0799887766',
+                    'email' => 'alaya@gmail.com',
+                    'password' => Hash::make('alaya@123'),
+                    'gender' => 'Female',
+                    'country' => 'Britain',
+                    'city' => 'London',
+                ],
             ]);
     }
 }

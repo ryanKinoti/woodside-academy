@@ -103,7 +103,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
 
-            //selecting roles and user id
+            //selecting roles, user id and user's name
             $selectRole = DB::table('users')->where('email', $request->input('email'))->get('user_role')->first()->user_role;
             $selectID = DB::table('users')->where('email', $request->input('email'))->get('id')->first()->id;
             $selectName = DB::table('users')->where('email', $request->input('email'))->get('firstName')->first()->firstName;

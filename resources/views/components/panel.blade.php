@@ -16,10 +16,19 @@
         </a>
 
         <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-2')" style="cursor: pointer">
-            <i class="uil uil-users-alt text-[30px]"></i>
-            <span class="text-brown rounded-xl text-xl bg-green-op-1 p-space-0.1">Made Applications</span>
+            <i class="uil uil-book text-[30px]"></i>
+            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Student Applications</span>
         </a>
 
+        <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3')" style="cursor: pointer">
+            <i class="uil uil-book text-[30px]"></i>
+            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Lecturer Applications</span>
+        </a>
+
+        <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4')" style="cursor: pointer">
+            <i class="uil uil-book text-[30px]"></i>
+            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Staff Applications</span>
+        </a>
 
         <a href="/logout" class="p-space-0.1">
             <i class="uil uil-signout text-[30px]"></i>

@@ -1,10 +1,8 @@
 <?php
 
+use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RestrictedAreasController;
-use App\Mail\ApplicationMail;
-use App\Mail\StudentMail;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -55,8 +53,7 @@ Route::name("applications")->prefix("applications")->group(function () {
 
 // -- Student start ----
 Route::name("student")->prefix("student")->group(function () {
-
-    Route::get('application',function (){
+    Route::get('register',function (){
         return view('students.register');
     });
 });
@@ -70,9 +67,7 @@ Route::name("lecturer")->prefix("lecturer")->group(function () {
 // -- Admin start ----
 Route::name("admin")->prefix("admin")->group(function () {
     Route::get('/',[RestrictedAreasController::class,'admin']);
-    Route::get('student-email', function () {
-        Mail::to('ryankinotikathurima@gmail.com')->send(new StudentMail());
-        return view('index');
-    });
+    Route::post('student-email', [ApplicationsController::class ,'studentApplications']);
+    Route::post('lecturer-email', [ApplicationsController::class ,'lecturerApplications']);
 });
 // -- Admin end ----
