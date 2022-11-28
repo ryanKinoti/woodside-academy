@@ -1,7 +1,7 @@
 <x-mail::message>
 # Application for your Staff Position
 
-Dear {{$firstname}} {{$lastname}}, <br>
+Dear {{$firstname}} {{$lastname}}, <br><br>
 It is with utmost pleasure that I write to you on behalf of Woodside Academy to inform you of your acceptance and
 hiring into the {{$faculty}} faculty.
 <br><br>
