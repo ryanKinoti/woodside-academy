@@ -113,7 +113,7 @@ class AuthController extends Controller
             $request->session()->put('email', $request->input('email'));
             $request->session()->put('userRole', $selectRole,);
             $request->session()->put('userID', $selectID,);
-            $request->session()->put('userName',$selectName);
+            $request->session()->put('userName', $selectName);
 
             if ($selectRole == 'admin') {
                 return redirect()->intended('/admin');
@@ -121,7 +121,7 @@ class AuthController extends Controller
                 return redirect()->intended('/');
             }
         } else {
-            return redirect("/login?window=login")->withErrors(['msg' => "Invalid Login Credentials"]);
+            return redirect()->intended('login')->withErrors(['msg' => "Invalid Login Credentials"]);
         }
     }
 

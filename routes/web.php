@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\RestrictedAreasController;
+use App\Http\Controllers\Routing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('index');
 })->name('/');
 
-Route::name("login")->prefix("login")->group(function (){
+Route::prefix("login")->group(function (){
     Route::get('/',function (){
         return view('login');
     })->name('login-page');
@@ -30,7 +30,7 @@ Route::name("login")->prefix("login")->group(function (){
 Route::get('logout',[AuthController::class, 'logout']);
 
 // -- Applications and Registration start ----
-Route::name("applications")->prefix("applications")->group(function () {
+Route::prefix("applications")->group(function () {
 
     Route::name("choice")->prefix("choice")->group(function () {
 
@@ -52,7 +52,8 @@ Route::name("applications")->prefix("applications")->group(function () {
 // -- Applications and Registration end ----
 
 // -- Student start ----
-Route::name("student")->prefix("student")->group(function () {
+Route::prefix("student")->group(function () {
+    Route::get('/',[Routing::class,'students']);
     Route::get('register',function (){
         return view('students.register');
     });
@@ -60,13 +61,20 @@ Route::name("student")->prefix("student")->group(function () {
 // -- Student end ----
 
 // -- Lecturer start ----
-Route::name("lecturer")->prefix("lecturer")->group(function () {
+Route::prefix("lecturer")->group(function () {
+    Route::get('/',[Routing::class,'lecturers']);
 });
 // -- Lecturer end ----
 
+// -- Staff start ----
+Route::prefix("staff")->group(function () {
+    Route::get('/',[Routing::class,'staff']);
+});
+// -- Staff end ----
+
 // -- Admin start ----
-Route::name("admin")->prefix("admin")->group(function () {
-    Route::get('/',[RestrictedAreasController::class,'admin']);
+Route::prefix("admin")->group(function () {
+    Route::get('/',[Routing::class,'admin']);
     Route::post('student-email', [ApplicationsController::class ,'studentApplications']);
     Route::post('lecturer-email', [ApplicationsController::class ,'lecturerApplications']);
     Route::post('staff-email', [ApplicationsController::class ,'staffApplications']);
