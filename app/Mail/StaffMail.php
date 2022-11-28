@@ -13,14 +13,21 @@ class StaffMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $firstname;
+    public $lastname;
+    public $faculty;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($firstName, $lastName, $faculty)
     {
         //
+        $this->firstname = $firstName;
+        $this->lastname = $lastName;
+        $this->faculty = $faculty;
     }
 
     /**

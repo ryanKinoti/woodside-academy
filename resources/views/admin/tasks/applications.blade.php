@@ -103,6 +103,56 @@
 
 </section>
 
+<section class="tabcontent ml-[17%]" id="main-4">
+
+    <div class="title_card">
+        <div style="width: fit-content">
+            <h1>
+                STAFF APPLICATIONS
+            </h1>
+        </div>
+    </div>
+
+    <div class="content">
+        <table>
+            <tr class="thead">
+                <td><u>First Name</u></td>
+                <td><u>Last Name</u></td>
+                <td><u>Phone Number</u></td>
+                <td><u>Email</u></td>
+                <td><u>Gender</u></td>
+                <td><u>Course Applied</u></td>
+                <td><u>Action</u></td>
+            </tr>
+
+            @foreach($staffs as $staff)
+                <tr class="tbody">
+                    @php
+                        $facultyname = DB::table('faculties')->where('id', $staff->faculty_id)->get('faculty_name')->first()->faculty_name;
+                    @endphp
+                    <td>{{$staff->first_name}}</td>
+                    <td>{{$staff->last_name}}</td>
+                    <td>{{$staff->phone_number}}</td>
+                    <td>{{$staff->email }}</td>
+                    <td>{{$staff->gender}}</td>
+                    <td>{{$facultyname}}</td>
+                    <td>
+                        <form action="/admin/staff-email" method="post">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{$staff->id}}">
+                            <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">
+                            <button type="submit">Send Confirmation</button>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+
+        </table>
+    </div>
+
+</section>
+
 <style>
     table {
         padding: 10px;

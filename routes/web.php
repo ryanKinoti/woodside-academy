@@ -29,7 +29,7 @@ Route::name("login")->prefix("login")->group(function (){
 
 Route::get('logout',[AuthController::class, 'logout']);
 
-// -- Applications start ----
+// -- Applications and Registration start ----
 Route::name("applications")->prefix("applications")->group(function () {
 
     Route::name("choice")->prefix("choice")->group(function () {
@@ -49,7 +49,7 @@ Route::name("applications")->prefix("applications")->group(function () {
         Route::post('staff', [AuthController::class, 'staffApplication']);
     });
 });
-// -- Applications end ----
+// -- Applications and Registration end ----
 
 // -- Student start ----
 Route::name("student")->prefix("student")->group(function () {
@@ -69,5 +69,6 @@ Route::name("admin")->prefix("admin")->group(function () {
     Route::get('/',[RestrictedAreasController::class,'admin']);
     Route::post('student-email', [ApplicationsController::class ,'studentApplications']);
     Route::post('lecturer-email', [ApplicationsController::class ,'lecturerApplications']);
+    Route::post('staff-email', [ApplicationsController::class ,'staffApplications']);
 });
 // -- Admin end ----

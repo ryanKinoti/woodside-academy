@@ -17,6 +17,7 @@ class LecturerMail extends Mailable
     public $lastname;
     public $course;
     public $faculty;
+
     /**
      * Create a new message instance.
      *

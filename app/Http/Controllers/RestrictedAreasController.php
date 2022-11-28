@@ -20,7 +20,7 @@ class RestrictedAreasController extends Controller
             [
                 "students"=>$students,
                 "lecturers"=>$lecturers,
-                "staff"=>$staff,
+                "staffs"=>$staff,
             ]);
         }
     }
