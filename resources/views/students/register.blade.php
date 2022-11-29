@@ -6,8 +6,9 @@
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-register-header></x-register-header>
 <section>
-    <div>
-        <form action="students" method="POST" class="grid items-center">
+    <div class="m-auto p-space-0.5 text-center">
+        <form action="/student/register" method="POST" class="grid items-center">
+            @csrf
             <span class="my-space-0.2">
                 <label for="firstName">First Name :</label>
                 <input type="text" name="firstName" id="firstName" required>
@@ -24,8 +25,13 @@
             </span>
 
             <span class="my-space-0.2">
-                <label for="phoneNo">Phone Number :</label>
-                <input type="text" name="phoneNo" id="phoneNo" required>
+                <label for="id_number">ID Number :</label>
+                <input type="text" name="id_number" id="id_number" required>
+            </span>
+
+            <span class="my-space-0.2">
+                <label for="phoneNumber">Phone Number :</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" required>
             </span>
 
             <span class="my-space-0.2">
@@ -35,7 +41,7 @@
 
             <span class="my-space-0.2">
                 <label for="password">Password :</label>
-                <input type="text" name="password" id="password" required>
+                <input type="password" name="password" id="password" required>
             </span>
 
             <span class="my-space-0.2">
@@ -44,11 +50,17 @@
             </span>
 
             <span class="my-space-0.2">
-                <label for="location">Physical Location :</label>
-                <input type="text" name="location" id="location" required>
+                <label for="country">Country :</label>
+                <input type="text" name="country" id="country" required>
+            </span>
+
+            <span class="my-space-0.2">
+                <label for="city">City :</label>
+                <input type="text" name="city" id="city" required>
             </span>
 
             <div class="my-space-0.2">
+                <input type="hidden" name="user_role" value="student">
                 <button type="submit">Complete Registration</button>
             </div>
         </form>

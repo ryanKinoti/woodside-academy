@@ -80,22 +80,6 @@ class AuthController extends Controller
         return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
     }
 
-    //completing application, methods are called after email has been sent
-    public function studentApplication(Request $request)
-    {
-        $data = $request->all();
-    }
-
-    public function lecturerApplication(Request $request)
-    {
-        $data = $request->all();
-    }
-
-    public function staffApplication(Request $request)
-    {
-        $data = $request->all();
-    }
-
     //login method after account creation
     public function login(Request $request)
     {
