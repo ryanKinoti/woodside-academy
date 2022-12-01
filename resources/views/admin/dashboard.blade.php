@@ -1,4 +1,8 @@
-<!doctype html>
+@php
+    use Illuminate\Support\Facades\Storage
+@endphp
+
+    <!doctype html>
 <html lang="en">
 <head>
     <title>Woodside Academy Administrator</title>
@@ -26,6 +30,14 @@
 
 <div class="flex h-full">
     <x-panel></x-panel>
+    <section class="tabcontent ml-[17%]" id="main-1">
+        {{$userInfo->id}}
+        {{$userInfo->firstName}}
+        {{$userInfo->lastName}}
+        {{$userInfo->email}}
+        {{$userInfo->phoneNumber}}
+        {{--        <img src="{{Storage::url($userInfo->profile_photo)}}" alt="">--}}
+    </section>
     @include('admin.tasks.applications')
 </div>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Routing extends Controller
@@ -17,11 +18,14 @@ class Routing extends Controller
             $students = Application::all()->where('roles', '=', 'student');
             $lecturers = Application::all()->where('roles', '=', 'lecturer');
             $staff = Application::all()->where('roles', '=', 'staff');
+            $userInfo = User::all()
+                ->where('id', '=', session('userID'))->first();
             return view('admin.dashboard',
                 [
                     "students" => $students,
                     "lecturers" => $lecturers,
                     "staffs" => $staff,
+                    "userInfo" => $userInfo,
                 ]);
         }
     }

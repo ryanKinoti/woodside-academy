@@ -36,7 +36,7 @@
                     <td>{{$student->gender}}</td>
                     <td>{{$coursename}}</td>
                     <td>
-                        <form action="/admin/student-email" method="post">
+                        <form action="/admin/emailing/student-email" method="post">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$student->id}}">
                             <input type="hidden" name="coursename" value="{{$coursename}}">
@@ -87,7 +87,7 @@
                     <td>{{$lecturer->gender}}</td>
                     <td>{{$coursename}}</td>
                     <td>
-                        <form action="/admin/lecturer-email" method="post">
+                        <form action="/admin/emailing/lecturer-email" method="post">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$lecturer->id}}">
                             <input type="hidden" name="coursename" value="{{$coursename}}">
@@ -137,7 +137,7 @@
                     <td>{{$staff->gender}}</td>
                     <td>{{$facultyname}}</td>
                     <td>
-                        <form action="/admin/staff-email" method="post">
+                        <form action="/admin/emailing/staff-email" method="post">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$staff->id}}">
                             <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">

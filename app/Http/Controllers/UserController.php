@@ -2,46 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Routing\Redirector;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
     //
-    public function addImage(Request $request){
+    public function imageSettings()
+    {
+        return view('image-settings');
+    }
 
-        $data = new User();
-        if($request->file('image')){
-            $file= $request->file('image');
-            $filename= date('YmdHi').$file->getClientOriginalName();
-            $file-> move(public_path('public/Image'), $filename);
-            $data['image']= $filename;
+    public function addImage(Request $request)
+    {
+        $userID = $request->input('userID');
+
+        if ($request->file('image')) {
+            //extract the file from the form
+            $file = $request->file('image')->store('public/images/profile_photos');
+
+            //pass the file data to method that uploads and saves the file
+            $this->updateImageDB($file, $userID);
+            return redirect("/")->withErrors(['msg' => "profile added successfully"]);
+
+        } else {
+            return redirect("/")->withErrors(['msg' => "kindly select a file"]);
         }
-        $data->save();
     }
 
-    public function userRegistration(Request $request): Redirector|Application|RedirectResponse
+    public function updateImageDB($image, $id)
     {
-        $data = $request->all();
-        $this->create($data);
-        return redirect("/")->withErrors(['msg' => "Application Made Successfully"]);
-    }
-
-    public function create(array $data)
-    {
-        return User::create([
-            'first_name' => $data["firstname"],
-            'last_name' => $data["lastname"],
-            'username' => $data['username'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'gender' => $data['gender'],
-            'phone_number' => $data['phonenumber'],
-            'course_applied' => $data['courseapplied'],
-        ]);
+        return DB::table('users')->where('id', $id)->update(['profile_photo' => $image]);
     }
 }

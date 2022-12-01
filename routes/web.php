@@ -4,6 +4,7 @@ use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Routing;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,7 +59,12 @@ Route::prefix("student")->group(function () {
     Route::get('register', function () {
         return view('students.register');
     });
-    Route::post('register',[RegistrationController::class,'extractData']);
+    Route::post('register', [RegistrationController::class, 'extractData']);
+
+    Route::prefix('profile')->group(function () {
+        Route::get('set-image', [UserController::class, 'imageSettings']);
+        Route::post('set-image', [UserController::class, 'addImage']);
+    });
 });
 // -- Student end ----
 
@@ -68,7 +74,7 @@ Route::prefix("lecturer")->group(function () {
     Route::get('register', function () {
         return view('lecturers.register');
     });
-    Route::post('register',[RegistrationController::class,'extractData']);
+    Route::post('register', [RegistrationController::class, 'extractData']);
 });
 // -- Lecturer end ----
 
@@ -78,15 +84,17 @@ Route::prefix("staff")->group(function () {
     Route::get('register', function () {
         return view('staff.register');
     });
-    Route::post('register',[RegistrationController::class,'extractData']);
+    Route::post('register', [RegistrationController::class, 'extractData']);
 });
 // -- Staff end ----
 
 // -- Admin start ----
 Route::prefix("admin")->group(function () {
     Route::get('/', [Routing::class, 'admin']);
-    Route::post('student-email', [ApplicationsController::class, 'studentApplications']);
-    Route::post('lecturer-email', [ApplicationsController::class, 'lecturerApplications']);
-    Route::post('staff-email', [ApplicationsController::class, 'staffApplications']);
+    Route::prefix('emailing')->group(function () {
+        Route::post('student-email', [ApplicationsController::class, 'studentApplications']);
+        Route::post('lecturer-email', [ApplicationsController::class, 'lecturerApplications']);
+        Route::post('staff-email', [ApplicationsController::class, 'staffApplications']);
+    });
 });
 // -- Admin end ----
