@@ -7,7 +7,7 @@
 <x-register-header></x-register-header>
 <section>
     <div class="m-auto p-space-0.5 text-center">
-        <form action="/student/register" method="POST" class="grid items-center">
+        <form action="/student/register" method="POST" class="grid items-center grid-rows-3 grid-flow-col gap-[3rem]">
             @csrf
             <span class="my-space-0.2">
                 <label for="firstName">First Name :</label>

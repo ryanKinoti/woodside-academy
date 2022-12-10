@@ -93,7 +93,7 @@ class AuthController extends Controller
             $selectfirstName = DB::table('users')->where('email', $request->input('email'))->get('firstName')->first()->firstName;
             $selectlastName = DB::table('users')->where('email', $request->input('email'))->get('lastName')->first()->lastName;
 
-            //creating and storing session variables
+            //creating and storing into session variables
             $request->session()->regenerate();
             $request->session()->put('email', $request->input('email'));
             $request->session()->put('userRole', $selectRole,);

@@ -26,6 +26,7 @@
                 'green': '#084C61',
                 'green-op': 'rgba(8,76,97,0.9)',
                 'green-op-1': 'rgba(8,76,97,2)',
+                'green-op-2': 'rgba(8,76,97,0.3)',
                 'red': '#EC0B43',
                 'white': '#fff',
             },

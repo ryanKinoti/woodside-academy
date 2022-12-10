@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Hash;
 
 class RegistrationController extends Controller
 {
-    //
     //completing application, methods are called after email has been sent
     public function extractData(Request $request)
     {

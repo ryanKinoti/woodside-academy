@@ -44,11 +44,6 @@ Route::prefix("applications")->group(function () {
         //form data from user application; dependent on user choice
         Route::post('submission', [AuthController::class, 'choiceApplication']);
         Route::post('staff-submission', [AuthController::class, 'staff_choiceApplication']);
-
-        //form data from application approved process
-        Route::post('students', [AuthController::class, 'studentApplication']);
-        Route::post('lecturers', [AuthController::class, 'lecturerApplication']);
-        Route::post('staff', [AuthController::class, 'staffApplication']);
     });
 });
 // -- Applications and Registration end ----

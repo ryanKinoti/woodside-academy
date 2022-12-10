@@ -1,7 +1,7 @@
 @php
     use Illuminate\Support\Facades\DB;
 @endphp
-<section class="tabcontent ml-[17%]" id="main-2">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-2">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -52,7 +52,7 @@
 
 </section>
 
-<section class="tabcontent ml-[17%]" id="main-3">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-3">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -103,7 +103,7 @@
 
 </section>
 
-<section class="tabcontent ml-[17%]" id="main-4">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-4">
 
     <div class="title_card">
         <div style="width: fit-content">

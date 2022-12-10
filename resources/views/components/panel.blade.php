@@ -1,4 +1,4 @@
-<div class="w-[16%] h-full bg-green-op fixed overflow-x-hidden">
+<div class="w-[16%] h-v-h bg-green-op fixed overflow-x-hidden rounded-r-lg">
 
     <div class="flex flex-col justify-between h-[90%] overflow-auto">
 

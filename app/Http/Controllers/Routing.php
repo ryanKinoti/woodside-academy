@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class Routing extends Controller
 {
-    //this class is mainly for accessing user's respective dashboards
+    //this method is mainly for accessing user's respective dashboards
     public function admin()
     {
         $user = auth()->user();
