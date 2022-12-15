@@ -1,7 +1,7 @@
 @php
     use Illuminate\Support\Facades\DB;
 @endphp
-<section class="tabcontent ml-[17%]" id="main-2">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-2">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -36,7 +36,7 @@
                     <td>{{$student->gender}}</td>
                     <td>{{$coursename}}</td>
                     <td>
-                        <form action="/admin/student-email" method="post">
+                        <form action="/admin/emailing/student-email" method="post">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$student->id}}">
                             <input type="hidden" name="coursename" value="{{$coursename}}">
@@ -52,7 +52,7 @@
 
 </section>
 
-<section class="tabcontent ml-[17%]" id="main-3">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-3">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -87,7 +87,7 @@
                     <td>{{$lecturer->gender}}</td>
                     <td>{{$coursename}}</td>
                     <td>
-                        <form action="/admin/lecturer-email" method="post">
+                        <form action="/admin/emailing/lecturer-email" method="post">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$lecturer->id}}">
                             <input type="hidden" name="coursename" value="{{$coursename}}">
@@ -103,7 +103,7 @@
 
 </section>
 
-<section class="tabcontent ml-[17%]" id="main-4">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-4">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -137,7 +137,7 @@
                     <td>{{$staff->gender}}</td>
                     <td>{{$facultyname}}</td>
                     <td>
-                        <form action="/admin/staff-email" method="post">
+                        <form action="/admin/emailing/staff-email" method="post">
                             @csrf
                             <input type="hidden" name="user_id" value="{{$staff->id}}">
                             <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">

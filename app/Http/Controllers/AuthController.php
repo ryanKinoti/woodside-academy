@@ -80,22 +80,6 @@ class AuthController extends Controller
         return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
     }
 
-    //completing application, methods are called after email has been sent
-    public function studentApplication(Request $request)
-    {
-        $data = $request->all();
-    }
-
-    public function lecturerApplication(Request $request)
-    {
-        $data = $request->all();
-    }
-
-    public function staffApplication(Request $request)
-    {
-        $data = $request->all();
-    }
-
     //login method after account creation
     public function login(Request $request)
     {
@@ -106,14 +90,16 @@ class AuthController extends Controller
             //selecting roles, user id and user's name
             $selectRole = DB::table('users')->where('email', $request->input('email'))->get('user_role')->first()->user_role;
             $selectID = DB::table('users')->where('email', $request->input('email'))->get('id')->first()->id;
-            $selectName = DB::table('users')->where('email', $request->input('email'))->get('firstName')->first()->firstName;
+            $selectfirstName = DB::table('users')->where('email', $request->input('email'))->get('firstName')->first()->firstName;
+            $selectlastName = DB::table('users')->where('email', $request->input('email'))->get('lastName')->first()->lastName;
 
-            //creating and storing session variables
+            //creating and storing into session variables
             $request->session()->regenerate();
             $request->session()->put('email', $request->input('email'));
             $request->session()->put('userRole', $selectRole,);
             $request->session()->put('userID', $selectID,);
-            $request->session()->put('userName',$selectName);
+            $request->session()->put('firstName', $selectfirstName);
+            $request->session()->put('lastName', $selectlastName);
 
             if ($selectRole == 'admin') {
                 return redirect()->intended('/admin');
@@ -121,7 +107,7 @@ class AuthController extends Controller
                 return redirect()->intended('/');
             }
         } else {
-            return redirect("/login?window=login")->withErrors(['msg' => "Invalid Login Credentials"]);
+            return redirect()->intended('login')->withErrors(['msg' => "invalid login credentials"]);
         }
     }
 

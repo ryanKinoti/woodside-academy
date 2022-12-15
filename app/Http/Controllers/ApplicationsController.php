@@ -24,7 +24,7 @@ class ApplicationsController extends Controller
 
         //passing the mailing information to the boiler templete for mailable
         Mail::to($selectEmail)->send(new StudentMail($firstName, $lastName, $coursename, $selectFacultyName));
-        return redirect("/admin")->withErrors(['msg' => "Email Successfully Sent"]);
+        return redirect("/admin")->withErrors(['msg' => "email successfully sent"]);
     }
 
     public function lecturerApplications(Request $request)
@@ -39,7 +39,7 @@ class ApplicationsController extends Controller
 
         //passing the mailing information to the boiler templete for mailable
         Mail::to($selectEmail)->send(new LecturerMail($firstName, $lastName, $coursename, $selectFacultyName));
-        return redirect("/admin")->withErrors(['msg' => "Email Successfully Sent"]);
+        return redirect("/admin")->withErrors(['msg' => "email successfully sent"]);
     }
 
     public function staffApplications(Request $request)
@@ -53,6 +53,6 @@ class ApplicationsController extends Controller
 
         //passing the mailing information to the boiler templete for mailable
         Mail::to($selectEmail)->send(new StaffMail($firstName, $lastName, $selectFacultyName));
-        return redirect("/admin")->withErrors(['msg' => "Email Successfully Sent"]);
+        return redirect("/admin")->withErrors(['msg' => "email successfully sent"]);
     }
 }

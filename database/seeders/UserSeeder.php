@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                     'city' => 'London',
                 ],
                 [
-                    'user_role' => 'student',
+                    'user_role' => 'admin',
                     'firstName' => 'Alaya',
                     'secondName' => 'Marcus',
                     'lastName' => 'Elroy',

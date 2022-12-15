@@ -5,7 +5,7 @@
 <title>Woodside Academy</title>
 
 {{--css--}}
-<link rel="stylesheet" href="{{asset('css/styles.css')}}">
+<link rel="stylesheet" href="{{asset('css/index.css')}}">
 <link rel="icon" href="favicon.png" type="image/x-icon">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +26,7 @@
                 'green': '#084C61',
                 'green-op': 'rgba(8,76,97,0.9)',
                 'green-op-1': 'rgba(8,76,97,2)',
+                'green-op-2': 'rgba(8,76,97,0.3)',
                 'red': '#EC0B43',
                 'white': '#fff',
             },
