@@ -55,11 +55,6 @@ Route::prefix("student")->group(function () {
         return view('students.register');
     });
     Route::post('register', [RegistrationController::class, 'extractData']);
-
-    Route::prefix('profile')->group(function () {
-        Route::get('set-image', [UserController::class, 'imageSettings']);
-        Route::post('set-image', [UserController::class, 'addImage']);
-    });
 });
 // -- Student end ----
 
@@ -93,3 +88,9 @@ Route::prefix("admin")->group(function () {
     });
 });
 // -- Admin end ----
+Route::prefix('images')->group(function (){
+    Route::prefix('profile')->group(function () {
+//        Route::get('set-image', [UserController::class, 'imageSettings']);
+        Route::post('set-image', [UserController::class, 'addImage']);
+    });
+});

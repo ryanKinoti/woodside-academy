@@ -30,7 +30,8 @@
 
 <div class="flex h-full">
     <x-panel></x-panel>
-    <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-1">
+    <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
+             id="main-1">
         <article id="user-information">
 
             <span class="flex w-fit">
@@ -39,7 +40,7 @@
                         <i class="uil uil-image-question text-[115px] border-4 border-brown rounded-full"></i>
                     @else
                         <img src="{{Storage::url($userInfo->profile_photo)}}"
-                             class="rounded-full border-4 border-brown w-[200px] h-[200px]"
+                             class="rounded-full border-4 border-brown w-[100px] h-[100px]"
                         >
                     @endif
                 </div>
@@ -75,6 +76,24 @@
         </article>
     </section>
     @include('admin.tasks.applications')
+    <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
+             id="main-5">
+        <div class="container">
+            <form method="post" action="/images/profile/set-image" enctype="multipart/form-data">
+                @csrf
+                <div class="image">
+                    <label><h4>Add image</h4></label>
+                    <input type="file" required name="image">
+                    <input type="hidden" name="userID" value="{{session('userID')}}">
+                </div>
+
+                <div class="post_button">
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
 </div>
 
 

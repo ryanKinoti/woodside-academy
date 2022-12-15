@@ -33,7 +33,7 @@ class Routing extends Controller
     public function staff()
     {
         $user = auth()->user();
-        if ($user == null || $user->user_roler != "staff") {
+        if ($user == null || $user->user_role != "staff") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         }
     }
@@ -41,7 +41,7 @@ class Routing extends Controller
     public function lecturers()
     {
         $user = auth()->user();
-        if ($user == null || $user->user_roler != "lecturer") {
+        if ($user == null || $user->user_role != "lecturer") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         }
     }
@@ -49,7 +49,7 @@ class Routing extends Controller
     public function students()
     {
         $user = auth()->user();
-        if ($user == null || $user->user_roler != "staff") {
+        if ($user == null || $user->user_role != "staff") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         }
     }
