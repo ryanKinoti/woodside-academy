@@ -16,20 +16,25 @@
             <span class="text-brown rounded-xl text-xl bg-green-op-1 p-space-0.1">My Dashboard</span>
         </a>
 
-        <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-2')" style="cursor: pointer">
-            <i class="uil uil-book text-[30px]"></i>
-            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Student Applications</span>
-        </a>
+        <div class="dropdown p-space-0.1 cursor-pointer w-fit">
 
-        <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3')" style="cursor: pointer">
             <i class="uil uil-book text-[30px]"></i>
-            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Lecturer Applications</span>
-        </a>
+            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Applications</span>
 
-        <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4')" style="cursor: pointer">
-            <i class="uil uil-book text-[30px]"></i>
-            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Staff Applications</span>
-        </a>
+            <div class="dropdown-content">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-2')" style="cursor: pointer">
+                    <span class="text-brown hover:text-white rounded-xl text-x p-space-0.1 w-[160px]">Student Applications</span>
+                </a>
+
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3')" style="cursor: pointer">
+                    <span class="text-brown hover:text-white rounded-xl text-x p-space-0.1">Lecturer Applications</span>
+                </a>
+
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4')" style="cursor: pointer">
+                    <span class="text-brown hover:text-white rounded-xl text-x p-space-0.1">Staff Applications</span>
+                </a>
+            </div>
+        </div>
 
         <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-5')" style="cursor: pointer">
             <i class="uil uil-setting text-[30px]"></i>

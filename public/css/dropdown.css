@@ -1,3 +1,4 @@
+/*registration dropdown css*/
 .dropdown {
     display: inline-block;
     position: relative;
@@ -29,3 +30,6 @@
     color: #FFFFFF;
     background-color: #E7A164;
 }
+
+/*administrator dashboard side-dropdown*/
+

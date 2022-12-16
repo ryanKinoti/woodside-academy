@@ -42,8 +42,7 @@
                 </li>
                 <li class="w-fit h-fit">
                     <div class="dropdown mt-[-10px]">
-                        <button class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Register With Us
-                        </button>
+                        <button class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Register With Us</button>
                         <div class="dropdown-content">
                             <a href="/applications/choice/students">Apply as a Student</a>
                             <a href="/applications/choice/lecturers">Apply as a Lecturer</a>
