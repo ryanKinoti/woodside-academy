@@ -6,6 +6,7 @@ use App\Models\Application;
 use App\Models\Course;
 use App\Models\Faculty;
 use App\Models\User;
+use App\Models\UserLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -89,6 +90,14 @@ class AuthController extends Controller
 
             //selecting roles, user id and user's name
             $selectRole = DB::table('users')->where('email', $request->input('email'))->get('user_role')->first()->user_role;
+
+            //sidetrack to update user_login table with selected role
+            $insert = new UserLogins();
+            $insert->user = \auth()->user()->id;
+            $insert->role = $selectRole;
+            $insert->save();
+
+            //continuation of selecting roles, user id and user's name
             $selectID = DB::table('users')->where('email', $request->input('email'))->get('id')->first()->id;
             $selectfirstName = DB::table('users')->where('email', $request->input('email'))->get('firstName')->first()->firstName;
             $selectlastName = DB::table('users')->where('email', $request->input('email'))->get('lastName')->first()->lastName;
