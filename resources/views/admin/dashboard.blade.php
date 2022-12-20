@@ -29,7 +29,9 @@
 </div>
 
 <div class="flex h-full">
+
     <x-panel></x-panel>
+
     <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
              id="main-1">
         <article id="user-information">
@@ -37,7 +39,7 @@
             <span class="flex w-fit">
                 <div class="w-fit">
                     @if(empty($userInfo->profile_photo))
-                        <i class="uil uil-image-question text-[115px] border-4 border-brown rounded-full"></i>
+                        <i class="uil uil-image-question text-[115px]"></i>
                     @else
                         <img src="{{Storage::url($userInfo->profile_photo)}}"
                              class="rounded-full border-4 border-brown w-[100px] h-[100px]"
@@ -75,9 +77,11 @@
 
         </article>
     </section>
+
     @include('admin.tasks.applications')
+
     <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-             id="main-5">
+             id="main-last">
         <div class="container">
             <form method="post" action="/images/profile/set-image" enctype="multipart/form-data">
                 @csrf

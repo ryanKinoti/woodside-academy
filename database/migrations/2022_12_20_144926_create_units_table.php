@@ -5,8 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -18,14 +17,15 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('course_id')->unsigned();
             $table->string('unit_name');
-            $table->enum('unit_status', ['closed', 'available'])->default('available');
+            $table->enum('unit_status', ['closed', 'available'])->default('closed');
             $table->bigInteger('lecturer_id')->unsigned()->nullable();
             $table->timestamps();
 
+            //relationships
             $table->foreign("course_id")->references("id")->on("courses");
         });
 
-        DB::update("ALTER TABLE units AUTO_INCREMENT=40001; ");
+        DB::update("ALTER TABLE units AUTO_INCREMENT=70001; ");
     }
 
     /**

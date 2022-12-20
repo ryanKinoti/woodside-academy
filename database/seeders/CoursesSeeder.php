@@ -19,31 +19,31 @@ class CoursesSeeder extends Seeder
         DB::table('courses')
             ->insert([
                 [
-                    'faculty_id' => '20001',
+                    'faculty_id' => '10001',
                     'course_name' => 'Bachelor of Informatics and Computer Science',
                 ],
                 [
-                    'faculty_id' => '20001',
+                    'faculty_id' => '10001',
                     'course_name' => 'Bachelor of Business and Information Technology',
                 ],
                 [
-                    'faculty_id' => '20001',
+                    'faculty_id' => '10001',
                     'course_name' => 'Bachelor of Electrical and Engineering Science',
                 ],
                 [
-                    'faculty_id' => '20002',
+                    'faculty_id' => '10002',
                     'course_name' => 'Bachelor of Laws',
                 ],
                 [
-                    'faculty_id' => '20003',
+                    'faculty_id' => '10003',
                     'course_name' => 'Bachelor of Business Science: Financial Engineering',
                 ],
                 [
-                    'faculty_id' => '20003',
+                    'faculty_id' => '10003',
                     'course_name' => 'Bachelor of Business Science: Acturial Science',
                 ],
                 [
-                    'faculty_id' => '20004',
+                    'faculty_id' => '10004',
                     'course_name' => 'Bachelor of Pure Mathematics'
                 ],
             ]);

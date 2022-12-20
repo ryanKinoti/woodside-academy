@@ -23,6 +23,7 @@
                 'gray': '#BABDB2',
                 'gray-op': 'rgba(186,189,178,2)',
                 'brown': '#E7A164',
+                'brown-light-1': 'rgba(231,161,100,0.7)',
                 'green': '#084C61',
                 'green-op': 'rgba(8,76,97,0.9)',
                 'green-op-1': 'rgba(8,76,97,2)',
@@ -36,6 +37,7 @@
                     'space-0.2': '20px',
                     'space-0.3': '30px',
                     'space-0.5': '50px',
+                    'space-0.7': '70px',
                     'space-0.9': '90px',
 
                     'space-1.0': '100px',

@@ -81,6 +81,8 @@ Route::prefix("staff")->group(function () {
 // -- Admin start ----
 Route::prefix("admin")->group(function () {
     Route::get('/', [Routing::class, 'admin']);
+
+    //sending approval and e-letters of acceptance
     Route::prefix('emailing')->group(function () {
         Route::post('student-email', [ApplicationsController::class, 'studentApplications']);
         Route::post('lecturer-email', [ApplicationsController::class, 'lecturerApplications']);
@@ -88,6 +90,8 @@ Route::prefix("admin")->group(function () {
     });
 });
 // -- Admin end ----
+
+// -- Settings start ----
 Route::prefix('images')->group(function (){
     Route::prefix('profile')->group(function () {
 //        Route::get('set-image', [UserController::class, 'imageSettings']);
