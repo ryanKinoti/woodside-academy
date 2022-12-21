@@ -36,5 +36,14 @@ class ApplicationSeeder extends Seeder
                 'course_id' => '60002',
             ],
         ]);
+        
+        DB::table('application_states')->insert([
+            [
+                'application_id' => '80001',
+            ],
+            [
+                'application_id' => '80002',
+            ]
+        ]);
     }
 }
