@@ -5,8 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -14,12 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faculties', function (Blueprint $table) {
+        Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('faculty_name');
+            $table->bigInteger('faculty_id')->unsigned()->nullable();
+            $table->string('course_name');
             $table->timestamps();
+
+            //relationships
+            $table->foreign("faculty_id")->references("id")->on("faculties");
         });
-        DB::update("ALTER TABLE faculties AUTO_INCREMENT=20001; ");
+
+        DB::update("ALTER TABLE courses AUTO_INCREMENT=60001; ");
     }
 
     /**
@@ -29,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faculties');
+        Schema::dropIfExists('courses');
     }
 };

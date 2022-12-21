@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -12,14 +13,15 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('pending_registrations', function (Blueprint $table) {
+        Schema::create('examinations', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('application_id')->unsigned();
-            $table->enum('status', ['pending', 'accepted', 'registered', 'anulled']);
+            $table->enum('exam_semester', ['sem_1', 'sem_2', 'sem_3']);
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
-
-            $table->foreign("application_id")->references("id")->on("applications");
         });
+
+        DB::update("ALTER TABLE examinations AUTO_INCREMENT=30001; ");
     }
 
     /**
@@ -29,6 +31,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('pending_registrations');
+        Schema::dropIfExists('examinations');
     }
 };

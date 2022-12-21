@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Application;
+use App\Models\ApplicationState;
 use App\Models\Course;
 use App\Models\Faculty;
 use App\Models\User;
@@ -60,8 +61,18 @@ class AuthController extends Controller
         $newUser->roles = $data['role'];
         $newUser->course_id = $data['course'];
 
-        $newUser->save();
-        return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
+
+        //simultaneously updating the state of the application
+        if ($newUser->save()) {
+            $state = new ApplicationState();
+            $lastID = DB::getPdo()->lastInsertId();
+            $application = DB::table('applications')->find($lastID);
+
+            $state->application_id = $application->id;
+
+            $state->save();
+            return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
+        }
     }
 
     public function staff_choiceApplication(Request $request)

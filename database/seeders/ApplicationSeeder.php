@@ -23,8 +23,8 @@ class ApplicationSeeder extends Seeder
                 'phone_number' => '0799887766',
                 'email' => 'reece@gmail.com',
                 'gender' => 'Male',
-                'faculty_id' => '20001',
-                'course_id' => '30001',
+                'faculty_id' => '10001',
+                'course_id' => '60001',
             ],
             [
                 'first_name' => 'Alaya',
@@ -32,8 +32,8 @@ class ApplicationSeeder extends Seeder
                 'phone_number' => '0799887766',
                 'email' => 'alaya@gmail.com',
                 'gender' => 'Female',
-                'faculty_id' => '20001',
-                'course_id' => '30002',
+                'faculty_id' => '10001',
+                'course_id' => '60002',
             ],
         ]);
     }

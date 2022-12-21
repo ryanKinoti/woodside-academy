@@ -35,7 +35,7 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        DB::update("ALTER TABLE users AUTO_INCREMENT=10001; ");
+        DB::update("ALTER TABLE users AUTO_INCREMENT=1001; ");
 
     }
 

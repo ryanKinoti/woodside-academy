@@ -1,10 +1,10 @@
 <x-mail::message>
 # Dear {{$firstname}} {{$lastname}},
-<br><br>
+<br>
 It is with utmost pleasure that I write to you on behalf of Woodside Academy to inform you of your acceptance and
 hiring into the {{$course}} course at the {{$faculty}} faculty.
 <br><br>
-The course is scheduled to start on 1st January 2023.
+The course is scheduled to start on 1st February 2023.
 <br><br>
 Details on the modalities of workload assignment and supervision including the resumption of on-campus activities will be
 communicated in due course by the Academy. This is fully dependent on the Government of Kenya’s directives
