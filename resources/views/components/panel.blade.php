@@ -17,9 +17,8 @@
         </a>
 
         <div class="dropdown p-space-0.1 cursor-pointer w-fit">
-
             <i class="uil uil-book text-[30px] text-brown-light-1"></i>
-            <span class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">Applications</span>
+            <span class="text-brown rounded-xl text-xl bg-green-op-1 p-space-0.1">Applications</span>
 
             <div class="dropdown-content w-[89px] ml-36 top-0">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-2')" style="cursor: pointer">
@@ -47,6 +46,13 @@
             <i class="uil uil-microphone text-[30px] text-brown-light-1"></i>
             <span class="text-brown rounded-xl text-xl bg-green-op-1 p-space-0.1">Communications</span>
         </a>
+
+        <div class="dropdown p-space-0.1 cursor-pointer w-fit">
+            <i class="uil uil-book text-[30px] text-brown-light-1"></i>
+            <span class="text-brown rounded-xl text-xl bg-green-op-1 p-space-0.1">Course Actions</span>
+
+            <div class="dropdown-content w-[89px] ml-36 top-0"></div>
+        </div>
 
         <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-last')" style="cursor: pointer">
             <i class="uil uil-setting text-[30px] text-brown-light-1"></i>

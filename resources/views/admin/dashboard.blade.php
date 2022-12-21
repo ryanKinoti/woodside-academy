@@ -80,6 +80,10 @@
 
     @include('admin.tasks.applications')
 
+    {{--
+    settings tab:
+    1. add/change profile picture
+    --}}
     <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
              id="main-last">
         <div class="container">
@@ -100,7 +104,7 @@
     </section>
 </div>
 
-
+{{--script to switch between tabs--}}
 <script>
     function switchcommon(evt, mainName) {
         var i, tabcontent, tablinks;

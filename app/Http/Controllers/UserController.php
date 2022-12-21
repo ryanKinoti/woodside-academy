@@ -23,10 +23,10 @@ class UserController extends Controller
 
             //pass the file data to method that uploads and saves the file
             $this->updateImageDB($file, $userID);
-            return redirect("/")->withErrors(['msg' => "profile added successfully"]);
+            return redirect("/admin")->withErrors(['msg' => "profile added successfully"]);
 
         } else {
-            return redirect("/")->withErrors(['msg' => "kindly select a file"]);
+            return redirect("/admin")->withErrors(['msg' => "kindly select a file"]);
         }
     }
 
