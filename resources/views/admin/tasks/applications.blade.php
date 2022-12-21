@@ -1,7 +1,8 @@
 @php
     use Illuminate\Support\Facades\DB;
 @endphp
-<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-2">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
+         id="main-2">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -20,6 +21,7 @@
                 <td><u>Email</u></td>
                 <td><u>Gender</u></td>
                 <td><u>Course Applied</u></td>
+                <td><u>Status</u></td>
                 <td><u>Action</u></td>
             </tr>
 
@@ -28,6 +30,13 @@
                     @php
                         $coursename = DB::table('courses')
                         ->where('id',$student->course_id)->get('course_name')->first()->course_name;
+
+                        $status = DB::table('application_states')
+                            ->selectRaw('application_states.status as status')
+                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
+                            ->where('applications.id',$student->id)
+                            ->get()
+                            ->first();
                     @endphp
                     <td>{{$student->first_name}}</td>
                     <td>{{$student->last_name}}</td>
@@ -44,6 +53,7 @@
                         </form>
 
                     </td>
+                    <td>{{$status->status}}</td>
                 </tr>
             @endforeach
 
@@ -52,7 +62,8 @@
 
 </section>
 
-<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-3">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
+         id="main-3">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -79,6 +90,12 @@
                     @php
                         $coursename = DB::table('courses')
                         ->where('id',$lecturer->course_id)->get('course_name')->first()->course_name;
+                        $status = DB::table('application_states')
+                            ->selectRaw('application_states.status as status')
+                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
+                            ->where('applications.id',$lecturer->id)
+                            ->get()
+                            ->first();
                     @endphp
                     <td>{{$lecturer->first_name}}</td>
                     <td>{{$lecturer->last_name}}</td>
@@ -103,7 +120,8 @@
 
 </section>
 
-<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-4">
+<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
+         id="main-4">
 
     <div class="title_card">
         <div style="width: fit-content">
@@ -129,6 +147,12 @@
                 <tr class="tbody">
                     @php
                         $facultyname = DB::table('faculties')->where('id', $staff->faculty_id)->get('faculty_name')->first()->faculty_name;
+                        $status = DB::table('application_states')
+                            ->selectRaw('application_states.status as status')
+                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
+                            ->where('applications.id',$staff->id)
+                            ->get()
+                            ->first();
                     @endphp
                     <td>{{$staff->first_name}}</td>
                     <td>{{$staff->last_name}}</td>
