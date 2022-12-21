@@ -1,0 +1,6 @@
+------------intructions to apply css files----------
+there is a root css file called index.css
+from there whatever other page you are styling should have its own css file
+in the index.css is where we will be calling the other files
+if you look in the header-tag.blade file under views/components is where i am calling the css index.css
+this is to reduce the huge ammounts of code in one line

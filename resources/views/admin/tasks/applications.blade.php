@@ -21,7 +21,7 @@
                 <td><u>Email</u></td>
                 <td><u>Gender</u></td>
                 <td><u>Course Applied</u></td>
-                <td><u>Status</u></td>
+                <td><u>Application Status</u></td>
                 <td><u>Action</u></td>
             </tr>
 
@@ -44,6 +44,7 @@
                     <td>{{$student->email }}</td>
                     <td>{{$student->gender}}</td>
                     <td>{{$coursename}}</td>
+                    <td>{{$status->status}}</td>
                     <td>
                         <form action="/admin/emailing/student-email" method="post">
                             @csrf
@@ -53,7 +54,6 @@
                         </form>
 
                     </td>
-                    <td>{{$status->status}}</td>
                 </tr>
             @endforeach
 
@@ -82,6 +82,7 @@
                 <td><u>Email</u></td>
                 <td><u>Gender</u></td>
                 <td><u>Course Applied</u></td>
+                <td><u>Application Status</u></td>
                 <td><u>Action</u></td>
             </tr>
 
@@ -103,6 +104,7 @@
                     <td>{{$lecturer->email }}</td>
                     <td>{{$lecturer->gender}}</td>
                     <td>{{$coursename}}</td>
+                    <td>{{$status->status}}</td>
                     <td>
                         <form action="/admin/emailing/lecturer-email" method="post">
                             @csrf
@@ -140,6 +142,7 @@
                 <td><u>Email</u></td>
                 <td><u>Gender</u></td>
                 <td><u>Course Applied</u></td>
+                <td><u>Application Status</u></td>
                 <td><u>Action</u></td>
             </tr>
 
@@ -160,6 +163,7 @@
                     <td>{{$staff->email }}</td>
                     <td>{{$staff->gender}}</td>
                     <td>{{$facultyname}}</td>
+                    <td>{{$status->status}}</td>
                     <td>
                         <form action="/admin/emailing/staff-email" method="post">
                             @csrf

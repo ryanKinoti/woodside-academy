@@ -1,0 +1,12 @@
+whenever you are creating a file and start of with the html....
+
+1. make sure you empty the head tag <head> </head> and only leave the title which will be the title of the page
+you are working on
+2. once you do that go to views/components and open the header-tag.blade file
+3. whatever you were to put inside the head tag you just deleted goes here
+4. in the file containing the html... inside the head tag type in the following:
+    <x-header-tag></x-header-tag>
+    this will call the header-tag file which is a component
+
+5. you might find i have done the same in a few more pages that already exist
+6. corresponding tags have their own file hence you can view them in the components folder
