@@ -28,7 +28,7 @@ class ApplicationsController extends Controller
         $data = $request->all();
         $this->updateStatus($data);
 
-        //passing the mailing information to the boiler templete for mailable
+        //passing the mailing information to the boiler template for mailable
         Mail::to($selectEmail)->send(new StudentMail($firstName, $lastName, $coursename, $selectFacultyName));
 
         return redirect("/admin")->withErrors(['msg' => "email successfully sent"]);
@@ -44,7 +44,11 @@ class ApplicationsController extends Controller
         $selectFacultyID = DB::table('courses')->where('course_name', $coursename)->get('faculty_id')->first()->faculty_id;
         $selectFacultyName = DB::table('faculties')->where('id', $selectFacultyID)->get('faculty_name')->first()->faculty_name;
 
-        //passing the mailing information to the boiler templete for mailable
+        //updating the application's state
+        $data = $request->all();
+        $this->updateStatus($data);
+
+        //passing the mailing information to the boiler template for mailable
         Mail::to($selectEmail)->send(new LecturerMail($firstName, $lastName, $coursename, $selectFacultyName));
         return redirect("/admin")->withErrors(['msg' => "email successfully sent"]);
     }
@@ -58,16 +62,17 @@ class ApplicationsController extends Controller
         $facultyID = $request->input('facultyID');
         $selectFacultyName = DB::table('faculties')->where('id', $facultyID)->get('faculty_name')->first()->faculty_name;
 
-        //passing the mailing information to the boiler templete for mailable
+        //updating the application's state
+        $data = $request->all();
+        $this->updateStatus($data);
+
+        //passing the mailing information to the boiler template for mailable
         Mail::to($selectEmail)->send(new StaffMail($firstName, $lastName, $selectFacultyName));
         return redirect("/admin")->withErrors(['msg' => "email successfully sent"]);
     }
 
     public function updateStatus(array $data)
     {
-//        return DB::table('application_states')
-//            ->where('id', $data['user_id'])
-//            ->update(['status' => 'accepted']);
         return ApplicationState::where('id', $data['user_id'])
             ->update(['status' => 'accepted']);
     }
