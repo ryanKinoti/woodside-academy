@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <x-header-tag></x-header-tag>
-    <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="../css/staff-dashboard.css">
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-header></x-header>
