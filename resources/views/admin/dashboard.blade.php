@@ -6,7 +6,7 @@
 <html lang="en">
 <head>
     <title>Woodside Academy Administrator</title>
-    <x-header-tag></x-header-tag>
+    <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 
@@ -42,8 +42,7 @@
                         <i class="uil uil-image-question text-[115px]"></i>
                     @else
                         <img src="{{Storage::url($userInfo->profile_photo)}}"
-                             class="rounded-full border-4 border-brown w-[100px] h-[100px]"
-                        >
+                             class="rounded-full border-4 border-brown w-[100px] h-[100px]">
                     @endif
                 </div>
                 <h2 class="text-2xl text-brown text-center bg-green-op-1 rounded-xl p-space-0.1 w-fit h-fit my-[55px] ml-space-0.2">
@@ -76,9 +75,19 @@
             </div>
 
         </article>
+
+        <article id="chart-container" class="w-50-p">
+            <div>
+                {{--                <canvas id="myChart"></canvas>--}}
+                {!! $chart->container() !!}
+
+            </div>
+            {!! $chart->script() !!}
+        </article>
     </section>
 
     @include('admin.tasks.applications')
+    @include('admin.tasks.communications')
 
     {{--
     settings tab:
@@ -104,24 +113,6 @@
     </section>
 </div>
 
-{{--script to switch between tabs--}}
-<script>
-    function switchcommon(evt, mainName) {
-        var i, tabcontent, tablinks;
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-        document.getElementById(mainName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    // Get the element with id="defaultOpen" and click on it
-    document.getElementById("defaultOpen").click();
-</script>
+<x-footer-tag></x-footer-tag>
 </body>
 </html>

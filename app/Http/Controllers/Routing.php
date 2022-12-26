@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\ApplicationsChart;
 use App\Models\Application;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class Routing extends Controller
@@ -24,12 +24,69 @@ class Routing extends Controller
             //obtaining user data to make it more personalized
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();
+
+
+            // Extract data from the users table based on the roles column
+            $users = Application::select('roles')->get();
+
+            // Count the number of instances or values for each role
+            $roleCount = $users->groupBy('roles')->map(function ($item) {
+                return $item->count();
+            });
+
+            $chart = new ApplicationsChart;
+            $chart->labels($roleCount->keys());
+            $chart->title('Applications', '20');
+            $chart->dataset('Role Count', 'bar', $roleCount->values())
+                ->color('#E7A164')
+                ->backgroundColor('#E7A164');
+            $chart->options([
+                'legend' => [
+                    'position' => 'top',
+                ],
+                'scales' => [
+                    'yAxes' => [
+                        [
+                            'ticks' => [
+                                'beginAtZero' => true,
+                                'fontColor' => 'black',
+                            ],
+                            'gridLines' => [
+                                'color' => '#ccc',
+                            ],
+                            'scaleLabel' => [
+                                'display' => true,
+                                'labelString' => 'Count',
+                                'fontColor' => '#333',
+                            ],
+                        ],
+                    ],
+                    'xAxes' => [
+                        [
+                            'gridLines' => [
+                                'color' => '#ccc',
+                            ],
+                            'scaleLabel' => [
+                                'display' => true,
+                                'labelString' => 'Roles',
+                                'fontColor' => 'black',
+                            ],
+                        ],
+                    ],
+                ],
+                'maintainAspectRatio' => false,
+                'responsive' => true,
+//                'aspectRatio' => 0.5,
+                'width' => 250,
+            ]);
+            //passing the data to the view
             return view('admin.dashboard',
                 [
                     "students" => $students,
                     "lecturers" => $lecturers,
                     "staffs" => $staff,
                     "userInfo" => $userInfo,
+                    'chart' => $chart,
                 ]);
         }
     }

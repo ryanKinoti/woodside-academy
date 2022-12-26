@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->foreign('communications_id')->references('id')->on('communications');
         });
 
-        DB::update("ALTER TABLE departments AUTO_INCREMENT=50001; ");
+        DB::update("ALTER TABLE departments AUTO_INCREMENT=60001; ");
     }
 
     /**
