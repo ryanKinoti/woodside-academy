@@ -43,6 +43,7 @@
    <span>Coursework material</span>
  </a>
 </li>
+
 <li>
  <a href="#"><span class="las la-user-friends"></span>
    <span>Coursework Marks</span>
@@ -50,16 +51,15 @@
 </li>
 
 <li>
-
- <a href="../lecturers/lecturer_details.php"><span class="las la-chalkboard-teacher"></span>
-   <span>Student attendance</span>
+  <a href="../lecturers/lecturer_details.php"><span class="las la-chalkboard-teacher"></span>
+ <span>Student attendance</span>
  </a>
 </li>
 
-           <li>
-         <a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-             <span>Logout</span></a>
-     </li>
+<li>
+ <a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+ <span>Logout</span></a>
+</li>
 
 
 </ul>

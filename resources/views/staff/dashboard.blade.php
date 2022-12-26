@@ -19,7 +19,7 @@
   <div class="sidebar-menu">
     <ul>
               
-   <li>
+     <li>
         <a href="#"><span class="las la-address-book"></span>
           <span>Home</span>
         </a>
@@ -36,31 +36,32 @@
           <span class="las la-archive"></span>
           <span>My Stations</span>
         </a>
-</li>
+    </li>
 
-      <li>
+    <li>
         <a href="#">
           <span class="las la-book"></span>
           <span>Shift hours</span>
         </a>
-</li>
-<li>
+    </li>
+
+    <li>
         <a href="#"><span class="las la-user-friends"></span>
           <span>Clock-in and clock-out</span>
         </a>
-</li>
+    </li>
 
-<li>
-    
+    <li>
         <a href="../lecturers/lecturer_details.php"><span class="las la-chalkboard-teacher"></span>
           <span>Forum</span>
         </a>
-      </li>
+     </li>
 
-                  <li>
-                <a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
-                    <span>Logout</span></a>
-            </li>
+    <li>
+        <a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+            <span>Logout</span>
+        </a>
+    </li>
 
 
     </ul>
