@@ -19,7 +19,6 @@ return new class extends Migration {
             $table->foreign("faculty_id")->references("id")->on("faculties");
             $table->foreign("course_id")->references("id")->on("courses");
             $table->foreign("parent_id")->references("id")->on("parents");
-            $table->foreign("email")->references("email")->on("applications");
         });
     }
 

@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class header-tag extends Component
+class headerTag extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class header-tag extends Component
      */
     public function render()
     {
-        return view('components.header-tag');
+        return view('components.headerTag');
     }
 }

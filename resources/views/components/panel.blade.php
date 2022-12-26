@@ -30,13 +30,13 @@
 
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3')" style="cursor: pointer">
                     <span class="flex justify-center text-brown hover:text-white rounded-xl text-x p-space-0.1">
-                        Lecturer's'
+                        Lecturer's
                     </span>
                 </a>
 
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4')" style="cursor: pointer">
                     <span class="flex justify-center text-brown hover:text-white rounded-xl text-x p-space-0.1">
-                        Staff's'
+                        Staff's
                     </span>
                 </a>
             </div>

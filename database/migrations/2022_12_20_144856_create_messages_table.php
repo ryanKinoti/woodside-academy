@@ -14,12 +14,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('parents', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('comm_id')->unsigned();
+            $table->string('title');
+            $table->string('content');
             $table->timestamps();
+
+            $table->foreign('comm_id')->references('id')->on('communications');
         });
 
-        DB::update("ALTER TABLE parents AUTO_INCREMENT=100001; ");
+        DB::update("ALTER TABLE messages AUTO_INCREMENT=50001; ");
     }
 
     /**
@@ -29,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parents');
+        Schema::dropIfExists('messages');
     }
 };

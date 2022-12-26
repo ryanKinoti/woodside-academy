@@ -73,7 +73,12 @@ class ApplicationsController extends Controller
 
     public function updateStatus(array $data)
     {
-        return ApplicationState::where('id', $data['user_id'])
+        return ApplicationState::where('application_id', $data['user_id'])
             ->update(['status' => 'accepted']);
+
+        //do not delete this
+//        return DB::table('application_states')
+//            ->where('application_id', $data['user_id'])
+//            ->update(['status' => 'accepted']);
     }
 }
