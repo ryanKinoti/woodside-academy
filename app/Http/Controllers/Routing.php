@@ -25,60 +25,6 @@ class Routing extends Controller
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();
 
-
-            // Extract data from the users table based on the roles column
-            $users = Application::select('roles')->get();
-
-            // Count the number of instances or values for each role
-            $roleCount = $users->groupBy('roles')->map(function ($item) {
-                return $item->count();
-            });
-
-            $chart = new ApplicationsChart;
-            $chart->labels($roleCount->keys());
-            $chart->title('Applications', '20');
-            $chart->dataset('Role Count', 'bar', $roleCount->values())
-                ->color('#E7A164')
-                ->backgroundColor('#E7A164');
-            $chart->options([
-                'legend' => [
-                    'position' => 'top',
-                ],
-                'scales' => [
-                    'yAxes' => [
-                        [
-                            'ticks' => [
-                                'beginAtZero' => true,
-                                'fontColor' => 'black',
-                            ],
-                            'gridLines' => [
-                                'color' => '#ccc',
-                            ],
-                            'scaleLabel' => [
-                                'display' => true,
-                                'labelString' => 'Count',
-                                'fontColor' => '#333',
-                            ],
-                        ],
-                    ],
-                    'xAxes' => [
-                        [
-                            'gridLines' => [
-                                'color' => '#ccc',
-                            ],
-                            'scaleLabel' => [
-                                'display' => true,
-                                'labelString' => 'Roles',
-                                'fontColor' => 'black',
-                            ],
-                        ],
-                    ],
-                ],
-                'maintainAspectRatio' => false,
-                'responsive' => true,
-//                'aspectRatio' => 0.5,
-                'width' => 250,
-            ]);
             //passing the data to the view
             return view('admin.dashboard',
                 [
@@ -86,7 +32,7 @@ class Routing extends Controller
                     "lecturers" => $lecturers,
                     "staffs" => $staff,
                     "userInfo" => $userInfo,
-                    'chart' => $chart,
+                    //'chart' => $chart,
                 ]);
         }
     }
@@ -96,6 +42,8 @@ class Routing extends Controller
         $user = auth()->user();
         if ($user == null || $user->user_role != "staff") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
+        } else {
+            return view('staff.dashboard');
         }
     }
 
@@ -104,14 +52,18 @@ class Routing extends Controller
         $user = auth()->user();
         if ($user == null || $user->user_role != "lecturer") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
+        } else {
+            return view('lecturers.dashboard');
         }
     }
 
     public function students()
     {
         $user = auth()->user();
-        if ($user == null || $user->user_role != "staff") {
+        if ($user == null || $user->user_role != "student") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
+        } else {
+            return view('students.dashboard');
         }
     }
 }

@@ -77,12 +77,11 @@
         </article>
 
         <article id="chart-container" class="w-50-p">
-            <div>
-                {{--                <canvas id="myChart"></canvas>--}}
-                {!! $chart->container() !!}
+            {{--<div>--}}
+            {{--{!! $chart->container() !!}--}}
 
-            </div>
-            {!! $chart->script() !!}
+            {{--</div>--}}
+            {{--{!! $chart->script() !!}--}}
         </article>
     </section>
 
