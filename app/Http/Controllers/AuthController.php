@@ -123,6 +123,12 @@ class AuthController extends Controller
 
             if ($selectRole == 'admin') {
                 return redirect()->intended('/admin');
+            } elseif ($selectRole == 'staff') {
+                return redirect()->intended('/staff');
+            } elseif ($selectRole == 'lecturer') {
+                return redirect()->intended('/lecturer');
+            } elseif ($selectRole == 'student') {
+                return redirect()->intended('/student');
             } else {
                 return redirect()->intended('/');
             }

@@ -15,10 +15,13 @@
                 <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">About</a>
             </li>
             <li class="w-fit h-fit">
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">University Library</a>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Courses</a>
             </li>
             <li class="w-fit h-fit">
-                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">University Data-bank</a>
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">News</a>
+            </li>
+            <li class="w-fit h-fit">
+                <a href="" class="no-underline p-space-0.1 text-brown rounded-xl text-xl">Events</a>
             </li>
             @if(session()->has('email'))
                 <li class="w-fit h-fit">
@@ -26,9 +29,20 @@
                         <a href="/admin" class="bg-green-op-1 no-underline p-space-0.1 text-brown rounded-xl text-xl">
                             Administrator: {{session('firstName')}} {{session('lastName')}}
                         </a>
-                    @else
-                        <a href="/" class="bg-green-op-1 no-underline p-space-0.1 text-brown rounded-xl text-xl">
-                            User: {{session('firstName')}} {{session('lastName')}}
+                    @elseif(session('userRole')=='staff')
+                        <a href="/staff"
+                           class="bg-green-op-1 no-underline p-space-0.1 text-brown rounded-xl text-xl">
+                            Staff: {{session('firstName')}} {{session('lastName')}}
+                        </a>
+                    @elseif(session('userRole')=='lecturer')
+                        <a href="/lecturer"
+                           class="bg-green-op-1 no-underline p-space-0.1 text-brown rounded-xl text-xl">
+                            Lecturer: {{session('firstName')}} {{session('lastName')}}
+                        </a>
+                    @elseif(session('userRole')=='student')
+                        <a href="/student"
+                           class="bg-green-op-1 no-underline p-space-0.1 text-brown rounded-xl text-xl">
+                            Student: {{session('firstName')}} {{session('lastName')}}
                         </a>
                     @endif
                 </li>
@@ -42,7 +56,8 @@
                 </li>
                 <li class="w-fit h-fit">
                     <div class="dropdown mt-[-10px]">
-                        <button class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Register With Us</button>
+                        <button class="bg-green-op-1 text-brown p-space-0.1 rounded-xl text-xl">Register With Us
+                        </button>
                         <div class="dropdown-content">
                             <a href="/applications/choice/students">Apply as a Student</a>
                             <a href="/applications/choice/lecturers">Apply as a Lecturer</a>
