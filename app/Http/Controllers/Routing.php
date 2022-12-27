@@ -43,7 +43,14 @@ class Routing extends Controller
         if ($user == null || $user->user_role != "staff") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         } else {
-            return view('staff.dashboard');
+            //obtaining user data to make it more personalized
+            $userInfo = User::all()
+                ->where('id', '=', session('userID'))->first();
+
+            //passing the data to the view
+            return view('staff.dashboard', [
+                "userInfo" => $userInfo,
+            ]);
         }
     }
 
@@ -53,7 +60,14 @@ class Routing extends Controller
         if ($user == null || $user->user_role != "lecturer") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         } else {
-            return view('lecturers.dashboard');
+            //obtaining user data to make it more personalized
+            $userInfo = User::all()
+                ->where('id', '=', session('userID'))->first();
+
+            //passing the data to the view
+            return view('lecturers.dashboard', [
+                "userInfo" => $userInfo,
+            ]);
         }
     }
 

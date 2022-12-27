@@ -6,13 +6,10 @@ use App\Models\Application;
 use App\Models\ApplicationState;
 use App\Models\Course;
 use App\Models\Faculty;
-use App\Models\User;
 use App\Models\UserLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use function PHPUnit\Framework\isEmpty;
-use function PHPUnit\Framework\isNull;
 
 class AuthController extends Controller
 {
