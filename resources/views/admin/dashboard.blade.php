@@ -11,9 +11,15 @@
 <body class="bg-gradient-to-r from-blue to-gray-op">
 
 <div class="bg-green-op text-center text-xl p-space-0.1">
-    <span class="text-brown text-xl p-space-0.1 ">
+    <div class="text-brown text-xl p-space-0.1 ">
         WOODSIDE ACADEMY ADMINISTRATOR DASHBOARD
-    </span>
+        <span>
+            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'notification')"
+               style="cursor: pointer">
+                <i class="uil uil-bell text-[30px] text-brown"></i>
+            </a>
+        </span>
+    </div>
     @if($errors->any())
         <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
             style="font-family: 'Outfit',sans-serif; font-size: 35px;" id="hideMe">
@@ -32,8 +38,7 @@
 
     <x-panel></x-panel>
 
-    <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-             id="main-1">
+    <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-1">
         <article id="user-information">
 
             <span class="flex w-fit">
@@ -87,31 +92,9 @@
 
     @include('admin.tasks.applications')
     @include('admin.tasks.communications')
-
-    {{--
-    settings tab:
-    1. add/change profile picture
-    --}}
-    <section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-             id="main-last">
-        <div class="container">
-            <form method="post" action="/images/profile/set-image" enctype="multipart/form-data">
-                @csrf
-                <div class="image">
-                    <label><h4>Add image</h4></label>
-                    <input type="file" required name="image">
-                    <input type="hidden" name="userID" value="{{session('userID')}}">
-                </div>
-
-                <div class="post_button">
-                    <button type="submit" class="btn btn-success">Add</button>
-                </div>
-            </form>
-        </div>
-
-    </section>
+    @include('commons.settings')
 </div>
 
-<x-footer-tag></x-footer-tag>
+<x-footerTag></x-footerTag>
 </body>
 </html>

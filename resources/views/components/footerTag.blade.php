@@ -17,7 +17,8 @@
 
     // for default page
     document.getElementById("defaultOpen").click();
-
+</script>
+<script>
     //graphs
     const ctx = document.getElementById('myChart');
     new Chart(ctx, {

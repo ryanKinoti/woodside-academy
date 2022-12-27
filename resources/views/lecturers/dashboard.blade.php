@@ -1,73 +1,54 @@
+@php
+    use Illuminate\Support\Facades\Storage
+@endphp
 <!doctype html>
 <html lang="en">
 <head>
-   <x-headerTag></x-headerTag>
-</head>
+    <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
-<x-header></x-header>
-<section>
-<div class="sidebar">
 
-<div class="login-header">
-         <h1 id='login-title'> Woodside <br> Academy</h1>
-
-     
-     </div>
-
-<div class="sidebar-menu">
-<ul>
-       
-<li>
- <a href="#"><span class="las la-address-book"></span>
-   <span>Home</span>
- </a>
-</li>
-
-<li>
- <a href="../Application/view_student_application.php"><span class="las la-address-book"></span>
-   <span>Lecturer's Application Details</span>
- </a>
-</li>
-
-<li>
- <a href="#">
-   <span class="las la-archive"></span>
-   <span>My Courses</span>
- </a>
-</li>
-
-<li>
- <a href="#">
-   <span class="las la-book"></span>
-   <span>Coursework material</span>
- </a>
-</li>
-
-<li>
- <a href="#"><span class="las la-user-friends"></span>
-   <span>Coursework Marks</span>
- </a>
-</li>
-
-<li>
-  <a href="../lecturers/lecturer_details.php"><span class="las la-chalkboard-teacher"></span>
- <span>Student attendance</span>
- </a>
-</li>
-
-<li>
- <a href="#"><span><i class="fa fa-sign-out" aria-hidden="true"></i></span>
- <span>Logout</span></a>
-</li>
-
-
-</ul>
+<div class="bg-green-op text-center text-xl p-space-0.1">
+    <div class="text-brown text-xl p-space-0.1 ">
+        LECTURER DASHBOARD
+        <span>
+            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'notification')"
+               style="cursor: pointer">
+                <i class="uil uil-bell text-[30px] text-brown"></i>
+            </a>
+        </span>
+    </div>
+    @if($errors->any())
+        <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
+            style="font-family: 'Outfit',sans-serif; font-size: 35px;" id="hideMe">
+            {{$errors->first()}}
+            <script>
+                setTimeout(() => {
+                    const elem = document.getElementById("hideMe");
+                    elem.parentNode.removeChild(elem);
+                }, 5000);
+            </script>
+        </h3>
+    @endif
 </div>
+
+<div class="flex h-full">
+    <section class="sidebar">
+
+        <div class="login-header">
+            <a href="/">
+                <h1 id='login-title'> Woodside <br> Academy</h1>
+            </a>
+        </div>
+
+        <x-lecturer-panel></x-lecturer-panel>
+
+    </section>
+
+    @include('commons.userProfile')
+    @include('commons.settings')
 </div>
-<div class="image">
-     <img src="../school.jpg" alt="">
- </div>
-</section>
+
+<x-footerTag></x-footerTag>
 </body>
 </html>

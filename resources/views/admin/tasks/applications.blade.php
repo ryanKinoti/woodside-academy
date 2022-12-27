@@ -14,6 +14,20 @@
 
     <div class="content">
         <table>
+            <tr>
+                <td>
+                    <input type='checkbox' onclick='return filter_type(this);' name='filter' id="accepted" value="pending"/>Pending
+                </td>
+                <td>
+                    <input type='checkbox' onclick='return filter_type(this);' name='filter' id="accepted" value="accepted"/>Accepted
+                </td>
+                <td>
+                    <input type='checkbox' onclick='return filter_type(this);' name='filter' id="annulled" value="annulled"/>Annulled
+                </td>
+                <td>
+                    <input type='checkbox' onclick='return filter_type(this);' name='filter' id="registered" value="registered"/>Registered
+                </td>
+            </tr>
             <tr class="thead">
                 <td><u>First Name</u></td>
                 <td><u>Last Name</u></td>
