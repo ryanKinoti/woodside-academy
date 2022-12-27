@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/lec-dashboard.css">
+   <x-header-tag></x-header-tag>
+</head>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-header></x-header>
