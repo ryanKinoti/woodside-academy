@@ -25,7 +25,7 @@
 </li>
 
 <li>
- <a href="../Application/view_student_application.php"><span class="las la-address-book"></span>
+ <a href="#"><span class="las la-address-book"></span>
    <span>Lecturer's Application Details</span>
  </a>
 </li>
@@ -51,7 +51,7 @@
 </li>
 
 <li>
-  <a href="../lecturers/lecturer_details.php"><span class="las la-chalkboard-teacher"></span>
+  <a href="#"><span class="las la-chalkboard-teacher"></span>
  <span>Student attendance</span>
  </a>
 </li>
