@@ -1,11 +1,5 @@
 @import "dropdown.css";
-@import "side-panel.css";
-@import "options.css";
-@import "communications.css";
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style-type: none;
-    text-decoration: none;
-}
+@import "dashboard.css";
+@import "login.css";
+/*@import "lec-dashboard.css";*/
+/*@import "staff-dashboard.css";*/
