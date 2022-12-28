@@ -50,22 +50,3 @@ table {
 .tbody:last-of-type {
     border-bottom: 5px solid #084C61;
 }
-
-
-/*.thead td {*/
-/*    background-color: rgba(8, 76, 97, 2);*/
-/*    text-align: center;*/
-/*    font-weight: normal;*/
-/*    outline: 1px solid black;*/
-/*    border: 2px solid rgba(8, 76, 97, 2);*/
-/*}*/
-
-/*.thead td h1 {*/
-/*    color: #E7A164;*/
-/*    font-weight: bold;*/
-/*    background: transparent;*/
-/*}*/
-
-/*.tbody td {*/
-/*    border: 1px solid rgba(8, 76, 97, 2);*/
-/*}*/

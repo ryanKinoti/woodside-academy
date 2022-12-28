@@ -1,92 +1,109 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Poppins',sans-serif;
+/*first half of the login form*/
+.login-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.form-box{
+
+.login__form {
+    margin: 0 auto;
+}
+
+.login__form .login__header {
+    margin-bottom: 1em;
+}
+
+.login__form .login__header #login__title {
+    font-weight: 500;
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    color: #E7A164;
+    background-color: rgba(8, 76, 97, 2);
+}
+
+.login__form .login__header p {
+    font-size: small;
+    color: gray;
+}
+
+.login__form .form-box {
     width: 380px;
-    height: 250px;
-    background: whitesmoke;
-    padding: 35px;
+    height: 280px;
+    background-color: rgba(8, 76, 97, .8);
+    padding: 30px;
     border-radius: 25px;
 }
 
-.login-form-container{
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+.login__form .form-box input {
+    display: block;
+    padding: 1.5px 0;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-top: 2px solid rgba(155, 165, 156, 2);
+    border-bottom: 2px solid rgba(155, 165, 156, 2);
+    margin: 10px 0;
+    min-width: 250px;
+    background-color: rgba(155, 165, 156, 2);
 }
 
-.hero-image {
-	display: grid;
-	place-items: center;
-	padding: 2em;
-}
-.hero-image img{
-	width: 50vw;
-	height: 60vh;
-	border-radius: 20px;
-	object-fit: cover;
-
-}
-.login-form{
-	margin: 0 auto;
-}
-input{
-	display: block;
-	padding: 1.5em 0;
-	border-radius: 20px;
-	border: none;
-	outline: none;
-	width: 100%;
-	border-bottom: 5px solid gray;
-	margin: 2em 0;
-	min-width: 250px;
-
-}
-input[type='number']{
-	appearance: textfield;
-}
-.login-header{
-	margin-bottom: 1em;
-}
-.login-header #login-title{
-	font-weight: 500;
-	font-size: 25px;
-	font-family: sans-serif;
-}
-.login-header p{
-	font-size: small;
-	color: gray;
-}
-input:focus{
-	border-bottom: 1.8px solid black;
-}
-input::placeholder{
-	font-size: small;
-}
-#login-btn{
-	width: 100%;
-	height: 40px;
-	cursor: pointer;
-	border-radius: 20px;
-	border: none;
-	margin: 1em 0;
-	background-color: #084C61;
-	color: white;
+.login__form .form-box #login-btn {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin: 10px 0;
+    background-color: #084C61;
+    color: #E7A164;
 }
 
-#reset-pass{
-	font-size: small;
-	margin-top: 1em;
+.login__form .form-box #login-btn:hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    background-color: #E7A164;
+    margin-left: +1px;
+    color: white;
+}
+
+input::placeholder {
+    font-size: medium;
+}
+
+#reset-pass {
+    font-size: medium;
+    margin-top: 1em;
+    color: black;
+}
+
+#reset-pass a {
+    color: #E7A164;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/*second half of the login form*/
+.login__image {
+    display: grid;
+    place-items: center;
+    padding: 2em;
+}
+
+.login__image img {
+    width: 50vw;
+    height: 60vh;
+    border-radius: 20px;
+    object-fit: cover;
 
 }
-#reset-pass a{
-	color: #084C61;
-	font-weight: 600;
-	text-decoration: none;
+
+/*i have no idea what these do - from @Ryan*/
+input[type='number'] {
+    appearance: textfield;
+}
+
+input:focus {
+    border-bottom: 1.8px solid black;
 }

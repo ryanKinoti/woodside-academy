@@ -82,7 +82,14 @@ class Routing extends Controller
         if ($user == null || $user->user_role != "student") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         } else {
-            return view('students.dashboard');
+            //obtaining user data to make it more personalized
+            $userInfo = User::all()
+                ->where('id', '=', session('userID'))->first();
+
+            //passing the data to the view
+            return view('students.dashboard', [
+                "userInfo" => $userInfo,
+            ]);
         }
     }
 }

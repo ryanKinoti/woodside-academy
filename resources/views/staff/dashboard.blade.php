@@ -43,7 +43,13 @@
 
     </section>
 
+    {{--
+    loading:
+    1. common content for navigation panel
+    2. secondary navigation buttons for the actions with more than 1 option
+    --}}
     @include('commons.userProfile')
+    @include('commons.options')
     @include('commons.settings')
 </div>
 

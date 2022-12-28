@@ -12,3 +12,7 @@
     list-style-type: none;
     text-decoration: none;
 }
+
+input[type="email"], input[type="password"] {
+    text-align: center;
+}
