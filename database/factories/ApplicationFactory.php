@@ -27,14 +27,8 @@ class ApplicationFactory extends Factory
             'roles' => $this->faker->randomElement(['staff', 'lecturer', 'student']),
             'faculty_id' => $this->faker->randomElement([10001, 10002, 10003, 10004]),
             'course_id' => $this->faker->randomElement([70001, 70002, 70003, 70004, 70005, 70006, 70007]),
-            'created_at' => Carbon::now()
-                ->subMonths(rand(1, 5))
-                ->subDays(rand(2, 20))
-                ->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()
-                ->subMonths(rand(1, 5))
-                ->subDays(rand(2, 20))
-                ->format('Y-m-d H:i:s')
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
     }
 }

@@ -24,6 +24,8 @@ class ApplicationSeeder extends Seeder
             DB::table('application_states')->insert([
                 [
                     'application_id' => $application->id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
             ]);
         }
