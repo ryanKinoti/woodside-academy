@@ -1,16 +1,17 @@
 @php
     use Illuminate\Support\Facades\DB;
 @endphp
-<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-2-1">
+
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-2-1">
     <div class="title__card flex">
-        <h1 class="mx-space-0.2">
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
             STAFF APPLICATIONS
         </h1>
 
-        <a class="mx-space-0.2 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-2-2')"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Lecturer's Application"
+           onclick="switchcommon(event, 'main-2-2')"
            style="cursor: pointer">
-            Lecturer's
+            <i class="uil uil-arrow-right text-brown text-[30px]"></i>
         </a>
     </div>
 
@@ -62,21 +63,22 @@
 
 </section>
 
-<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-2-2">
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-2-2">
     <div class="title_card flex">
-        <a class="mx-space-0.2 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-2-1')"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Staff's Applications"
+           onclick="switchcommon(event, 'main-2-1')"
            style="cursor: pointer">
-            Staff's
+            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
         </a>
 
-        <h1 class="mx-space-0.2">
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
             LECTURER APPLICATIONS
         </h1>
 
-        <a class="mx-space-0.2 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-2-3')"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Students' Application"
+           onclick="switchcommon(event, 'main-2-3')"
            style="cursor: pointer">
-            Students'
+            <i class="uil uil-arrow-right text-brown text-[30px]"></i>
         </a>
     </div>
 
@@ -129,15 +131,15 @@
 
 </section>
 
-<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-2-3">
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-2-3">
     <div class="title_card flex">
-        <a class="mx-space-0.2 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-2-2')"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Lecturer's Application"
+           onclick="switchcommon(event, 'main-2-2')"
            style="cursor: pointer">
-            Lecturer's
+            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
         </a>
 
-        <h1 class="mx-space-0.2">
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
             STUDENT APPLICATIONS
         </h1>
     </div>

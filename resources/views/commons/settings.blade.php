@@ -2,7 +2,7 @@
     settings tab:
     1. add/change profile picture
     --}}
-<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
          id="profile-picture">
     <div class="container">
         <form method="post" action="/images/profile/set-image" enctype="multipart/form-data">

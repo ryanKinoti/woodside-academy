@@ -18,7 +18,12 @@
         </li>
         <li>
             <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4')" style="cursor: pointer">
-                Course Actions
+                Faculty/Course Settings
+            </a>
+        </li>
+        <li>
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-5')" style="cursor: pointer">
+                Group/Class Settings
             </a>
         </li>
         <li>

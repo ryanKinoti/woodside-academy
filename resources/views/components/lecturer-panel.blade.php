@@ -1,14 +1,7 @@
 <div class="sidebar-menu">
     <ul>
         <li>
-            <a>
-                <span>Lecturer: {{session('firstName')}} {{session('lastName')}}</span>
-            </a>
-        </li>
-
-        <li>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-1')"
-               style="cursor: pointer">
+            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-1')" style="cursor: pointer">
                 My Dashboard
             </a>
         </li>

@@ -8,9 +8,9 @@
 
 <div class="bg-green-op text-center text-xl p-space-0.1">
     <div class="text-brown text-xl p-space-0.1 ">
-        WOODSIDE ADMINISTRATOR DASHBOARD
+        ADMIN DASHBOARD: {{session('firstName')}} {{session('lastName')}}
         <span>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'notification')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'notification')"
                style="cursor: pointer">
                 <i class="uil uil-bell text-[30px] text-brown"></i>
             </a>
@@ -34,9 +34,9 @@
 
     <section class="sidebar">
 
-        <div class="p-space-0.2 login-header">
-            <a href="/" class="text-brown rounded-xl text-x bg-green-op-1 p-space-0.1">
-                <h1 id='login-title'>Administrator: <br> {{session('firstName')}} {{session('lastName')}}</h1>
+        <div class="login-header">
+            <a href="/">
+                <h1 id='login-title'> Woodside <br> Academy</h1>
             </a>
         </div>
 
@@ -60,6 +60,7 @@
     --}}
     @include('admin.tasks.applications')
     @include('admin.tasks.communications')
+    @include('admin.tasks.course-actions')
 
 </div>
 <x-footerTag></x-footerTag>

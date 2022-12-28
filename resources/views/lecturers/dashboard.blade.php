@@ -1,18 +1,16 @@
-@php
-    use Illuminate\Support\Facades\Storage
-@endphp
 <!doctype html>
 <html lang="en">
 <head>
+    <title>Woodside Academy Lecturer</title>
     <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 
 <div class="bg-green-op text-center text-xl p-space-0.1">
     <div class="text-brown text-xl p-space-0.1 ">
-        LECTURER DASHBOARD
+        LECTURER DASHBOARD: {{session('firstName')}} {{session('lastName')}}
         <span>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'notification')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'notification')"
                style="cursor: pointer">
                 <i class="uil uil-bell text-[30px] text-brown"></i>
             </a>

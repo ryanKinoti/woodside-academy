@@ -1,6 +1,7 @@
 @import "dropdown.css";
 @import "side-panel.css";
 @import "options.css";
+@import "communications.css";
 * {
     padding: 0;
     margin: 0;
