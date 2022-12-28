@@ -1,0 +1,92 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins',sans-serif;
+}
+.form-box{
+    width: 380px;
+    height: 250px;
+    background: whitesmoke;
+    padding: 35px;
+    border-radius: 25px;
+}
+
+.login-form-container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.hero-image {
+	display: grid;
+	place-items: center;
+	padding: 2em;
+}
+.hero-image img{
+	width: 50vw;
+	height: 60vh;
+	border-radius: 20px;
+	object-fit: cover;
+
+}
+.login-form{
+	margin: 0 auto;
+}
+input{
+	display: block;
+	padding: 1.5em 0;
+	border-radius: 20px;
+	border: none;
+	outline: none;
+	width: 100%;
+	border-bottom: 5px solid gray;
+	margin: 2em 0;
+	min-width: 250px;
+
+}
+input[type='number']{
+	appearance: textfield;
+}
+.login-header{
+	margin-bottom: 1em;
+}
+.login-header #login-title{
+	font-weight: 500;
+	font-size: 25px;
+	font-family: sans-serif;
+}
+.login-header p{
+	font-size: small;
+	color: gray;
+}
+input:focus{
+	border-bottom: 1.8px solid black;
+}
+input::placeholder{
+	font-size: small;
+}
+#login-btn{
+	width: 100%;
+	height: 40px;
+	cursor: pointer;
+	border-radius: 20px;
+	border: none;
+	margin: 1em 0;
+	background-color: #084C61;
+	color: white;
+}
+
+#reset-pass{
+	font-size: small;
+	margin-top: 1em;
+
+}
+#reset-pass a{
+	color: #084C61;
+	font-weight: 600;
+	text-decoration: none;
+}

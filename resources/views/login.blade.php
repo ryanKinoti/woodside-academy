@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <x-headerTag></x-headerTag>
+    <x-header-tag></x-header-tag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-register-header></x-register-header>
@@ -22,19 +22,31 @@
         <form action="/login/validation" method="POST" class="grid items-center">
             @csrf
 
-            <span class="my-space-0.2">
-                <label for="email">Email :</label>
-                <input type="text" name="email" id="email" required>
-            </span>
-
-            <span class="my-space-0.2">
-                <label for="password">Password :</label>
-                <input type="password" name="password" id="password" required>
-            </span>
-
-            <div class="my-space-0.2">
-                <button type="submit">Login Now</button>
+             <div class="login-form-container">
+        <div class="login-form">
+            <div class="login-header">
+                <h1 id='login-title'>Welcome to Woodside Academy</h1>
+            
             </div>
+            <div class="form-box">
+                
+           
+
+                <input type="email" placeholder="Email" name="email">
+                <input type="password" placeholder="Password" name="password">
+
+                <button id="login-btn" type="submit">Login</button>
+                <p id="reset-pass">Forgot Password? <a href="#">Reset Password</a></p>
+                <p id="reset-pass">Don't have an account?<a href="#"> Register Here</a></p>
+
+ </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="../images/LOGO.jpg" alt="">
+        </div>
+    </div>
+
         </form>
     </div>
 </section>
