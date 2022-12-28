@@ -17,11 +17,13 @@ return new class extends Migration
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('comm_id')->unsigned();
+            $table->bigInteger('sent_user_id')->unsigned();
             $table->string('title');
             $table->string('content');
             $table->timestamps();
 
             $table->foreign('comm_id')->references('id')->on('communications');
+            $table->foreign('sent_user_id')->references('id')->on('users');
         });
 
         DB::update("ALTER TABLE messages AUTO_INCREMENT=50001; ");

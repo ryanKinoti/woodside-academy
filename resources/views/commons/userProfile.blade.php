@@ -1,5 +1,4 @@
-<section class="tabcontent mr-[10px] ml-[19%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-1">
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl" id="main-1">
     <article id="user-information">
 
             <span class="flex w-fit">

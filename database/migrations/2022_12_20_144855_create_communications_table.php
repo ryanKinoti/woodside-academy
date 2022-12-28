@@ -16,13 +16,16 @@ return new class extends Migration {
         Schema::create('communications', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('faculty_id')->nullable();
-            $table->string('faculty_message')->nullable();
+            $table->string('faculty_message_id')->nullable();
 
             $table->bigInteger('department_id')->nullable();
-            $table->string('department_message')->nullable();
+            $table->string('department_message_id')->nullable();
 
             $table->bigInteger('course_id')->nullable();
-            $table->string('course_message')->nullable();
+            $table->string('course_message_id')->nullable();
+
+            $table->bigInteger('user_id')->nullable();
+            $table->string('user_message_id')->nullable();
             $table->timestamps();
         });
 

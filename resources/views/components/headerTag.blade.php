@@ -15,6 +15,7 @@
 
 {{--scripts--}}
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="{{asset('js/filter.js')}}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
