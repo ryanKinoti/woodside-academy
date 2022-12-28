@@ -1,12 +1,6 @@
 <div class="sidebar-menu">
     <ul>
         <li>
-            <a>
-                <span>Staff: {{session('firstName')}} {{session('lastName')}}</span>
-            </a>
-        </li>
-
-        <li>
             <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-1')"
                style="cursor: pointer">
                 My Dashboard
@@ -14,34 +8,34 @@
         </li>
 
         <li>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-2')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'my-stations')"
                style="cursor: pointer">
                 My Stations
             </a>
         </li>
 
         <li>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-3')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'shift-hours')"
                style="cursor: pointer">
                 Shift Hours
             </a>
         </li>
 
         <li>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-4')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'in-out')"
                style="cursor: pointer">
                 Clock-in and clock-out
             </a>
         </li>
 
         <li>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-5')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'forum')"
                style="cursor: pointer">
                 Forum
             </a>
         </li>
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-last')" style="cursor: pointer">
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'settings')" style="cursor: pointer">
                 Settings
             </a>
         </li>

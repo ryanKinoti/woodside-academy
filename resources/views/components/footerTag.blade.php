@@ -3,6 +3,7 @@
     // tab switching
     function switchcommon(evt, mainName) {
         var i, tabcontent, tablinks;
+        //get all elements under tabcontent and hide them
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
@@ -17,6 +18,12 @@
 
     // for default page
     document.getElementById("defaultOpen").click();
+</script>
+<script>
+    window.onload = () => {
+        console.log(document.querySelector("table > tbody > tr:nth-child(1) > td:nth-child(6)").innerHTML);
+    }
+    getUniqueValuesFromColumn()
 </script>
 <script>
     //graphs

@@ -1,5 +1,18 @@
 @import "dropdown.css";
-@import "dashboard.css";
+@import "side-panel.css";
 @import "login.css";
-/*@import "lec-dashboard.css";*/
-/*@import "staff-dashboard.css";*/
+@import "options.css";
+@import "tables.css";
+@import "communications.css";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+input[type="email"], input[type="password"] {
+    text-align: center;
+}

@@ -8,24 +8,27 @@
         </li>
 
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'lec-courses')" style="cursor: pointer">
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'my-courses')" style="cursor: pointer">
+                <span class="las la-archive"></span>
                 My Courses
             </a>
         </li>
+
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'coursework-material')"
-               style="cursor: pointer">
-                Coursework Material
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'attendance')" style="cursor: pointer">
+                <span class="las la-book"></span>
+                Attendance
             </a>
         </li>
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'coursework-marks')" style="cursor: pointer">
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'coursework')" style="cursor: pointer">
                 Coursework Marks
             </a>
         </li>
+
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'student-attendance')" style="cursor: pointer">
-                Student Attendance
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'fee-statement')" style="cursor: pointer">
+                Fee Statement
             </a>
         </li>
         <li>

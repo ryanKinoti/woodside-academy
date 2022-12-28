@@ -32,10 +32,8 @@ class UserSeeder extends Seeder
                     'gender' => 'Male',
                     'country' => 'Britain',
                     'city' => 'London',
-                    'created_at' => Carbon::now()
-                        ->subMonths(rand(1, 5))
-                        ->subDays(rand(2, 20))
-                        ->format('Y-m-d H:i:s')
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
                 [
                     'user_role' => 'staff',
@@ -49,10 +47,8 @@ class UserSeeder extends Seeder
                     'gender' => 'Female',
                     'country' => 'Florida',
                     'city' => 'USA',
-                    'created_at' => Carbon::now()
-                        ->subMonths(rand(1, 5))
-                        ->subDays(rand(2, 20))
-                        ->format('Y-m-d H:i:s')
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
                 [
                     'user_role' => 'lecturer',
@@ -66,10 +62,8 @@ class UserSeeder extends Seeder
                     'gender' => 'Male',
                     'country' => 'Tokyo',
                     'city' => 'Japan',
-                    'created_at' => Carbon::now()
-                        ->subMonths(rand(1, 5))
-                        ->subDays(rand(2, 20))
-                        ->format('Y-m-d H:i:s')
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
                 [
                     'user_role' => 'student',
@@ -83,10 +77,8 @@ class UserSeeder extends Seeder
                     'gender' => 'Male',
                     'country' => 'Cairo',
                     'city' => 'Egypt',
-                    'created_at' => Carbon::now()
-                        ->subMonths(rand(1, 5))
-                        ->subDays(rand(2, 20))
-                        ->format('Y-m-d H:i:s')
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
             ]);
     }
