@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Woodside Academy Administrator</title>
+    <title>Administrator | Woodside Academy Dashboard</title>
     <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">

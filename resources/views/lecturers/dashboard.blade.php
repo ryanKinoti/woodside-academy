@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Woodside Academy Lecturer</title>
+    <title>Lecturers | Woodside Academy Dashboard</title>
     <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
@@ -43,11 +43,11 @@
 
     </section>
 
-{{--
-loading:
-1. common content for navigation panel
-2. secondary navigation buttons for the actions with more than 1 option
---}}
+    {{--
+    loading:
+    1. common content for navigation panel
+    2. secondary navigation buttons for the actions with more than 1 option
+    --}}
     @include('commons.userProfile')
     @include('commons.options')
     @include('commons.settings')
