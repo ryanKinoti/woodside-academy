@@ -1,0 +1,12 @@
+/*settings to send the uploaded profile picture*/
+.form__container .set__button .button {
+    width: 50%;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    border: none;
+    margin: 10px 0;
+    background-color: #084C61;
+    color: #E7A164;
+}

@@ -6,7 +6,7 @@
                     <i class="uil uil-image-question text-[115px]"></i>
                 @else
                     <img src="{{Storage::url($userInfo->profile_photo)}}"
-                         class="rounded-full border-4 border-brown w-[100px] h-[100px]">
+                         class="rounded-full border-4 border-brown my-space-0.2 w-[115px] h-[115px]">
                 @endif
             </div>
             <h2 class="text-2xl text-brown text-center bg-green-op-1 rounded-xl p-space-0.1 w-fit h-fit my-[55px] ml-space-0.2">

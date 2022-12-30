@@ -16,6 +16,6 @@
     text-decoration: none;
 }
 
-input[type="email"], input[type="password"] {
+input[type="email"], input[type="password"], input[type="text"] {
     text-align: center;
 }

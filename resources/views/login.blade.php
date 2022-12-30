@@ -34,7 +34,7 @@
                         <input type="password" placeholder="Password" name="password">
                         <button id="login-btn" type="submit">Login</button>
                         <p id="reset-pass">Forgot Password? <a href="#">Reset Password</a></p>
-                        <p id="reset-pass">Don't have an account?<a href="#"> Register Here</a></p>
+                        <p id="reset-pass">Don't have an account?<a href="/"> Apply with us</a></p>
                     </div>
                 </div>
 

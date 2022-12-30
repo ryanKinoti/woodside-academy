@@ -31,6 +31,8 @@ return new class extends Migration {
             $table->string('profile_photo')->nullable();
             $table->string('country');
             $table->string('city');
+            $table->bigInteger('admin_message_id')->unsigned()->nullable();
+            $table->bigInteger('user_message_id')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

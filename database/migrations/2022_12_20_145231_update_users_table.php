@@ -18,6 +18,8 @@ return new class extends Migration {
             //relationships
             $table->foreign("faculty_id")->references("id")->on("faculties");
             $table->foreign("course_id")->references("id")->on("courses");
+            $table->foreign('admin_message_id')->references('id')->on('admin_messages');
+            $table->foreign('user_message_id')->references('id')->on('user_messages');
         });
     }
 

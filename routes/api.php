@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\learningAPI;
+use App\Http\Controllers\MessagingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +27,11 @@ Route::prefix('learning')->group(function () {
     Route::post('add-course', [learningAPI::class, 'addCourse']);
     Route::put('update-course', [learningAPI::class, 'updateCourse']);
     Route::get('search/{name}', [learningAPI::class, 'search']);
+});
+
+Route::prefix('admin')->group(function () {
+});
+
+Route::prefix('user')->group(function () {
 });
 

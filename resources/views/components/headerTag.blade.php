@@ -39,6 +39,7 @@
                     'space-0.1': '10px',
                     'space-0.2': '20px',
                     'space-0.3': '30px',
+                    'space-0.4': '40px',
                     'space-0.5': '50px',
                     'space-0.7': '70px',
                     'space-0.9': '90px',

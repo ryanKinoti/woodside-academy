@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <x-header-tag></x-header-tag>
+    <title>Lecturer Application | Woodside Academy</title>
+    <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-register-header></x-register-header>
