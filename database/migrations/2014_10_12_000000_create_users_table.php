@@ -16,10 +16,10 @@ return new class extends Migration {
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->enum('user_role', ['admin', 'student', 'lecturer','staff'])->default('admin');
+            $table->enum('user_role', ['admin', 'student', 'lecturer', 'staff'])->default('admin');
             $table->bigInteger('faculty_id')->unsigned()->nullable();
             $table->bigInteger('course_id')->unsigned()->nullable();
-            $table->bigInteger('parent_id')->unsigned()->nullable();
+            $table->bigInteger('unit_id')->unsigned()->nullable();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('lastName');

@@ -6,6 +6,7 @@
 @import "forums.css";
 @import "messaging.css";
 @import "settings.css";
+@import "course-actions.css";
 
 * {
     padding: 0;

@@ -17,8 +17,9 @@ return new class extends Migration {
             $table->id();
             $table->bigInteger('course_id')->unsigned();
             $table->string('unit_name');
+            $table->enum('unit_year', ['1', '2', '3', '4']);
+            $table->enum('unit_semester', ['first', 'second']);
             $table->enum('unit_status', ['closed', 'available'])->default('closed');
-            $table->bigInteger('lecturer_id')->unsigned()->nullable();
             $table->timestamps();
 
             //relationships

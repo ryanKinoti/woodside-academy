@@ -51,6 +51,11 @@
     @include('commons.userProfile')
     @include('commons.options')
     @include('commons.settings')
+
+    {{--
+    loading:
+    1. respective pages dependent on the user
+    --}}
 </div>
 
 <x-footerTag></x-footerTag>
