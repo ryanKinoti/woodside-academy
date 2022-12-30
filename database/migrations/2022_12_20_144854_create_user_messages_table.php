@@ -18,6 +18,7 @@ return new class extends Migration {
             $table->bigInteger('from_user_id')->unsigned();
             $table->bigInteger('to_class_id')->unsigned()->nullable();
             $table->bigInteger('to_user_id')->unsigned()->nullable();
+            $table->enum('bulk_send', ['yes', 'no'])->default('no');
             $table->string('title');
             $table->string('message_content');
             $table->enum('message_status', ['read', 'unread'])->default('unread');

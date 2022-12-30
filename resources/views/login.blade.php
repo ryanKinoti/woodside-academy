@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="login__image">
-                    <img src="../images/LOGO.jpg" alt="">
+                    <img src="{{asset('images/LOGO.jpg')}}" alt="">
                 </div>
             </div>
 

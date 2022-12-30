@@ -1,7 +1,7 @@
 {{--external script declarations--}}
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-{{--switching script--}}
+{{--switching tabs script--}}
 <script>
     // tab switching
     function switchcommon(evt, mainName) {
@@ -23,10 +23,9 @@
     document.getElementById("defaultOpen").click();
 </script>
 
-{{--searching loop--}}
+{{--searching loop for individual tasks--}}
 <script>
-
-    function myFunction() {
+    function main31() {
         // Declare variables
         var input, filter, ul, li, a, i, txtValue;
         input = document.getElementById('myInput');
@@ -47,6 +46,7 @@
     }
 </script>
 
+{{--script to select an item to message and display its corresponding message area while hidning the rest--}}
 <script>
     $(document).ready(function () {
         // Get all the li elements in the first loop
@@ -61,12 +61,9 @@
             li.addEventListener('click', () => {
 
                 // Get the index of the li element from the data attribute
-                // const index = li.getAttribute('data-index');
+                const id = li.getAttribute('id');
 
                 // Get the corresponding element in the second loop
-                // const correspondingElement = document.querySelector(`.message__area .message__container`).getAttribute(index);
-
-                const id = li.getAttribute('id');
                 const correspondingElement = document.querySelector(`.message__area .message__container#${id}`);
 
 
