@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AdminMessage;
 use Illuminate\Http\Request;
 
-class MessagingAPI extends Controller
+class MessagingController extends Controller
 {
     //
     public function facultyMessage(Request $request)

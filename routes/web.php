@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MessagingAPI;
+use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Routing;
 use App\Http\Controllers\UserController;
@@ -92,8 +92,8 @@ Route::prefix("admin")->group(function () {
 
     //admin messaging
     Route::prefix('messages')->group(function () {
-        Route::post('faculty', [MessagingAPI::class, 'facultyMessage']);
-        Route::post('course', [MessagingAPI::class, 'courseMessage']);
+        Route::post('faculty', [MessagingController::class, 'facultyMessage']);
+        Route::post('course', [MessagingController::class, 'courseMessage']);
     });
 });
 // -- Admin end ----

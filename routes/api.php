@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\learningAPI;
-use App\Http\Controllers\MessagingAPI;
+use App\Http\Controllers\MessagingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,10 +30,8 @@ Route::prefix('learning')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
-    Route::post('send', [MessagingAPI::class, 'postMessage']);
 });
 
 Route::prefix('user')->group(function () {
-
 });
 
