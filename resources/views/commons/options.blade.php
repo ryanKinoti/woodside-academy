@@ -43,7 +43,7 @@
             <li class="list__item">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-1')"
                    style="cursor: pointer">
-                    Message a Faculty
+                    Message an Academy
                 </a>
             </li>
             <li class="list__item">
@@ -55,19 +55,19 @@
             <li class="list__item">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-3')"
                    style="cursor: pointer">
-                    Message all Staff
+                    Message all Staff of an Academy
                 </a>
             </li>
             <li class="list__item">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-4')"
                    style="cursor: pointer">
-                    Message all Lecturers
+                    Message all Lecturers of a Course
                 </a>
             </li>
             <li class="list__item">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-5')"
                    style="cursor: pointer">
-                    Message all Students
+                    Message all Students of a Course
                 </a>
             </li>
         </ul>

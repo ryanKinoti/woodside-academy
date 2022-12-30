@@ -2,7 +2,7 @@
 
     <div class="title__card flex">
         <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
-            FACULTY MESSAGING
+            ACADEMY MESSAGING
         </h1>
 
         <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Course Messaging"
@@ -44,7 +44,7 @@
                 <div class="message__container" id="faculty{{$counter}}">
                     <div class="message__history my-space-0.3 p-space-0.2">
                         <h1>
-                            Message to {{$item->faculty_name}}
+                            Recent Messages to {{$item->faculty_name}}
                         </h1>
                     </div>
 
@@ -83,7 +83,7 @@
 <section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-3-2">
 
     <div class="title__card flex">
-        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Faculty Messaging"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Academy Messaging"
            onclick="switchcommon(event, 'main-3-1')"
            style="cursor: pointer">
             <i class="uil uil-arrow-left text-brown text-[30px]"></i>
@@ -132,7 +132,7 @@
                 <div class="message__container" id="course{{ $counter }}">
                     <div class="message__history my-space-0.3 p-space-0.2">
                         <h1>
-                            Message to: {{$item->course_name}}
+                            Recent Messages to: {{$item->course_name}}
                         </h1>
                     </div>
 

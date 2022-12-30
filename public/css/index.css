@@ -4,6 +4,7 @@
 @import "options.css";
 @import "tables.css";
 @import "messaging.css";
+@import "settings.css";
 
 * {
     padding: 0;
