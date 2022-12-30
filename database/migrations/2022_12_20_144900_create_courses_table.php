@@ -17,6 +17,9 @@ return new class extends Migration {
             $table->id();
             $table->bigInteger('faculty_id')->unsigned()->nullable();
             $table->string('course_name');
+            $table->string('course_years_duration');
+            $table->integer('number_of_semesters');
+            $table->enum('course_status', ['closed', 'open'])->default('closed');
             $table->timestamps();
 
             //relationships

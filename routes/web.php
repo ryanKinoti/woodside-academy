@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Routing;
@@ -23,14 +24,17 @@ Route::get('/', function () {
     return view('index');
 })->name('/');
 
+
+// -- Login and Logout start ----
 Route::prefix("login")->group(function () {
     Route::get('/', function () {
         return view('login');
     })->name('login-page');
     Route::post('/validation', [AuthController::class, 'login']);
 });
-
 Route::get('logout', [AuthController::class, 'logout']);
+// -- Login Logout end ----
+
 
 // -- Applications and Registration start ----
 Route::prefix("applications")->group(function () {
@@ -97,6 +101,14 @@ Route::prefix("admin")->group(function () {
         Route::post('all-staff', [MessagingController::class, 'allStaffMessage']);
         Route::post('all-lecturers', [MessagingController::class, 'allLecturersMessage']);
         Route::post('all-students', [MessagingController::class, 'allStudentsMessage']);
+    });
+
+    //admin educative-actions
+    Route::prefix('education')->group(function () {
+        Route::post('add-unit', [EducationController::class, 'addUnit']);
+        Route::post('add-course', [EducationController::class, 'addCourse']);
+        Route::post('open-status', [EducationController::class, 'openStatus']);
+        Route::post('close-status', [EducationController::class, 'closeStatus']);
     });
 });
 // -- Admin end ----

@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -13,20 +12,20 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('units', function (Blueprint $table) {
+        Schema::create('course_material', function (Blueprint $table) {
             $table->id();
+            $table->enum('course_year', ['1', '2', '3', '4']);
             $table->bigInteger('course_id')->unsigned();
-            $table->string('unit_name');
-            $table->enum('unit_year', ['1', '2', '3', '4']);
-            $table->enum('unit_semester', ['first', 'second']);
-            $table->enum('unit_status', ['closed', 'available'])->default('closed');
+            $table->bigInteger('lecturer_id')->unsigned();
+            $table->string('file');
+            $table->string('file_name');
+            $table->string('file_type');
             $table->timestamps();
 
             //relationships
-            $table->foreign("course_id")->references("id")->on("courses");
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->foreign('lecturer_id')->references('id')->on('users');
         });
-
-        DB::update("ALTER TABLE units AUTO_INCREMENT=80001; ");
     }
 
     /**
@@ -36,6 +35,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('units');
+        Schema::dropIfExists('course_material');
     }
 };

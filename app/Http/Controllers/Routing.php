@@ -6,6 +6,7 @@ use App\Charts\ApplicationsChart;
 use App\Models\Application;
 use App\Models\Course;
 use App\Models\Faculty;
+use App\Models\Unit;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,7 @@ class Routing extends Controller
             $staff = Application::all()->where('roles', '=', 'staff');
             $faculties = Faculty::all();
             $courses = Course::all();
+            $units = Unit::all();
 
             //obtaining user data to make it more personalized
             $userInfo = User::all()
@@ -38,6 +40,7 @@ class Routing extends Controller
                     "userInfo" => $userInfo,
                     'faculties' => $faculties,
                     'courses' => $courses,
+                    'units' => $units,
                 ]);
         }
     }

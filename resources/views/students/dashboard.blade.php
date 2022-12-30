@@ -10,7 +10,7 @@
     <div class="text-brown text-xl p-space-0.1 ">
         STUDENT DASHBOARD: {{session('firstName')}} {{session('lastName')}}
         <span>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'notification')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'notifications')"
                style="cursor: pointer">
                 <i class="uil uil-bell text-[30px] text-brown"></i>
             </a>
@@ -51,7 +51,13 @@
     @include('commons.userProfile')
     @include('commons.options')
     @include('commons.settings')
+    @include('commons.notifications')
 
+    {{--
+    loading:
+    1. respective pages dependent on the user
+    --}}
+    @include('actions.students.materials')
 </div>
 
 <x-footerTag></x-footerTag>

@@ -53,6 +53,7 @@
     @include('commons.userProfile')
     @include('commons.options')
     @include('commons.settings')
+    @include('commons.notifications')
 
     {{--
     loading:

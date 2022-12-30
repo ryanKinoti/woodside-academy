@@ -13,19 +13,9 @@
             </a>
         </li>
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'coursework-material')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'coursework-materials')"
                style="cursor: pointer">
                 Coursework Material
-            </a>
-        </li>
-        <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'coursework-marks')" style="cursor: pointer">
-                Coursework Marks
-            </a>
-        </li>
-        <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'student-attendance')" style="cursor: pointer">
-                Student Attendance
             </a>
         </li>
         <li>

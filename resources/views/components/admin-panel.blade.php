@@ -1,7 +1,8 @@
 <div class="sidebar-menu">
     <ul>
         <li>
-            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-1')" style="cursor: pointer">
+            <a class="p-space-0.1 tablinks" id="defaultOpen" onclick="switchcommon(event, 'main-1')"
+               style="cursor: pointer">
                 My Dashboard
             </a>
         </li>
@@ -18,12 +19,7 @@
         </li>
         <li>
             <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4')" style="cursor: pointer">
-                Faculty/Course Settings
-            </a>
-        </li>
-        <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-5')" style="cursor: pointer">
-                Group/Class Settings
+                Course/Unit Settings
             </a>
         </li>
         <li>

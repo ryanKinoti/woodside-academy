@@ -1,3 +1,20 @@
+{{--common settings--}}
+<section
+    class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
+    id="settings">
+    <div class="secondary__navigation__container">
+
+        <ul class="secondary__navigation">
+            <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'profile-picture')"
+                   style="cursor: pointer">
+                    Add/Edit Profile Picture
+                </a>
+            </li>
+        </ul>
+
+    </div>
+</section>
 {{--
     administrator sections:
     1. main-2 - choose which applications to access
@@ -85,12 +102,6 @@
             <li class="list__item">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4-1')"
                    style="cursor: pointer">
-                    Faculty Settings
-                </a>
-            </li>
-            <li class="list__item">
-                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4-2')"
-                   style="cursor: pointer">
                     Course Settings
                 </a>
             </li>
@@ -105,17 +116,39 @@
     </div>
 </section>
 
-{{--common settings--}}
+{{--
+    student sections:
+    1. materials-- - choose which year to access respective course materials
+    --}}
 <section
     class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
-    id="settings">
+    id="materials">
     <div class="secondary__navigation__container">
 
         <ul class="secondary__navigation">
             <li class="list__item">
-                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'profile-picture')"
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'materials-1')"
                    style="cursor: pointer">
-                    Add/Edit Profile Picture
+                    YEAR 1
+                </a>
+            </li>
+            <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'materials-2')"
+                   style="cursor: pointer">
+                    YEAR 2
+                </a>
+            </li>
+            <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'materials-2')"
+                   style="cursor: pointer">
+                    YEAR 3
+                </a>
+            </li>
+
+            <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'materials-2')"
+                   style="cursor: pointer">
+                    YEAR 4
                 </a>
             </li>
         </ul>
