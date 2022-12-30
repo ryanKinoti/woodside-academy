@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <x-header-tag></x-header-tag>
+    <title>Login | Woodside Academy</title>
+    <x-headerTag></x-headerTag>
 </head>
 <body class="bg-gradient-to-r from-blue to-gray-op">
 <x-register-header></x-register-header>
 <section>
     <div class="m-auto p-space-0.5 text-center">
+
         @if($errors->any())
             <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
                 style="font-family: 'Outfit',sans-serif; font-size: 35px;" id="hideMe">
@@ -19,22 +21,28 @@
                 </script>
             </h3>
         @endif
+
         <form action="/login/validation" method="POST" class="grid items-center">
             @csrf
+            <div class="login-form-container">
+                <div class="login__form">
+                    <div class="login__header">
+                        <h1 id='login__title'>Welcome to Woodside Academy</h1>
+                    </div>
+                    <div class="form-box">
+                        <input type="email" placeholder="Email" name="email">
+                        <input type="password" placeholder="Password" name="password">
+                        <button id="login-btn" type="submit">Login</button>
+                        <p id="reset-pass">Forgot Password? <a href="#">Reset Password</a></p>
+                        <p id="reset-pass">Don't have an account?<a href="#"> Register Here</a></p>
+                    </div>
+                </div>
 
-            <span class="my-space-0.2">
-                <label for="email">Email :</label>
-                <input type="text" name="email" id="email" required>
-            </span>
-
-            <span class="my-space-0.2">
-                <label for="password">Password :</label>
-                <input type="password" name="password" id="password" required>
-            </span>
-
-            <div class="my-space-0.2">
-                <button type="submit">Login Now</button>
+                <div class="login__image">
+                    <img src="../images/LOGO.jpg" alt="">
+                </div>
             </div>
+
         </form>
     </div>
 </section>

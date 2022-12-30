@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -31,6 +32,8 @@ class UserSeeder extends Seeder
                     'gender' => 'Male',
                     'country' => 'Britain',
                     'city' => 'London',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
                 [
                     'user_role' => 'staff',
@@ -42,8 +45,10 @@ class UserSeeder extends Seeder
                     'email' => 'alaya@gmail.com',
                     'password' => Hash::make('alaya@123'),
                     'gender' => 'Female',
-                    'country' => 'Britain',
-                    'city' => 'London',
+                    'country' => 'Florida',
+                    'city' => 'USA',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
                 [
                     'user_role' => 'lecturer',
@@ -55,8 +60,25 @@ class UserSeeder extends Seeder
                     'email' => 'vahn@gmail.com',
                     'password' => Hash::make('vahn@123'),
                     'gender' => 'Male',
-                    'country' => 'Britain',
-                    'city' => 'London',
+                    'country' => 'Tokyo',
+                    'city' => 'Japan',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ],
+                [
+                    'user_role' => 'student',
+                    'firstName' => 'Sol',
+                    'secondName' => 'Dragona',
+                    'lastName' => 'Luxuria',
+                    'id_number' => '62423',
+                    'phoneNumber' => '0799887766',
+                    'email' => 'sol@gmail.com',
+                    'password' => Hash::make('sol@123'),
+                    'gender' => 'Male',
+                    'country' => 'Cairo',
+                    'city' => 'Egypt',
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
                 ],
             ]);
     }

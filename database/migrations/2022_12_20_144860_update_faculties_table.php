@@ -18,13 +18,10 @@ return new class extends Migration
 
             $table->bigInteger('examination_id')->unsigned()->nullable();
             $table->bigInteger('communications_id')->unsigned()->nullable();
-            $table->bigInteger('department_id')->unsigned()->nullable();
             $table->timestamps();
 
             //relationships
             $table->foreign('examination_id')->references('id')->on('examinations');
-            $table->foreign('communications_id')->references('id')->on('communications');
-            $table->foreign('department_id')->references('id')->on('departments');
         });
     }
 

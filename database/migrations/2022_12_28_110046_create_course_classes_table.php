@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -14,12 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('parents', function (Blueprint $table) {
+        Schema::create('course_classes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
         });
-
-        DB::update("ALTER TABLE parents AUTO_INCREMENT=90001; ");
     }
 
     /**
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('parents');
+        Schema::dropIfExists('course_classes');
     }
 };

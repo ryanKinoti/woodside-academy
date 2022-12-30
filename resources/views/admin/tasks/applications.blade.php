@@ -1,28 +1,160 @@
 @php
     use Illuminate\Support\Facades\DB;
 @endphp
-<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-2">
 
-    <div class="title_card">
-        <div style="width: fit-content">
-            <h1>
-                STUDENT APPLICATIONS
-            </h1>
-        </div>
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-2-1">
+    <div class="title__card flex">
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
+            STAFF APPLICATIONS
+        </h1>
+
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Lecturer's Application"
+           onclick="switchcommon(event, 'main-2-2')"
+           style="cursor: pointer">
+            <i class="uil uil-arrow-right text-brown text-[30px]"></i>
+        </a>
     </div>
 
     <div class="content">
         <table>
             <tr class="thead">
-                <td><u>First Name</u></td>
-                <td><u>Last Name</u></td>
-                <td><u>Phone Number</u></td>
-                <td><u>Email</u></td>
-                <td><u>Gender</u></td>
-                <td><u>Course Applied</u></td>
-                <td><u>Application Status</u></td>
-                <td><u>Action</u></td>
+                <td><h1>First Name</h1></td>
+                <td><h1>Last Name</h1></td>
+                <td><h1>Phone Number</h1></td>
+                <td><h1>Email</h1></td>
+                <td><h1>Gender</h1></td>
+                <td><h1>Faculty Applied</h1></td>
+                <td><h1>Application Status</h1></td>
+                <td><h1>Action</h1></td>
+            </tr>
+
+            @foreach($staffs as $staff)
+                <tr class="tbody">
+                    @php
+                        $facultyname = DB::table('faculties')->where('id', $staff->faculty_id)->get('faculty_name')->first()->faculty_name;
+                        $status = DB::table('application_states')
+                            ->selectRaw('application_states.status as status')
+                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
+                            ->where('applications.id',$staff->id)
+                            ->get()
+                            ->first();
+                    @endphp
+                    <td>{{$staff->first_name}}</td>
+                    <td>{{$staff->last_name}}</td>
+                    <td>{{$staff->phone_number}}</td>
+                    <td>{{$staff->email }}</td>
+                    <td>{{$staff->gender}}</td>
+                    <td>{{$facultyname}}</td>
+                    <td>{{$status->status}}</td>
+                    <td>
+                        <form action="/admin/emailing/staff-email" method="post">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{$staff->id}}">
+                            <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">
+                            <button type="submit">Send Confirmation</button>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+
+        </table>
+    </div>
+
+</section>
+
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-2-2">
+    <div class="title_card flex">
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Staff's Applications"
+           onclick="switchcommon(event, 'main-2-1')"
+           style="cursor: pointer">
+            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
+        </a>
+
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
+            LECTURER APPLICATIONS
+        </h1>
+
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Students' Application"
+           onclick="switchcommon(event, 'main-2-3')"
+           style="cursor: pointer">
+            <i class="uil uil-arrow-right text-brown text-[30px]"></i>
+        </a>
+    </div>
+
+    <div class="content">
+        <table>
+            <tr class="thead">
+                <td><h1>First Name</h1></td>
+                <td><h1>Last Name</h1></td>
+                <td><h1>Phone Number</h1></td>
+                <td><h1>Email</h1></td>
+                <td><h1>Gender</h1></td>
+                <td><h1>Course Applied</h1></td>
+                <td><h1>Application Status</h1></td>
+                <td><h1>Action</h1></td>
+            </tr>
+
+            @foreach($lecturers as $lecturer)
+                <tr class="tbody">
+                    @php
+                        $coursename = DB::table('courses')
+                        ->where('id',$lecturer->course_id)->get('course_name')->first()->course_name;
+                        $status = DB::table('application_states')
+                            ->selectRaw('application_states.status as status')
+                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
+                            ->where('applications.id',$lecturer->id)
+                            ->get()
+                            ->first();
+                    @endphp
+                    <td>{{$lecturer->first_name}}</td>
+                    <td>{{$lecturer->last_name}}</td>
+                    <td>{{$lecturer->phone_number}}</td>
+                    <td>{{$lecturer->email }}</td>
+                    <td>{{$lecturer->gender}}</td>
+                    <td>{{$coursename}}</td>
+                    <td>{{$status->status}}</td>
+                    <td>
+                        <form action="/admin/emailing/lecturer-email" method="post">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{$lecturer->id}}">
+                            <input type="hidden" name="coursename" value="{{$coursename}}">
+                            <button type="submit">Send Confirmation</button>
+                        </form>
+
+                    </td>
+                </tr>
+            @endforeach
+
+        </table>
+    </div>
+
+</section>
+
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-2-3">
+    <div class="title_card flex">
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Lecturer's Application"
+           onclick="switchcommon(event, 'main-2-2')"
+           style="cursor: pointer">
+            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
+        </a>
+
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
+            STUDENT APPLICATIONS
+        </h1>
+    </div>
+
+    <div class="content">
+        <table>
+            <tr class="thead">
+                <td col-index="1"><h1>First Name</h1></td>
+                <td col-index="2"><h1>Last Name</h1></td>
+                <td col-index="3"><h1>Phone Number</h1></td>
+                <td col-index="4"><h1>Email</h1></td>
+                <td col-index="5"><h1>Gender</h1></td>
+                <td col-index="6"><h1>Course Applied</h1></td>
+                <td col-index="7"><h1>Application Status</h1></td>
+                <td><h1>Action</h1></td>
             </tr>
 
             @foreach($students as $student)
@@ -62,144 +194,4 @@
 
 </section>
 
-<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-3">
-
-    <div class="title_card">
-        <div style="width: fit-content">
-            <h1>
-                LECTURER APPLICATIONS
-            </h1>
-        </div>
-    </div>
-
-    <div class="content">
-        <table>
-            <tr class="thead">
-                <td><u>First Name</u></td>
-                <td><u>Last Name</u></td>
-                <td><u>Phone Number</u></td>
-                <td><u>Email</u></td>
-                <td><u>Gender</u></td>
-                <td><u>Course Applied</u></td>
-                <td><u>Application Status</u></td>
-                <td><u>Action</u></td>
-            </tr>
-
-            @foreach($lecturers as $lecturer)
-                <tr class="tbody">
-                    @php
-                        $coursename = DB::table('courses')
-                        ->where('id',$lecturer->course_id)->get('course_name')->first()->course_name;
-                        $status = DB::table('application_states')
-                            ->selectRaw('application_states.status as status')
-                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
-                            ->where('applications.id',$lecturer->id)
-                            ->get()
-                            ->first();
-                    @endphp
-                    <td>{{$lecturer->first_name}}</td>
-                    <td>{{$lecturer->last_name}}</td>
-                    <td>{{$lecturer->phone_number}}</td>
-                    <td>{{$lecturer->email }}</td>
-                    <td>{{$lecturer->gender}}</td>
-                    <td>{{$coursename}}</td>
-                    <td>{{$status->status}}</td>
-                    <td>
-                        <form action="/admin/emailing/lecturer-email" method="post">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{$lecturer->id}}">
-                            <input type="hidden" name="coursename" value="{{$coursename}}">
-                            <button type="submit">Send Confirmation</button>
-                        </form>
-
-                    </td>
-                </tr>
-            @endforeach
-
-        </table>
-    </div>
-
-</section>
-
-<section class="tabcontent mr-[10px] ml-[17%] my-space-0.3 w-v-w h-v-h p-space-0.3 bg-green-op-2 rounded-xl"
-         id="main-4">
-
-    <div class="title_card">
-        <div style="width: fit-content">
-            <h1>
-                STAFF APPLICATIONS
-            </h1>
-        </div>
-    </div>
-
-    <div class="content">
-        <table>
-            <tr class="thead">
-                <td><u>First Name</u></td>
-                <td><u>Last Name</u></td>
-                <td><u>Phone Number</u></td>
-                <td><u>Email</u></td>
-                <td><u>Gender</u></td>
-                <td><u>Course Applied</u></td>
-                <td><u>Application Status</u></td>
-                <td><u>Action</u></td>
-            </tr>
-
-            @foreach($staffs as $staff)
-                <tr class="tbody">
-                    @php
-                        $facultyname = DB::table('faculties')->where('id', $staff->faculty_id)->get('faculty_name')->first()->faculty_name;
-                        $status = DB::table('application_states')
-                            ->selectRaw('application_states.status as status')
-                            ->join('applications', 'application_states.application_id', '=', 'applications.id')
-                            ->where('applications.id',$staff->id)
-                            ->get()
-                            ->first();
-                    @endphp
-                    <td>{{$staff->first_name}}</td>
-                    <td>{{$staff->last_name}}</td>
-                    <td>{{$staff->phone_number}}</td>
-                    <td>{{$staff->email }}</td>
-                    <td>{{$staff->gender}}</td>
-                    <td>{{$facultyname}}</td>
-                    <td>{{$status->status}}</td>
-                    <td>
-                        <form action="/admin/emailing/staff-email" method="post">
-                            @csrf
-                            <input type="hidden" name="user_id" value="{{$staff->id}}">
-                            <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">
-                            <button type="submit">Send Confirmation</button>
-                        </form>
-
-                    </td>
-                </tr>
-            @endforeach
-
-        </table>
-    </div>
-
-</section>
-
-<style>
-    table {
-        padding: 10px;
-        text-indent: 0;
-        border-color: inherit;
-        border-collapse: collapse;
-    }
-
-    .thead {
-        border-collapse: separate;
-        border-spacing: 0 15px;
-        border-radius: 10px;
-    }
-
-    .thead td, .tbody td {
-        color: #4a271d;
-        width: fit-content;
-        text-align: center;
-        padding: 15px;
-        border: 2px solid whitesmoke;
-    }
-</style>
+<style> @import "{{asset('css/tables.css')}}"; </style>

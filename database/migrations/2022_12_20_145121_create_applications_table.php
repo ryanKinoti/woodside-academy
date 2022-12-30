@@ -31,7 +31,7 @@ return new class extends Migration {
             $table->foreign("course_id")->references("id")->on("courses");
         });
 
-        DB::update("ALTER TABLE applications AUTO_INCREMENT=80001; ");
+        DB::update("ALTER TABLE applications AUTO_INCREMENT=90001; ");
     }
 
     /**

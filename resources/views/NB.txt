@@ -10,3 +10,7 @@ you are working on
 
 5. you might find i have done the same in a few more pages that already exist
 6. corresponding tags have their own file hence you can view them in the components folder
+
+<
+Do not mind what is in these brackets
+>

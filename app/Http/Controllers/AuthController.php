@@ -6,13 +6,10 @@ use App\Models\Application;
 use App\Models\ApplicationState;
 use App\Models\Course;
 use App\Models\Faculty;
-use App\Models\User;
 use App\Models\UserLogins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use function PHPUnit\Framework\isEmpty;
-use function PHPUnit\Framework\isNull;
 
 class AuthController extends Controller
 {
@@ -123,6 +120,12 @@ class AuthController extends Controller
 
             if ($selectRole == 'admin') {
                 return redirect()->intended('/admin');
+            } elseif ($selectRole == 'staff') {
+                return redirect()->intended('/staff');
+            } elseif ($selectRole == 'lecturer') {
+                return redirect()->intended('/lecturer');
+            } elseif ($selectRole == 'student') {
+                return redirect()->intended('/student');
             } else {
                 return redirect()->intended('/');
             }
