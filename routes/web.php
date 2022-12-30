@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MessagingAPI;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\Routing;
 use App\Http\Controllers\UserController;
@@ -88,11 +89,17 @@ Route::prefix("admin")->group(function () {
         Route::post('lecturer-email', [ApplicationsController::class, 'lecturerApplications']);
         Route::post('staff-email', [ApplicationsController::class, 'staffApplications']);
     });
+
+    //admin messaging
+    Route::prefix('messages')->group(function () {
+        Route::post('faculty', [MessagingAPI::class, 'facultyMessage']);
+        Route::post('course', [MessagingAPI::class, 'courseMessage']);
+    });
 });
 // -- Admin end ----
 
 // -- Settings start ----
-Route::prefix('images')->group(function (){
+Route::prefix('images')->group(function () {
     Route::prefix('profile')->group(function () {
 //        Route::get('set-image', [UserController::class, 'imageSettings']);
         Route::post('set-image', [UserController::class, 'addImage']);

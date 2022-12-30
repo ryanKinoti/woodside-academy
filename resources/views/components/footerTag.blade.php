@@ -53,7 +53,7 @@
         const liElements = document.querySelectorAll('.message__navigation .message__list li');
 
         // Hide all elements in the message__area initially
-        document.querySelectorAll('.message__area .message__history').forEach((el) => {
+        document.querySelectorAll('.message__area .message__container').forEach((el) => {
             el.style.display = 'none';
         });
         // Add a click event listener to each li element
@@ -61,23 +61,21 @@
             li.addEventListener('click', () => {
 
                 // Get the index of the li element from the data attribute
-                const index = li.getAttribute('data-index');
+                // const index = li.getAttribute('data-index');
 
                 // Get the corresponding element in the second loop
-                const correspondingElement = document.querySelector(`.message__area .message__history:nth-child(${index})`);
+                // const correspondingElement = document.querySelector(`.message__area .message__container`).getAttribute(index);
+
+                const id = li.getAttribute('id');
+                const correspondingElement = document.querySelector(`.message__area .message__container#${id}`);
+
 
                 // Show the corresponding element and hide the other elements
                 correspondingElement.style.display = 'block';
-                document.querySelectorAll(`.message__area .message__history:not(:nth-child(${index}))`).forEach((el) => {
+                document.querySelectorAll(`.message__area .message__container:not(#${id})`).forEach((el) => {
                     el.style.display = 'none';
                 });
             });
         });
     });
 </script>
-
-
-
-
-
-

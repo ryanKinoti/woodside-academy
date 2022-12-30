@@ -3,7 +3,7 @@
 @import "login.css";
 @import "options.css";
 @import "tables.css";
-@import "communications.css";
+@import "messaging.css";
 
 * {
     padding: 0;
@@ -13,6 +13,6 @@
     text-decoration: none;
 }
 
-input[type="email"], input[type="password"] {
+input[type="email"], input[type="password"], input[type="text"] {
     text-align: center;
 }
