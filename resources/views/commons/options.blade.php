@@ -47,25 +47,25 @@
                 </a>
             </li>
             <li class="list__item">
-                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-1')"
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-2')"
                    style="cursor: pointer">
                     Message a Course
                 </a>
             </li>
             <li class="list__item">
-                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-2')"
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-3')"
                    style="cursor: pointer">
                     Message all Staff
                 </a>
             </li>
             <li class="list__item">
-                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-3')"
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-4')"
                    style="cursor: pointer">
                     Message all Lecturers
                 </a>
             </li>
             <li class="list__item">
-                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-1')"
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-5')"
                    style="cursor: pointer">
                     Message all Students
                 </a>
@@ -105,7 +105,7 @@
     </div>
 </section>
 
-{{--settings--}}
+{{--common settings--}}
 <section
     class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"
     id="settings">

@@ -59,7 +59,7 @@
     1. respective pages dependent on the user
     --}}
     @include('admin.tasks.applications')
-    @include('admin.tasks.communications')
+    @include('admin.tasks.messaging.faculty-messaging')
     @include('admin.tasks.course-actions')
 
 </div>

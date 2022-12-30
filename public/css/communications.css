@@ -1,146 +1,78 @@
-.message__container {
-    flex-wrap: wrap;
+.message__card {
+    padding: 10px;
     margin: 30px 0;
     border-radius: 10px;
     border: 2px solid #084C61;
 }
 
-/*css for the messaging navigation*/
+/*styling the messaging navigation*/
 .message__navigation {
-    height: 100% !important;
-    max-width: 100%;
     width: 30%;
-    margin: 0 20px;
+    margin: 0 5px 0 20px;
     padding: 10px;
-    display: flex!important;
-    flex-direction: column;
+    border-radius: 10px 0 0 10px;
+    border: 2px solid #084C61;
+    background-color: rgba(8, 76, 97, .5);
+}
+
+.message__header {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-evenly;
+    color: #E7A164;
+    border-bottom: 1px solid black;
+    padding: 10px;
+    margin: 10px 0;
+    font-weight: bold;
 }
 
 .message__search {
-    position: relative;
-    flex: 0 0 auto;
-    width: auto;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    border: 1px solid #084C61;
-    /*border-radius: 5px;*/
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    margin: 10px 0;
+    border-bottom: 1px solid black;
 }
 
-.search__container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    width: 100%;
-}
-
-.search__container input {
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    min-width: 0;
-    margin: 0;
-    display: block;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
+.message__search input {
+    background-image: url("../icons/search.png");
+    background-position: 10px 12px;
+    background-repeat: no-repeat;
     background-color: rgba(155, 165, 156, 2);
-    border: 1px solid rgba(155, 165, 156, 2);
-
-}
-
-[type=search] {
-    outline-offset: -2px;
-}
-
-.search__container input {
-    z-index: 100;
-    position: relative;
-    cursor: pointer;
-    background-color: transparent;
-    display: inline-block;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-    user-select: none;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border-radius: .25rem;
-}
-
-.message__listing {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: rgba(155, 165, 156, 2);
-    background-clip: border-box;
-    border: 1px solid #084C61;
-    /*border-radius: 5px;*/
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
-}
-
-.listing__title {
-    padding: .25rem 1rem;
     width: 100%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
 }
 
-.listing__title h3 {
-    margin-bottom: .5rem;
-    font-size: 1.25rem;
-    margin-top: 0;
-    font-weight: 500;
-    line-height: 1.2;
-    word-wrap: break-word;
+.message__list{
+    margin: 10px 0;
+    list-style-type: none;
+    border-bottom: 1px solid black;
 }
 
-.listing__container {
-    border-radius: 0;
-    overflow: auto !important;
-    flex: 1 1 auto;
-    padding: 1rem;
-    word-wrap: break-word;
+.message__list .message__item a{
+    border: 1px solid #ddd; /* Add a border to all links */
+    margin-top: -1px; /* Prevent double borders */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove default text underline */
+    font-size: 18px; /* Increase the font-size */
+    color: black; /* Add a black text color */
+    display: block; /* Make it into a block element to fill the whole list */
 }
 
-.listing__content {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    border-radius: 5px;
-    word-wrap: break-word;
-    background: #084C61;
+.message__list .message__item a:hover:not(.header){
+    /* Add a hover effect to all links, except for headers */
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    background-color: #E7A164;
+    color: white;
 }
 
-.listing__content a {
-    position: relative;
-    display: block;
-    padding: .5rem 1rem;
-    text-decoration: none;
-    /*background: #084C61;*/
-    color: #E7A164;
-    border: 1px solid rgba(0, 0, 0, .25);
-    width: 100%;
-    text-align: inherit;
-}
-
-/*css for the messaging area*/
-.message__zone {
-    height: 100%;
-    max-width: 100%;
+/*styling the messaging area*/
+.message__area {
     width: 70%;
-    margin: 0 20px;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: auto;
+    margin: 0 20px 0 5px;
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    border: 2px solid #084C61;
+    background-color: rgba(8, 76, 97, .5);
 }
+
