@@ -69,33 +69,34 @@
 
         <div class="settings__editing">
             <div class="editing__header">
-                <h2>Create New Unit</h2>
+                <h2>Create New Course</h2>
             </div>
 
             <div class="editing__container">
-                <form action="/admin/education/add-unit" method="post">
+                <form action="/admin/education/add-course" method="post">
                     @csrf
                     <div class="settings__context">
-                        <label for="courses">Select Associated Course:</label>
-                        <select name="course_id" id="courses">
-                            @foreach($courses as $course)
-                                <option value="{{$course->id}}">{{$course->course_name}}</option>
+                        <label for="courses">Select Associated Faculty:</label>
+                        <select name="faculty_id" id="courses">
+                            @foreach($faculties as $faculty)
+                                <option value="{{$faculty->id}}">{{$faculty->faculty_name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="settings__context">
-                        <label for="name">Unit Name:</label>
-                        <input type="text" name="unit_name" id="name">
+                        <label for="name">Course Name:</label>
+                        <input type="text" name="course_name" id="name">
                     </div>
                     <div class="settings__context">
-                        <label for="year">Unit Year:</label>
-                        <input type="text" name="unit_year" id="year">
+                        <label for="year">Course Duration:</label>
+                        <input type="text" name="course_years_duration" id="year">
                     </div>
                     <div class="settings__context">
-                        <label for="semester">Unit Semester:</label>
-                        <select name="unit_semester" id="semester">
-                            <option value="first">First Semester</option>
-                            <option value="second">Second Semester</option>
+                        <label for="number">Number of Semesters:</label>
+                        <select name="number_of_semesters" id="number">
+                            <option value="1">One Semester</option>
+                            <option value="2">Two Semesters</option>
+                            <option value="3">Three Semesters</option>
                         </select>
                     </div>
 

@@ -106,6 +106,7 @@ Route::prefix("admin")->group(function () {
     //admin educative-actions
     Route::prefix('education')->group(function () {
         Route::post('add-unit', [EducationController::class, 'addUnit']);
+        Route::post('add-course', [EducationController::class, 'addCourse']);
         Route::post('open-status', [EducationController::class, 'openStatus']);
         Route::post('close-status', [EducationController::class, 'closeStatus']);
     });

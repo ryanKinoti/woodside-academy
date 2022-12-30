@@ -43,6 +43,8 @@
 
 .editing__container .settings__context {
     margin: 20px 0;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .editing__container .settings__context label,
@@ -56,6 +58,10 @@
 
 .editing__container .settings__context select {
     width: 45%;
+}
+
+.editing__container .settings__context input {
+    width: 35%;
 }
 
 .editing__container .settings__context input {

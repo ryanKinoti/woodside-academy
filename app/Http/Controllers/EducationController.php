@@ -25,6 +25,21 @@ class EducationController extends Controller
         return redirect("/admin")->withErrors(['msg' => "new unit added successfully"]);
     }
 
+    public function addCourse(Request $request)
+    {
+        //retrieving all data
+        $data = $request->all();
+        $newCourse = new Course();
+
+        $newCourse->faculty_id = $data['faculty_id'];
+        $newCourse->course_name = $data['course_name'];
+        $newCourse->course_years_duration = $data['course_years_duration'];
+        $newCourse->number_of_semesters = $data['number_of_semesters'];
+
+        $newCourse->save();
+        return redirect("/admin")->withErrors(['msg' => "new course added successfully"]);
+    }
+
     public function openStatus(Request $request)
     {
         $data = $request->all();
