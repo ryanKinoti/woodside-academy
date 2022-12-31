@@ -193,7 +193,7 @@
                         <label for="courses">Select Associated Course:</label>
                         <select name="course_id" id="courses">
                             @foreach($courses as $course)
-                                <option value="{{$course->id}}">{{$course->course_name}}</option>
+                                <option value="{{$course->id}}">{{$course->abbreviation}}</option>
                             @endforeach
                         </select>
                     </div>

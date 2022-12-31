@@ -99,7 +99,7 @@
                 <tr class="tbody">
                     @php
                         $coursename = DB::table('courses')
-                        ->where('id',$lecturer->course_id)->get('course_name')->first()->course_name;
+                        ->where('id',$lecturer->course_id)->get('abbreviation')->first()->abbreviation;
                         $status = DB::table('application_states')
                             ->selectRaw('application_states.status as status')
                             ->join('applications', 'application_states.application_id', '=', 'applications.id')
@@ -161,7 +161,7 @@
                 <tr class="tbody">
                     @php
                         $coursename = DB::table('courses')
-                        ->where('id',$student->course_id)->get('course_name')->first()->course_name;
+                        ->where('id',$student->course_id)->get('abbreviation')->first()->abbreviation;
 
                         $status = DB::table('application_states')
                             ->selectRaw('application_states.status as status')
