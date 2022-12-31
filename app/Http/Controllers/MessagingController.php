@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AdminMessage;
+use App\Models\Message;
+use App\Models\MessageLogs;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,39 +15,54 @@ class MessagingController extends Controller
     {
         // Retrieve the form input data
         $data = $request->all();
-        $adminMessage = new AdminMessage();
+        $adminMessage = new Message();
 
         $adminMessage->from_user_id = $data['from_user_id'];
         $adminMessage->to_faculty_id = $data['to_faculty_id'];
         $adminMessage->title = $data['title'];
         $adminMessage->message_content = $data['message_content'];
 
-        $adminMessage->save();
+        if ($adminMessage->save()) {
+            $logs = new MessageLogs();
+            $lastID = DB::getPdo()->lastInsertId();
+            $message_entry = DB::table('messages')->find($lastID);
 
-        return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+            $logs->message_id = $message_entry->id;
+
+            $logs->save();
+            return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+        }
+
     }
 
     public function courseMessage(Request $request)
     {
         // Retrieve the form input data
         $data = $request->all();
-        $adminMessage = new AdminMessage();
+        $adminMessage = new Message();
 
         $adminMessage->from_user_id = $data['from_user_id'];
         $adminMessage->to_course_id = $data['to_course_id'];
         $adminMessage->title = $data['title'];
         $adminMessage->message_content = $data['message_content'];
 
-        $adminMessage->save();
+        if ($adminMessage->save()) {
+            $logs = new MessageLogs();
+            $lastID = DB::getPdo()->lastInsertId();
+            $message_entry = DB::table('messages')->find($lastID);
 
-        return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+            $logs->message_id = $message_entry->id;
+
+            $logs->save();
+            return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+        }
     }
 
     public function allStaffMessage(Request $request)
     {
         // Retrieve the form input data
         $data = $request->all();
-        $adminMessage = new AdminMessage();
+        $adminMessage = new Message();
 
         $adminMessage->from_user_id = $data['from_user_id'];
         $adminMessage->to_faculty_id = $data['to_faculty_id'];
@@ -62,9 +78,15 @@ class MessagingController extends Controller
                 DB::table('users')
                     ->where('id', $user->id)
                     ->where('faculty_id', '=', $data['to_faculty_id'])
-                    ->update(['admin_message_id' => $lastID]);
+                    ->update(['message_id' => $lastID]);
             }
 
+            $logs = new MessageLogs();
+            $message_entry = DB::table('messages')->find($lastID);
+            $logs->message_id = $message_entry->id;
+            $logs->bulk_send = 'yes';
+
+            $logs->save();
             return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
         }
 
@@ -74,7 +96,7 @@ class MessagingController extends Controller
     {
         // Retrieve the form input data
         $data = $request->all();
-        $adminMessage = new AdminMessage();
+        $adminMessage = new Message();
 
         $adminMessage->from_user_id = $data['from_user_id'];
         $adminMessage->to_course_id = $data['to_course_id'];
@@ -90,9 +112,15 @@ class MessagingController extends Controller
                 DB::table('users')
                     ->where('id', $user->id)
                     ->where('course_id', '=', $data['to_course_id'])
-                    ->update(['admin_message_id' => $lastID]);
+                    ->update(['message_id' => $lastID]);
             }
 
+            $logs = new MessageLogs();
+            $message_entry = DB::table('messages')->find($lastID);
+            $logs->message_id = $message_entry->id;
+            $logs->bulk_send = 'yes';
+
+            $logs->save();
             return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
         }
     }
@@ -101,7 +129,7 @@ class MessagingController extends Controller
     {
         // Retrieve the form input data
         $data = $request->all();
-        $adminMessage = new AdminMessage();
+        $adminMessage = new Message();
 
         $adminMessage->from_user_id = $data['from_user_id'];
         $adminMessage->to_course_id = $data['to_course_id'];
@@ -117,9 +145,15 @@ class MessagingController extends Controller
                 DB::table('users')
                     ->where('id', $user->id)
                     ->where('course_id', '=', $data['to_course_id'])
-                    ->update(['admin_message_id' => $lastID]);
+                    ->update(['message_id' => $lastID]);
             }
 
+            $logs = new MessageLogs();
+            $message_entry = DB::table('messages')->find($lastID);
+            $logs->message_id = $message_entry->id;
+            $logs->bulk_send = 'yes';
+
+            $logs->save();
             return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
         }
     }

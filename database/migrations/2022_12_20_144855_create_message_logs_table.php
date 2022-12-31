@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration {
@@ -12,15 +13,16 @@ return new class extends Migration {
      */
     public function up()
     {
-        //
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('message_logs', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('message_id')->unsigned();
+            $table->enum('bulk_send', ['yes', 'no'])->default('no');
+            $table->timestamps();
 
             //relationships
-            $table->foreign("faculty_id")->references("id")->on("faculties");
-            $table->foreign("course_id")->references("id")->on("courses");
             $table->foreign('message_id')->references('id')->on('messages');
-            $table->foreign('unit_id')->references('id')->on('units');
         });
+        DB::update("ALTER TABLE message_logs AUTO_INCREMENT=60001; ");
     }
 
     /**
@@ -30,6 +32,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('message_logs');
     }
 };
