@@ -7,7 +7,11 @@
 @import "messaging.css";
 @import "settings.css";
 @import "course-actions.css";
-
+@import "communications.css";
+@import "applecturer.css";
+@import "appstudent.css";
+@import "appstaff.css";
+@import "schoolindex.css";
 * {
     padding: 0;
     margin: 0;
