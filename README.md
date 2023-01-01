@@ -7,7 +7,7 @@ and students
 
 They had the following functionalities in mind:
 
-### Common User Type Functionalities:
+### Common User Functionalities:
 - [x] Student, Lecturer, Staff Applications
 - [x] Confirmation of acceptance through mail
 - [x] Registration of above-mentioned user types
@@ -20,7 +20,11 @@ They had the following functionalities in mind:
 - [ ] Student(s) is able to view all notifications sent to them
 
 ### Leturer Functionalities
+- [x] Able to apply to teach a specific course
 - [ ] Able to submit and view course work materials
 - [ ] Able receive notifications meant for them
+
+### Staff Functionalities
+- [x] Able to apply to a specific department of an Academy(Faculty)
 
 

@@ -24,14 +24,25 @@
                 <td><h1>Email</h1></td>
                 <td><h1>Gender</h1></td>
                 <td><h1>Faculty Applied</h1></td>
+                <td><h1>Department Applied</h1></td>
                 <td><h1>Application Status</h1></td>
-                <td><h1>Action</h1></td>
+                <td><h1>Action 1</h1></td>
+                <td><h1>Action 2</h1></td>
             </tr>
 
             @foreach($staffs as $staff)
                 <tr class="tbody">
                     @php
-                        $facultyname = DB::table('faculties')->where('id', $staff->faculty_id)->get('faculty_name')->first()->faculty_name;
+                        $facultyName = DB::table('faculties')
+                        ->where('id', $staff->faculty_id)
+                        ->get('faculty_name')
+                        ->first()->faculty_name;
+
+                        $departmentName = DB::table('departments')
+                        ->where('id', $staff->department_id)
+                        ->get('department_name')
+                        ->first()->department_name;
+
                         $status = DB::table('application_states')
                             ->selectRaw('application_states.status as status')
                             ->join('applications', 'application_states.application_id', '=', 'applications.id')
@@ -44,7 +55,8 @@
                     <td>{{$staff->phone_number}}</td>
                     <td>{{$staff->email }}</td>
                     <td>{{$staff->gender}}</td>
-                    <td>{{$facultyname}}</td>
+                    <td>{{$facultyName}}</td>
+                    <td>{{$departmentName}}</td>
                     @if($status->status == 'pending')
                         <td>
                             <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
@@ -65,9 +77,22 @@
                     <td>
                         <form action="/admin/emailing/staff-email" method="post">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{$staff->id}}">
+                            <input type="hidden" name="application_id" value="{{$staff->id}}">
                             <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">
-                            <button type="submit">Send Confirmation</button>
+                            <input type="hidden" name="departmentID" value="{{$staff->department_id}}">
+                            <input type="hidden" name="status" value="accepted">
+                            <button type="submit">Accept Application</button>
+                        </form>
+
+                    </td>
+                    <td>
+                        <form action="/admin/emailing/staff-email" method="post">
+                            @csrf
+                            <input type="hidden" name="application_id" value="{{$staff->id}}">
+                            <input type="hidden" name="facultyID" value="{{$staff->faculty_id}}">
+                            <input type="hidden" name="departmentID" value="{{$staff->department_id}}">
+                            <input type="hidden" name="status" value="annulled">
+                            <button type="submit">Reject Application</button>
                         </form>
 
                     </td>
@@ -106,9 +131,11 @@
                 <td><h1>Phone Number</h1></td>
                 <td><h1>Email</h1></td>
                 <td><h1>Gender</h1></td>
+                <td><h1>Department Applied</h1></td>
                 <td><h1>Course Applied</h1></td>
                 <td><h1>Application Status</h1></td>
-                <td><h1>Action</h1></td>
+                <td><h1>Action 1</h1></td>
+                <td><h1>Action 2</h1></td>
             </tr>
 
             @foreach($lecturers as $lecturer)
@@ -118,6 +145,11 @@
                         ->where('id',$lecturer->course_id)->get('abbreviation')->first()->abbreviation;
                         $coursename = DB::table('courses')
                         ->where('id',$lecturer->course_id)->get('course_name')->first()->course_name;
+
+                        $departmentName = DB::table('departments')
+                        ->where('id', $lecturer->department_id)
+                        ->get('department_name')
+                        ->first()->department_name;
 
                         $status = DB::table('application_states')
                             ->selectRaw('application_states.status as status')
@@ -131,6 +163,7 @@
                     <td>{{$lecturer->phone_number}}</td>
                     <td>{{$lecturer->email }}</td>
                     <td>{{$lecturer->gender}}</td>
+                    <td>{{$departmentName}}</td>
                     <td>{{$abbreviation}}</td>
                     @if($status->status == 'pending')
                         <td>
@@ -152,11 +185,22 @@
                     <td>
                         <form action="/admin/emailing/lecturer-email" method="post">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{$lecturer->id}}">
-                            <input type="hidden" name="coursename" value="{{$coursename}}">
-                            <button type="submit">Send Confirmation</button>
+                            <input type="hidden" name="application_id" value="{{$lecturer->id}}">
+                            <input type="hidden" name="departmentID" value="{{$lecturer->department_id}}">
+                            <input type="hidden" name="courseID" value="{{$lecturer->course_id}}">
+                            <input type="hidden" name="status" value="accepted">
+                            <button type="submit">Accept Application</button>
                         </form>
-
+                    </td>
+                    <td>
+                        <form action="/admin/emailing/lecturer-email" method="post">
+                            @csrf
+                            <input type="hidden" name="application_id" value="{{$lecturer->id}}">
+                            <input type="hidden" name="departmentID" value="{{$lecturer->department_id}}">
+                            <input type="hidden" name="courseID" value="{{$lecturer->course_id}}">
+                            <input type="hidden" name="status" value="annulled">
+                            <button type="submit">Reject Application</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
@@ -189,7 +233,8 @@
                 <td col-index="5"><h1>Gender</h1></td>
                 <td col-index="6"><h1>Course Applied</h1></td>
                 <td col-index="7"><h1>Application Status</h1></td>
-                <td><h1>Action</h1></td>
+                <td><h1>Action 1</h1></td>
+                <td><h1>Action 2</h1></td>
             </tr>
 
             @foreach($students as $student)
@@ -233,11 +278,20 @@
                     <td>
                         <form action="/admin/emailing/student-email" method="post">
                             @csrf
-                            <input type="hidden" name="user_id" value="{{$student->id}}">
-                            <input type="hidden" name="coursename" value="{{$coursename}}">
-                            <button type="submit">Send Confirmation</button>
+                            <input type="hidden" name="application_id" value="{{$student->id}}">
+                            <input type="hidden" name="courseID" value="{{$student->course_id}}">
+                            <input type="hidden" name="status" value="accepted">
+                            <button type="submit">Accept Application</button>
                         </form>
-
+                    </td>
+                    <td>
+                        <form action="/admin/emailing/student-email" method="post">
+                            @csrf
+                            <input type="hidden" name="application_id" value="{{$student->id}}">
+                            <input type="hidden" name="courseID" value="{{$student->course_id}}">
+                            <input type="hidden" name="status" value="annulled">
+                            <button type="submit">Reject Application</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
