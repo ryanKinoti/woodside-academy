@@ -1,0 +1,60 @@
+.students-form-container{
+    display: inline-block;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    background-color: rgba(8, 76, 97, .8);
+    padding: 50px;
+    border-radius: 25px;
+    
+}
+.students-form-container input{
+    display: block;
+    padding: 2.5px 3px;
+    border-radius: 20px;
+    width: 100%;
+    border-top: 2px solid rgba(155, 165, 156, 2);
+    border-bottom: 2px solid rgba(155, 165, 156, 2);
+    margin: 10px 0;
+    background-color: rgba(155, 165, 156, 2);
+    text-align: center;
+}
+.students-form-container select{
+    display: block;
+    padding: 2.5px 3px;
+    border-radius: 20px;
+    width: 100%;
+    border-top: 2px solid rgba(155, 165, 156, 2);
+    border-bottom: 2px solid rgba(155, 165, 156, 2);
+    margin: 10px 0;
+    background-color: rgba(155, 165, 156, 2);
+    text-align: center;
+}
+.students-form-container option{
+    color: #E7A164;
+    background-color: #084C61;
+}
+.students-form-container #reg-student{
+    color: #E7A164;
+    background-color: #084C61;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0;
+}
+.student-image{
+    display: grid;
+    place-items: center;
+    padding: 3em;
+    margin-top: -440px;
+    margin-left: 500px;
+    
+}
+.student-image img {
+    width: 50vw;
+    height: 60vh;
+    border-radius: 20px;
+    
+}

@@ -1,0 +1,34 @@
+.index-image{
+    display: grid;
+    place-items: center;
+    padding: 0;
+    margin-left: 0;
+    
+}
+.index-image img {
+    width: 100vw;
+    height: 85vh;
+    border-radius: 0;
+    opacity: 0.7;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+}
+.center p{
+    position: absolute;
+    top: 210%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+}
+.h1{
+    font-size: 20px;
+}

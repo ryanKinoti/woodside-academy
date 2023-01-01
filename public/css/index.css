@@ -4,6 +4,10 @@
 @import "options.css";
 @import "tables.css";
 @import "communications.css";
+@import "applecturer.css";
+@import "appstudent.css";
+@import "appstaff.css";
+@import "schoolindex.css";
 
 * {
     padding: 0;
