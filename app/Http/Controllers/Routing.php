@@ -12,6 +12,15 @@ use Illuminate\Support\Facades\DB;
 
 class Routing extends Controller
 {
+    public function loginRoute()
+    {
+        $user = auth()->user();
+        if ($user == null) {
+            return view('login');
+        }
+        return redirect("/")->withErrors(['msg' => "you are already logged in"]);
+    }
+
     //this method is mainly for accessing user's respective dashboards and data to be accessed by them
     public function admin()
     {

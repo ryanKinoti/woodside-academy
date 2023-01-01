@@ -45,7 +45,23 @@
                     <td>{{$staff->email }}</td>
                     <td>{{$staff->gender}}</td>
                     <td>{{$facultyname}}</td>
-                    <td>{{$status->status}}</td>
+                    @if($status->status == 'pending')
+                        <td>
+                            <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'accepted')
+                        <td>
+                            <h2 class="bg-brown p-space-0.1 text-[black]">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'registered')
+                        <td>
+                            <h2 class="bg-alert-green p-space-0.1">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'annulled')
+                        <td>
+                            <h2 class="bg-gray p-space-0.1 text-[black]">{{$status->status}}</h2>
+                        </td>
+                    @endif
                     <td>
                         <form action="/admin/emailing/staff-email" method="post">
                             @csrf
@@ -98,8 +114,11 @@
             @foreach($lecturers as $lecturer)
                 <tr class="tbody">
                     @php
-                        $coursename = DB::table('courses')
+                        $abbreviation = DB::table('courses')
                         ->where('id',$lecturer->course_id)->get('abbreviation')->first()->abbreviation;
+                        $coursename = DB::table('courses')
+                        ->where('id',$lecturer->course_id)->get('course_name')->first()->course_name;
+
                         $status = DB::table('application_states')
                             ->selectRaw('application_states.status as status')
                             ->join('applications', 'application_states.application_id', '=', 'applications.id')
@@ -112,8 +131,24 @@
                     <td>{{$lecturer->phone_number}}</td>
                     <td>{{$lecturer->email }}</td>
                     <td>{{$lecturer->gender}}</td>
-                    <td>{{$coursename}}</td>
-                    <td>{{$status->status}}</td>
+                    <td>{{$abbreviation}}</td>
+                    @if($status->status == 'pending')
+                        <td>
+                            <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'accepted')
+                        <td>
+                            <h2 class="bg-brown p-space-0.1 text-[black]">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'registered')
+                        <td>
+                            <h2 class="bg-alert-green p-space-0.1">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'annulled')
+                        <td>
+                            <h2 class="bg-gray p-space-0.1 text-[black]">{{$status->status}}</h2>
+                        </td>
+                    @endif
                     <td>
                         <form action="/admin/emailing/lecturer-email" method="post">
                             @csrf
@@ -160,8 +195,10 @@
             @foreach($students as $student)
                 <tr class="tbody">
                     @php
-                        $coursename = DB::table('courses')
+                        $abbreviation = DB::table('courses')
                         ->where('id',$student->course_id)->get('abbreviation')->first()->abbreviation;
+                        $coursename = DB::table('courses')
+                        ->where('id',$student->course_id)->get('course_name')->first()->course_name;
 
                         $status = DB::table('application_states')
                             ->selectRaw('application_states.status as status')
@@ -175,8 +212,24 @@
                     <td>{{$student->phone_number}}</td>
                     <td>{{$student->email }}</td>
                     <td>{{$student->gender}}</td>
-                    <td>{{$coursename}}</td>
-                    <td>{{$status->status}}</td>
+                    <td>{{$abbreviation}}</td>
+                    @if($status->status == 'pending')
+                        <td>
+                            <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'accepted')
+                        <td>
+                            <h2 class="bg-brown p-space-0.1 text-[black]">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'registered')
+                        <td>
+                            <h2 class="bg-alert-green p-space-0.1">{{$status->status}}</h2>
+                        </td>
+                    @elseif($status->status == 'annulled')
+                        <td>
+                            <h2 class="bg-gray p-space-0.1 text-[black]">{{$status->status}}</h2>
+                        </td>
+                    @endif
                     <td>
                         <form action="/admin/emailing/student-email" method="post">
                             @csrf

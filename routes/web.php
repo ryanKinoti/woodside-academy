@@ -27,9 +27,7 @@ Route::get('/', function () {
 
 // -- Login and Logout start ----
 Route::prefix("login")->group(function () {
-    Route::get('/', function () {
-        return view('login');
-    })->name('login-page');
+    Route::get('/', [Routing::class, 'loginRoute']);
     Route::post('/validation', [AuthController::class, 'login']);
 });
 Route::get('logout', [AuthController::class, 'logout']);
@@ -48,7 +46,6 @@ Route::prefix("applications")->group(function () {
 
         //form data from user application; dependent on user choice
         Route::post('submission', [AuthController::class, 'choiceApplication']);
-        Route::post('staff-submission', [AuthController::class, 'staff_choiceApplication']);
     });
 });
 // -- Applications and Registration end ----

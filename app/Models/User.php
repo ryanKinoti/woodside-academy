@@ -31,6 +31,7 @@ class User extends Authenticatable
         'city',
         'faculty_id',
         'course_id',
+        'current_year',
     ];
 
     /**
@@ -53,4 +54,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function user()
+    {
+        return $this->hasOne('App\User');
+    }
+
 }

@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-        Schema::table('faculties', function (Blueprint $table) {
-
-            $table->bigInteger('examination_id')->unsigned()->nullable();
-            $table->bigInteger('communications_id')->unsigned()->nullable();
+        Schema::create('department_listings', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('faculty_id')->unsigned();
+            $table->bigInteger('department_id')->unsigned();
             $table->timestamps();
 
             //relationships
-            $table->foreign('examination_id')->references('id')->on('examinations');
+            $table->foreign('faculty_id')->references('id')->on('faculties');
+            $table->foreign('department_id')->references('id')->on('departments');
         });
     }
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('department_listings');
     }
 };

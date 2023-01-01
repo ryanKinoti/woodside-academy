@@ -22,7 +22,7 @@ return new class extends Migration {
             //relationships
             $table->foreign('message_id')->references('id')->on('messages');
         });
-        DB::update("ALTER TABLE message_logs AUTO_INCREMENT=60001; ");
+        DB::update("ALTER TABLE message_logs AUTO_INCREMENT=401; ");
     }
 
     /**

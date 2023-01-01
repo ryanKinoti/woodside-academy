@@ -32,7 +32,7 @@ return new class extends Migration {
             $table->foreign('to_faculty_id')->references('id')->on('faculties');
         });
 
-        DB::update("ALTER TABLE messages AUTO_INCREMENT=50001; ");
+        DB::update("ALTER TABLE messages AUTO_INCREMENT=301; ");
     }
 
     /**

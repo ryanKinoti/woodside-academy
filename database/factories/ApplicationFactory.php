@@ -25,8 +25,9 @@ class ApplicationFactory extends Factory
             'email' => $this->faker->unique()->email,
             'gender' => $this->faker->randomElement(['Male', 'Female']),
             'roles' => $this->faker->randomElement(['staff', 'lecturer', 'student']),
-            'faculty_id' => $this->faker->randomElement([10001, 10002, 10003, 10004]),
-            'course_id' => $this->faker->randomElement([70001, 70002, 70003, 70004, 70005, 70006, 70007]),
+            'faculty_id' => $this->faker->randomElement([101, 102, 103, 104]),
+            'department_id' => $this->faker->randomElement([201, 202, 203, 204, 205, 206, 207]),
+            'course_id' => $this->faker->randomElement([501, 502, 503, 504, 505, 506, 507]),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

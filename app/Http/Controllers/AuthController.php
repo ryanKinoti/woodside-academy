@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Application;
 use App\Models\ApplicationState;
 use App\Models\Course;
+use App\Models\Department;
+use App\Models\DepartmentListing;
 use App\Models\Faculty;
 use App\Models\UserLogins;
 use Illuminate\Http\Request;
@@ -27,19 +29,25 @@ class AuthController extends Controller
     public function lecturerChoice()
     {
         $lecturerRole = "lecturer";
+        $department = '201';
+        $departments = Department::all();
         $courses = Course::all();
         return view('lecturers.application', [
             'lecturerRole' => $lecturerRole,
+            'departments' => $departments,
             'courses' => $courses,
+            'department' => $department,
         ]);
     }
 
     public function staffChoice()
     {
         $staffRole = "staff";
+        $departments = Department::all();
         $faculties = Faculty::all();
         return view('staff.application', [
             'staffRole' => $staffRole,
+            'departments' => $departments,
             'faculties' => $faculties,
         ]);
     }
@@ -50,43 +58,72 @@ class AuthController extends Controller
         $data = $request->all();
         $newUser = new Application();
 
-        $newUser->first_name = $data['firstName'];
-        $newUser->last_name = $data['lastName'];
-        $newUser->phone_number = $data['phoneNo'];
-        $newUser->email = $data['email'];
-        $newUser->gender = $data['gender'];
-        $newUser->roles = $data['role'];
-        $newUser->course_id = $data['course'];
+        if ($data['faculty'] == '0' && $data['department'] == '0') {
+
+            $newUser->first_name = $data['firstName'];
+            $newUser->last_name = $data['lastName'];
+            $newUser->phone_number = $data['phoneNo'];
+            $newUser->email = $data['email'];
+            $newUser->gender = $data['gender'];
+            $newUser->roles = $data['role'];
+            $newUser->course_id = $data['course'];
+
+            //simultaneously updating the state of the application
+            if ($newUser->save()) {
+                $state = new ApplicationState();
+                $lastID = DB::getPdo()->lastInsertId();
+                $application = DB::table('applications')->find($lastID);
+
+                $state->application_id = $application->id;
+
+                $state->save();
+                return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
+            }
+        } elseif ($data['course'] == '0') {
+            $newUser->first_name = $data['firstName'];
+            $newUser->last_name = $data['lastName'];
+            $newUser->phone_number = $data['phoneNo'];
+            $newUser->email = $data['email'];
+            $newUser->gender = $data['gender'];
+            $newUser->roles = $data['role'];
+            $newUser->faculty_id = $data['faculty'];
+            $newUser->department_id = $data['department'];
 
 
-        //simultaneously updating the state of the application
-        if ($newUser->save()) {
-            $state = new ApplicationState();
-            $lastID = DB::getPdo()->lastInsertId();
-            $application = DB::table('applications')->find($lastID);
+            //simultaneously updating the state of the application
+            if ($newUser->save()) {
+                $state = new ApplicationState();
+                $lastID = DB::getPdo()->lastInsertId();
+                $application = DB::table('applications')->find($lastID);
 
-            $state->application_id = $application->id;
+                $state->application_id = $application->id;
 
-            $state->save();
-            return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
+                $state->save();
+                return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
+            }
+        } elseif ($data['faculty'] == '0') {
+            $newUser->first_name = $data['firstName'];
+            $newUser->last_name = $data['lastName'];
+            $newUser->phone_number = $data['phoneNo'];
+            $newUser->email = $data['email'];
+            $newUser->gender = $data['gender'];
+            $newUser->roles = $data['role'];
+            $newUser->course_id = $data['course'];
+            $newUser->department_id = $data['department'];
+
+
+            //simultaneously updating the state of the application
+            if ($newUser->save()) {
+                $state = new ApplicationState();
+                $lastID = DB::getPdo()->lastInsertId();
+                $application = DB::table('applications')->find($lastID);
+
+                $state->application_id = $application->id;
+
+                $state->save();
+                return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
+            }
         }
-    }
-
-    public function staff_choiceApplication(Request $request)
-    {
-        $data = $request->all();
-        $newUser = new Application();
-
-        $newUser->first_name = $data['firstName'];
-        $newUser->last_name = $data['lastName'];
-        $newUser->phone_number = $data['phoneNo'];
-        $newUser->email = $data['email'];
-        $newUser->gender = $data['gender'];
-        $newUser->roles = $data['role'];
-        $newUser->faculty_id = $data['faculty'];
-
-        $newUser->save();
-        return redirect("/")->withErrors(['msg' => "Application Placed Successfully"]);
     }
 
     //login method after account creation

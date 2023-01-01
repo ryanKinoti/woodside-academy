@@ -13,15 +13,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('examinations', function (Blueprint $table) {
+        Schema::create('faculties', function (Blueprint $table) {
             $table->id();
-            $table->enum('exam_semester', ['sem_1', 'sem_2', 'sem_3']);
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->string('faculty_name');
             $table->timestamps();
         });
 
-        DB::update("ALTER TABLE examinations AUTO_INCREMENT=30001; ");
+        DB::update("ALTER TABLE faculties AUTO_INCREMENT=101; ");
     }
 
     /**
@@ -31,6 +29,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('examinations');
+        Schema::dropIfExists('faculties');
     }
 };

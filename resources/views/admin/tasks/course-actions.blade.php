@@ -193,7 +193,9 @@
                         <label for="courses">Select Associated Course:</label>
                         <select name="course_id" id="courses">
                             @foreach($courses as $course)
+                                @if($course->course_status === "open")
                                 <option value="{{$course->id}}">{{$course->abbreviation}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>

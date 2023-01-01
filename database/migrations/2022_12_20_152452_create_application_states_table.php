@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('application_states', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('application_id')->unsigned();
-            $table->enum('status', ['pending', 'accepted', 'registered', 'anulled'])->default('pending');
+            $table->enum('status', ['pending', 'accepted', 'registered', 'annulled'])->default('pending');
             $table->timestamps();
 
             $table->foreign("application_id")->references("id")->on("applications");

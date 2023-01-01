@@ -11,52 +11,55 @@
             @csrf
             <span class="my-space-0.2">
                 <label for="firstName">First Name :</label>
-                <input type="text" name="firstName" id="firstName" required>
+                <input type="text" name="firstName" id="firstName" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="secondName">Second Name :</label>
-                <input type="text" name="secondName" id="secondName" required>
+                <input type="text" name="secondName" id="secondName" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="lastName">Last Name :</label>
-                <input type="text" name="lastName" id="lastName" required>
+                <input type="text" name="lastName" id="lastName" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="id_number">ID Number :</label>
-                <input type="text" name="id_number" id="id_number" required>
+                <input type="text" name="id_number" id="id_number" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="phoneNumber">Phone Number :</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" required>
+                <input type="text" name="phoneNumber" id="phoneNumber" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="email">Personal Email :</label>
-                <input type="text" name="email" id="email" required>
+                <input type="text" name="email" id="email" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="password">Password :</label>
-                <input type="password" name="password" id="password" required>
+                <input type="password" name="password" id="password" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="gender">Gender :</label>
-                <input type="text" name="gender" id="gender" required>
+                <select name="gender" id="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
             </span>
 
             <span class="my-space-0.2">
                 <label for="country">Country :</label>
-                <input type="text" name="country" id="country" required>
+                <input type="text" name="country" id="country" required autocomplete="off">
             </span>
 
             <span class="my-space-0.2">
                 <label for="city">City :</label>
-                <input type="text" name="city" id="city" required>
+                <input type="text" name="city" id="city" required autocomplete="off">
             </span>
 
             <div class="my-space-0.2">
