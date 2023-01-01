@@ -31,6 +31,8 @@ class User extends Authenticatable
         'city',
         'faculty_id',
         'course_id',
+        'application_id',
+        'department_id',
         'current_year',
     ];
 

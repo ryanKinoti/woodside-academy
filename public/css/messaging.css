@@ -15,16 +15,6 @@
     background-color: rgba(8, 76, 97, .5);
 }
 
-/*.message__header {*/
-/*    display: flex;*/
-/*    max-width: 100%;*/
-/*    justify-content: space-evenly;*/
-/*    color: #E7A164;*/
-/*    border-bottom: 1px solid black;*/
-/*    padding: 10px;*/
-/*    margin: 10px 0;*/
-/*    font-weight: bold;*/
-/*}*/
 
 .message__search {
     margin: 10px 0;
@@ -76,53 +66,101 @@
     background-color: rgba(8, 76, 97, .5);
 }
 
-.message__container {
-    height: 100vh;
-}
-
-.message__area .message__history {
-    position: relative;
-    height: 50%;
-    top: 0;
-    border-radius: 20px;
+/*CHAT-GPT WhatsApp styling*/
+.message__history {
     background-color: rgba(155, 165, 156, 2);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.message__area .message__input {
-    position: relative;
-    bottom: 0;
-    margin-top: 30px;
-    margin-bottom: 0;
+.history__title {
+    background-color: #084C61;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
 }
 
-.message__area .message__input form {
+.history__content {
+    padding: 20px;
+    overflow-y: auto; /* Add this line */
+    max-height: 140px; /* Add this line */
+}
+
+.content__container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.history__from {
+    background-color: #084C61;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+.history__to {
+    background-color: #E7A164;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/*CHAT-GPT Input area WhatsApp Styling*/
+.message__input {
+    background-color: rgba(155, 165, 156, 2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.form__inner__container {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-.message__area .message__input form .form__inner {
+.form__inner {
     display: flex;
+    flex-direction: column; /* Add this line */
+    align-items: flex-start;
+    padding: 20px;
 }
 
-.message__area .message__input form button {
-    width: fit-content;
-    margin: 0 40%;
+.input__title,
+.input__content {
+    width: 80%; /* Add this line */
+    margin-bottom: 20px;
+    height: fit-content;
 }
 
-.input__title, .input__content {
-    display: flex;
-    align-items: center;
-    margin: 0 20px;
+.input__title label,
+.input__content label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.input__title label, .input__content label {
-    margin: 0 10px;
-}
-
-.input__title input, .input__content textarea {
-    background-color: rgba(155, 165, 156, 2);
-    width: 100%;
-    font-size: 16px;
-    resize: none;
+.input__title input,
+.input__content textarea {
+    width: 80%;
     border: 1px solid #084C61;
-    border-radius: 20px;
+    border-radius: 5px;
+    padding: 5px;
+    resize: none;
+    background-color: rgba(155, 165, 156, 2);
+}
+
+.message__input button[type="submit"] {
+    background-color: #084C61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-self: center; /* Add this line */
+    margin-top: 0;
+    margin-bottom: 20px;
 }

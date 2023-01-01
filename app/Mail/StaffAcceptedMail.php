@@ -9,25 +9,29 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class StaffMail extends Mailable
+class StaffAcceptedMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $firstname;
-    public $lastname;
-    public $faculty;
+    public string $firstname;
+    public string $lastname;
+    public string $faculty;
+    public string $department;
+    public int $application_id;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($firstName, $lastName, $faculty)
+    public function __construct($firstName, $lastName, $faculty, $department, $application_id)
     {
         //
         $this->firstname = $firstName;
         $this->lastname = $lastName;
         $this->faculty = $faculty;
+        $this->department = $department;
+        $this->application_id = $application_id;
     }
 
     /**
@@ -50,7 +54,7 @@ class StaffMail extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.staff',
+            markdown: 'emails.staff.accepted',
         );
     }
 

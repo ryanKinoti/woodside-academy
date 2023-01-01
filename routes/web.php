@@ -53,30 +53,24 @@ Route::prefix("applications")->group(function () {
 // -- Student start ----
 Route::prefix("student")->group(function () {
     Route::get('/', [Routing::class, 'students']);
-    Route::get('register', function () {
-        return view('students.register');
-    });
-    Route::post('register', [ApplicationRegistrationController::class, 'extractData']);
+    Route::get('register/{application_id}/{role}', [ApplicationRegistrationController::class, 'registrationPath']);
+    Route::post('register-user', [ApplicationRegistrationController::class, 'extractData']);
 });
 // -- Student end ----
 
 // -- Lecturer start ----
 Route::prefix("lecturer")->group(function () {
     Route::get('/', [Routing::class, 'lecturers']);
-    Route::get('register', function () {
-        return view('lecturers.register');
-    });
-    Route::post('register', [ApplicationRegistrationController::class, 'extractData']);
+    Route::get('register/{application_id}/{role}', [ApplicationRegistrationController::class, 'registrationPath']);
+    Route::post('register-user', [ApplicationRegistrationController::class, 'extractData']);
 });
 // -- Lecturer end ----
 
 // -- Staff start ----
 Route::prefix("staff")->group(function () {
     Route::get('/', [Routing::class, 'staff']);
-    Route::get('register', function () {
-        return view('staff.register');
-    });
-    Route::post('register', [ApplicationRegistrationController::class, 'extractData']);
+    Route::get('register/{application_id}/{role}', [ApplicationRegistrationController::class, 'registrationPath']);
+    Route::post('register-user', [ApplicationRegistrationController::class, 'extractData']);
 });
 // -- Staff end ----
 
@@ -93,6 +87,7 @@ Route::prefix("admin")->group(function () {
 
     //admin messaging
     Route::prefix('messages')->group(function () {
+        Route::post('department', [MessagingController::class, 'departmentMessage']);
         Route::post('faculty', [MessagingController::class, 'facultyMessage']);
         Route::post('course', [MessagingController::class, 'courseMessage']);
         Route::post('all-staff', [MessagingController::class, 'allStaffMessage']);

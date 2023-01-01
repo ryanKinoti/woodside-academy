@@ -7,7 +7,7 @@
 <x-register-header></x-register-header>
 <section>
     <div class="m-auto p-space-0.5 text-center">
-        <form action="/lecturer/register" method="POST" class="grid items-center grid-rows-3 grid-flow-col gap-[3rem]">
+        <form action="/lecturer/register-user" method="POST" class="grid items-center grid-rows-3 grid-flow-col gap-[3rem]">
             @csrf
             <span class="my-space-0.2">
                 <label for="firstName">First Name :</label>
@@ -64,6 +64,7 @@
 
             <div class="my-space-0.2">
                 <input type="hidden" name="user_role" value="lecturer">
+                <input type="hidden" name="application_id" value="{{$application_id}}">
                 <button type="submit">Complete Registration</button>
             </div>
         </form>

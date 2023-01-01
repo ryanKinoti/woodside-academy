@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             DepartmentSeeder::class,
             DepartmentListingSeeder::class,
             CoursesSeeder::class,
+            UnitSeeder::class,
             UserSeeder::class,
             ApplicationSeeder::class,
         ]);

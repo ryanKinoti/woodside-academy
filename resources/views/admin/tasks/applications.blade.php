@@ -59,7 +59,7 @@
                     <td>{{$departmentName}}</td>
                     @if($status->status == 'pending')
                         <td>
-                            <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
+                            <h2 class="bg-orange p-space-0.1 text-[white]">{{$status->status}}</h2>
                         </td>
                     @elseif($status->status == 'accepted')
                         <td>
@@ -71,7 +71,7 @@
                         </td>
                     @elseif($status->status == 'annulled')
                         <td>
-                            <h2 class="bg-gray p-space-0.1 text-[black]">{{$status->status}}</h2>
+                            <h2 class="bg-red p-space-0.1 text-[black]">{{$status->status}}</h2>
                         </td>
                     @endif
                     <td>
@@ -167,7 +167,7 @@
                     <td>{{$abbreviation}}</td>
                     @if($status->status == 'pending')
                         <td>
-                            <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
+                            <h2 class="bg-orange p-space-0.1 text-[white]">{{$status->status}}</h2>
                         </td>
                     @elseif($status->status == 'accepted')
                         <td>
@@ -179,7 +179,7 @@
                         </td>
                     @elseif($status->status == 'annulled')
                         <td>
-                            <h2 class="bg-gray p-space-0.1 text-[black]">{{$status->status}}</h2>
+                            <h2 class="bg-red p-space-0.1 text-[black]">{{$status->status}}</h2>
                         </td>
                     @endif
                     <td>
@@ -260,7 +260,7 @@
                     <td>{{$abbreviation}}</td>
                     @if($status->status == 'pending')
                         <td>
-                            <h2 class="bg-red p-space-0.1 text-[white]">{{$status->status}}</h2>
+                            <h2 class="bg-orange p-space-0.1 text-[white]">{{$status->status}}</h2>
                         </td>
                     @elseif($status->status == 'accepted')
                         <td>
@@ -272,7 +272,7 @@
                         </td>
                     @elseif($status->status == 'annulled')
                         <td>
-                            <h2 class="bg-gray p-space-0.1 text-[black]">{{$status->status}}</h2>
+                            <h2 class="bg-red p-space-0.1 text-[black]">{{$status->status}}</h2>
                         </td>
                     @endif
                     <td>

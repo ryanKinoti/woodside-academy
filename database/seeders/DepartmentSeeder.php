@@ -36,7 +36,7 @@ class DepartmentSeeder extends Seeder
                         'updated_at' => Carbon::now(),
                     ],
                     [
-                        'department_name' => 'IT Department',
+                        'department_name' => 'IT',
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now(),
                     ],

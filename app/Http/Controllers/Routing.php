@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Charts\ApplicationsChart;
 use App\Models\Application;
 use App\Models\Course;
+use App\Models\Department;
 use App\Models\Faculty;
+use App\Models\Message;
 use App\Models\Unit;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -28,13 +30,18 @@ class Routing extends Controller
         if ($user == null || $user->user_role != "admin") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         } else {
-            //listing all applications based on their role
+            //fetching all applications based on their role
             $students = Application::all()->where('roles', '=', 'student');
             $lecturers = Application::all()->where('roles', '=', 'lecturer');
             $staff = Application::all()->where('roles', '=', 'staff');
+
+            //fetching tables en-mass
             $faculties = Faculty::all();
             $courses = Course::all();
+            $departments = Department::all();
             $units = Unit::all();
+            $messages = Message::latest()->take(10)->get();
+
 
             //obtaining user data to make it more personalized
             $userInfo = User::all()
@@ -49,7 +56,9 @@ class Routing extends Controller
                     "userInfo" => $userInfo,
                     'faculties' => $faculties,
                     'courses' => $courses,
+                    'departments' => $departments,
                     'units' => $units,
+                    'messages' => $messages,
                 ]);
         }
     }
