@@ -1,34 +1,107 @@
-.index-image{
-    display: grid;
-    place-items: center;
-    padding: 0;
-    margin-left: 0;
-    
+/*.index-image{*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*    padding: 0;*/
+/*    margin-left: 0;*/
+/*    */
+/*}*/
+/*.index-image img {*/
+/*    width: 100vw;*/
+/*    height: 85vh;*/
+/*    border-radius: 0;*/
+/*    opacity: 0.7;*/
+/*}*/
+/*.center {*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    font-size: 24px;*/
+/*    font-weight: bold;*/
+/*    font-style: italic;*/
+/*}*/
+/*.center p{*/
+/*    position: absolute;*/
+/*    top: 210%;*/
+/*    left: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    font-size: 18px;*/
+/*    font-family: "Times New Roman", Times, serif;*/
+/*    font-style: italic;*/
+/*}*/
+/*.h1{*/
+/*    font-size: 20px;*/
+/*}*/
+/* General styles */
+
+
+/* Header styles */
+/*.index__main {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+
+
+.index__image img {
+    width: 100%;
+    height: 50%;
+    opacity: .5;
 }
-.index-image img {
-    width: 100vw;
-    height: 85vh;
-    border-radius: 0;
-    opacity: 0.7;
-}
+
 .center {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 57%;
+    left: 19%;
+    color: #084C61;
     font-size: 24px;
-    font-weight: bold;
-    font-style: italic;
+    text-align: center;
 }
-.center p{
-    position: absolute;
-    top: 210%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 18px;
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+
+/* Main content styles */
+.main__content {
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
 }
-.h1{
-    font-size: 20px;
+
+.main__content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.main__content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Image styles */
+.img1 img {
+    width: 100%;
+    height: auto;
+    margin-top: 40px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .center {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .center {
+        font-size: 16px;
+    }
+
+    .main__content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .center {
+        font-size: 14px;
+    }
 }
