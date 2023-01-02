@@ -9,12 +9,6 @@
 <div class="bg-green-op text-center text-xl p-space-0.1">
     <div class="text-brown text-xl p-space-0.1 ">
         LECTURER DASHBOARD: {{session('firstName')}} {{session('lastName')}}
-        <span>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'notification')"
-               style="cursor: pointer">
-                <i class="uil uil-bell text-[30px] text-brown"></i>
-            </a>
-        </span>
     </div>
     @if($errors->any())
         <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
@@ -51,6 +45,7 @@
     @include('commons.userProfile')
     @include('commons.options')
     @include('commons.settings')
+    @include('commons.notifications')
 
     {{--
     loading:

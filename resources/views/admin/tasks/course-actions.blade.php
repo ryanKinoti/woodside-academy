@@ -88,6 +88,10 @@
                         <input type="text" name="course_name" id="name">
                     </div>
                     <div class="settings__context">
+                        <label for="abbreviation">Course Abbreviation:</label>
+                        <input type="text" name="course_abbreviation" id="abbreviation">
+                    </div>
+                    <div class="settings__context">
                         <label for="year">Course Duration:</label>
                         <input type="text" name="course_years_duration" id="year">
                     </div>
@@ -125,10 +129,10 @@
             UNIT SETTINGS
         </h1>
 
-        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Alert Settings"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Unit Alert Settings"
            onclick="switchcommon(event, 'main-4-3')"
            style="cursor: pointer">
-            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
+            <i class="uil uil-arrow-right text-brown text-[30px]"></i>
         </a>
     </div>
 
@@ -236,14 +240,14 @@
 
 <section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-4-3">
     <div class="title_card flex mb-space-0.3">
-        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Course Settings"
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Unit Settings"
            onclick="switchcommon(event, 'main-4-2')"
            style="cursor: pointer">
             <i class="uil uil-arrow-left text-brown text-[30px]"></i>
         </a>
 
         <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
-            ALERT NOTIFICATIONS
+            UNIT ALERT NOTIFICATIONS
         </h1>
     </div>
 

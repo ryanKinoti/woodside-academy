@@ -6,30 +6,8 @@
                 My Dashboard
             </a>
         </li>
-
         <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'my-stations')"
-               style="cursor: pointer">
-                My Stations
-            </a>
-        </li>
-
-        <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'shift-hours')"
-               style="cursor: pointer">
-                Shift Hours
-            </a>
-        </li>
-
-        <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'in-out')"
-               style="cursor: pointer">
-                Clock-in and clock-out
-            </a>
-        </li>
-
-        <li>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'forum')"
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'staff-notification')"
                style="cursor: pointer">
                 Forum
             </a>

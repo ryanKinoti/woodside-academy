@@ -131,6 +131,7 @@
 {{--
     student sections:
     1. materials-- - choose which year to access respective course materials
+    2. my courses -
     --}}
 <section
     class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl"

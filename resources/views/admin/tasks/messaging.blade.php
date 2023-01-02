@@ -433,6 +433,7 @@
                                 </div>
                                 <button type="submit" class="text-[20px]">
                                     <input type="hidden" name="from_user_id" value="{{session('userID')}}">
+                                    <input type="hidden" name="intended_user_role" value="staff">
                                     <input type="hidden" name="to_department_id" value="{{$item->id}}">
                                     Send Message
                                     <i class="uil uil-message text-[20px]"></i>
@@ -509,7 +510,8 @@
                             </h1>
                         </div>
                         <div class="history__content">
-                            @foreach($messages->where('to_course_id', $item->id)->where('bulk_send','yes') as $item_2)
+                            @foreach($messages->where('to_course_id', $item->id)->where('bulk_send','yes')
+                                                ->where('intended_user_role','lecturer') as $item_2)
                                 @php
                                     $firstName = DB::table('users')
                                     ->where('id',$item_2->from_user_id)->get('firstName')->first()->firstName;
@@ -547,6 +549,7 @@
                                 </div>
                                 <button type="submit" class="text-[20px]">
                                     <input type="hidden" name="from_user_id" value="{{session('userID')}}">
+                                    <input type="hidden" name="intended_user_role" value="lecturer">
                                     <input type="hidden" name="to_course_id" value="{{$item->id}}">
                                     Send Message
                                     <i class="uil uil-message text-[20px]"></i>
@@ -617,7 +620,8 @@
                             </h1>
                         </div>
                         <div class="history__content">
-                            @foreach($messages->where('to_department_id', $item->id)->where('bulk_send','no') as $item_2)
+                            @foreach($messages->where('to_course_id', $item->id)->where('bulk_send','yes')
+                                                ->where('intended_user_role','student') as $item_2)
                                 @php
                                     $firstName = DB::table('users')
                                     ->where('id',$item_2->from_user_id)->get('firstName')->first()->firstName;
@@ -655,6 +659,7 @@
                                 </div>
                                 <button type="submit" class="text-[20px]">
                                     <input type="hidden" name="from_user_id" value="{{session('userID')}}">
+                                    <input type="hidden" name="intended_user_role" value="student">
                                     <input type="hidden" name="to_course_id" value="{{$item->id}}">
                                     Send Message
                                     <i class="uil uil-message text-[20px]"></i>

@@ -6,7 +6,12 @@
                 My Dashboard
             </a>
         </li>
-
+        <li>
+            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'lec-notifications')" style="cursor: pointer">
+                <span class="las la-archive"></span>
+                Notifications
+            </a>
+        </li>
         <li>
             <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'lec-courses')" style="cursor: pointer">
                 My Courses

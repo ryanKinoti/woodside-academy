@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->bigInteger('to_department_id')->unsigned()->nullable();
             $table->bigInteger('to_course_id')->unsigned()->nullable();
             $table->bigInteger('to_user_id')->unsigned()->nullable();
+            $table->enum('intended_user_role', ['staff', 'lecturer', 'student'])->nullable();
             $table->enum('bulk_send', ['yes', 'no'])->default('no');
             $table->string('title');
             $table->string('message_content');
