@@ -25,12 +25,12 @@
                     @endforeach
                 </select>
                 <input type="hidden" name="role" value="{{$staffRole}}">
-                <button id="reg-staff" type="submit">Complete Registration</button>  
-        </div>
+                <button id="reg-staff" type="submit">Complete Registration</button>
+            </div>
         </form>
         <div class="staff-image">
-                <img src="{{asset('images/applyforstaff.jpg')}}" alt="">
-            </div>
+            <img src="{{asset('images/applyforstaff.jpg')}}" alt="">
+        </div>
     </div>
 </section>
 </body>
