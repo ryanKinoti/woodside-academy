@@ -8,7 +8,8 @@
 <x-register-header></x-register-header>
 <section>
     <div class="m-auto p-space-0.5 text-center">
-        <form action="/applications/choice/submission" method="POST" class="grid items-center grid-rows-3 grid-flow-col gap-[3rem]">
+        <form action="/applications/choice/submission" method="POST"
+              class="grid items-center grid-rows-3 grid-flow-col gap-[3rem]">
             @csrf
             <div class="students-form-container">
                 <input type="text" placeholder="First Name" name="firstName" id="firstName" required>
@@ -30,8 +31,8 @@
             </div>
         </form>
         <div class="student-image">
-                <img src="{{asset('images/appstu.jpg')}}" alt="">
-            </div>
+            <img src="{{asset('images/appstu.jpg')}}" alt="">
+        </div>
     </div>
 </section>
 </body>
