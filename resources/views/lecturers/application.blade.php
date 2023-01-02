@@ -32,7 +32,7 @@
 
         </form>
         <div class="lecturer-image">
-            <img src="{{asset('images/applyforlec.jpg')}}" alt="">
+            <img src="{{asset('images/class.jfif')}}" alt="">
         </div>
     </div>
 </section>

@@ -30,7 +30,7 @@
                 classes. <br>
                 While, in the extracurricular activities the school offers different sports,dance classes and many
                 more.The
-                students grow having good habits and morals and achieve to be the number one best in the country.
+                students grow having good habits and morals and achieve to be the best in the country.
             </p>
         </div>
 
