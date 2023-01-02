@@ -40,16 +40,16 @@ class Routing extends Controller
             $courses = Course::all();
             $departments = Department::all();
             $units = Unit::all();
-            $messages = Message::latest()->take(5)->get();
+            $messages = Message::latest()->take(15)->get();
 
             //sending alerts to students based on an open course and an open unit
-            $openCourses = Course::all()->where('course_status','=','open');
-            $openUnits = Unit::all()->where('unit_status','=','available');
+            $openCourses = Course::all()->where('course_status', '=', 'open');
+            $openUnits = Unit::all()->where('unit_status', '=', 'available');
 
             //obtaining user data to make it more personalized
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();
-
+            $select = Department::all()->where('id', '=', $userInfo->department_id);
             //passing the data to the view
             return view('admin.dashboard',
                 [
@@ -64,6 +64,7 @@ class Routing extends Controller
                     'messages' => $messages,
                     'openCourses' => $openCourses,
                     'openUnits' => $openUnits,
+                    'select' => $select,
                 ]);
         }
     }
@@ -77,10 +78,14 @@ class Routing extends Controller
             //obtaining user data to make it more personalized
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();
+            $select = Department::all()->where('id', '=', $userInfo->department_id);
+            $messages = Message::latest()->take(30)->get();
 
             //passing the data to the view
             return view('staff.dashboard', [
                 "userInfo" => $userInfo,
+                'select' => $select,
+                'messages' => $messages,
             ]);
         }
     }
@@ -94,10 +99,13 @@ class Routing extends Controller
             //obtaining user data to make it more personalized
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();
-
+            $select = Course::all()->where('id', '=', $userInfo->course_id);
+            $messages = Message::latest()->take(30)->get();
             //passing the data to the view
             return view('lecturers.dashboard', [
                 "userInfo" => $userInfo,
+                "select" => $select,
+                'messages' => $messages,
             ]);
         }
     }
@@ -108,14 +116,17 @@ class Routing extends Controller
         if ($user == null || $user->user_role != "student") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         } else {
-            $courses = Course::all();
             //obtaining user data to make it more personalized
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();
+            $select = Course::all()->where('id', '=', $userInfo->course_id);
+            $messages = Message::latest()->take(30)->get();
 
             //passing the data to the view
             return view('students.dashboard', [
                 "userInfo" => $userInfo,
+                "select" => $select,
+                'messages' => $messages,
             ]);
         }
     }

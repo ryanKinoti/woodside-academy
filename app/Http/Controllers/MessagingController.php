@@ -92,6 +92,7 @@ class MessagingController extends Controller
         $adminMessage->title = $data['title'];
         $adminMessage->message_content = $data['message_content'];
         $adminMessage->bulk_send = 'yes';
+        $adminMessage->intended_user_role = $data['intended_user_role'];
 
         if ($adminMessage->save()) {
             $lastID = DB::getPdo()->lastInsertId();
@@ -126,6 +127,7 @@ class MessagingController extends Controller
         $adminMessage->title = $data['title'];
         $adminMessage->message_content = $data['message_content'];
         $adminMessage->bulk_send = 'yes';
+        $adminMessage->intended_user_role = $data['intended_user_role'];
 
         if ($adminMessage->save()) {
             $lastID = DB::getPdo()->lastInsertId();
@@ -159,6 +161,7 @@ class MessagingController extends Controller
         $adminMessage->title = $data['title'];
         $adminMessage->message_content = $data['message_content'];
         $adminMessage->bulk_send = 'yes';
+        $adminMessage->intended_user_role = $data['intended_user_role'];
 
         if ($adminMessage->save()) {
             $lastID = DB::getPdo()->lastInsertId();

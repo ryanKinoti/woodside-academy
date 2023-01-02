@@ -33,6 +33,7 @@ class EducationController extends Controller
 
         $newCourse->faculty_id = $data['faculty_id'];
         $newCourse->course_name = $data['course_name'];
+        $newCourse->abbreviation = $data['course_abbreviation'];
         $newCourse->course_years_duration = $data['course_years_duration'];
         $newCourse->number_of_semesters = $data['number_of_semesters'];
 

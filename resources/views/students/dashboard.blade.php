@@ -9,12 +9,6 @@
 <div class="bg-green-op text-center text-xl p-space-0.1">
     <div class="text-brown text-xl p-space-0.1 ">
         STUDENT DASHBOARD: {{session('firstName')}} {{session('lastName')}}
-        <span>
-            <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'notifications')"
-               style="cursor: pointer">
-                <i class="uil uil-bell text-[30px] text-brown"></i>
-            </a>
-        </span>
     </div>
     @if($errors->any())
         <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
@@ -58,6 +52,7 @@
     1. respective pages dependent on the user
     --}}
     @include('actions.students.materials')
+    @include('actions.students.courses')
 </div>
 
 <x-footerTag></x-footerTag>
