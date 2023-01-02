@@ -13,7 +13,7 @@
             <div class="lecturer-form-container">
                 <input type="firstName" placeholder="First Name" name="firstName" id="firstName" required>
                 <input type="lastName" placeholder="Last Name" name="lastName" id="lastName" required>
-                <input type="phoneNo" placeholder="Phone No"name="phoneNo" id="phoneNo" required>
+                <input type="phoneNo" placeholder="Phone No" name="phoneNo" id="phoneNo" required>
                 <input type="email" placeholder="Personal Email" name="email" id="email" required>
                 <select name="gender" id="gender">
                     <option value="male">Male</option>
@@ -27,11 +27,11 @@
                 <input type="hidden" name="role" value="{{$lecturerRole}}">
                 <button id="reg-lec" type="submit">Complete Registration</button>
             </div>
-           
+
         </form>
         <div class="lecturer-image">
-                <img src="{{asset('images/applyforlec.jpg')}}" alt="">
-            </div>
+            <img src="{{asset('images/applyforlec.jpg')}}" alt="">
+        </div>
     </div>
 </section>
 </body>
