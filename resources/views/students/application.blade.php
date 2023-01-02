@@ -12,11 +12,11 @@
               class="grid items-center grid-rows-3 grid-flow-col gap-[3rem]">
             @csrf
             <div class="students-form-container">
-                <input type="text" placeholder="First Name" name="firstName" id="firstName" required>
-                <input type="text" placeholder="Last Name" name="lastName" id="lastName" required>
-                <input type="text" placeholder="Phone No" name="phoneNo" id="phoneNo" required>
-                <input type="text" placeholder="Personal Email" name="email" id="email" required>
-                <select name="gender" placeholder="Gender" id="gender">
+                <input type="text" placeholder="First Name" name="firstName" id="firstName" required autocomplete="off">
+                <input type="text" placeholder="Last Name" name="lastName" id="lastName" required autocomplete="off">
+                <input type="text" placeholder="Phone No" name="phoneNo" id="phoneNo" required autocomplete="off">
+                <input type="text" placeholder="Personal Email" name="email" id="email" required autocomplete="off">
+                <select name="gender" id="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                 </select>
@@ -26,6 +26,7 @@
                     @endforeach
                 </select>
                 <input type="hidden" name="faculty" value="0">
+                <input type="hidden" name="department" value="0">
                 <input type="hidden" name="role" value="{{$studentRole}}">
                 <button id="reg-student" type="submit">Complete Registration</button>
             </div>

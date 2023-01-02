@@ -11,10 +11,10 @@
         <form action="/applications/choice/submission" method="POST" class="grid items-center">
             @csrf
             <div class="lecturer-form-container">
-                <input type="firstName" placeholder="First Name" name="firstName" id="firstName" required>
-                <input type="lastName" placeholder="Last Name" name="lastName" id="lastName" required>
-                <input type="phoneNo" placeholder="Phone No" name="phoneNo" id="phoneNo" required>
-                <input type="email" placeholder="Personal Email" name="email" id="email" required>
+                <input type="text" placeholder="First Name" name="firstName" id="firstName" required autocomplete="off">
+                <input type="text" placeholder="Last Name" name="lastName" id="lastName" required autocomplete="off">
+                <input type="text" placeholder="Phone No" name="phoneNo" id="phoneNo" required autocomplete="off">
+                <input type="email" placeholder="Personal Email" name="email" id="email" required autocomplete="off">
                 <select name="gender" id="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -24,6 +24,8 @@
                         <option value="{{$course->id}}">{{$course->course_name}}</option>
                     @endforeach
                 </select>
+                <input type="hidden" name="faculty" value="0">
+                <input type="hidden" name="department" value="201">
                 <input type="hidden" name="role" value="{{$lecturerRole}}">
                 <button id="reg-lec" type="submit">Complete Registration</button>
             </div>

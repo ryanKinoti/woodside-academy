@@ -1,4 +1,4 @@
-<section class="w-v-w h-space-0.9 bg-green-op">
+<section class="index__header w-v-w h-space-0.9 bg-green-op">
     <nav class="flex mx-space-1.0 justify-between">
 
         <div class="mx-space-0.5 my-space-0.1 text-brown rounded-xl text-2xl flex">
@@ -71,7 +71,7 @@
     </nav>
 </section>
 @if($errors->any())
-    <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px]"
+    <h3 class="m-auto p-2 text-center rounded-xl bg-red text-white w-fit my-[10px] z-50"
         style="font-family: 'Outfit',sans-serif; font-size: 35px;" id="hideMe">
         {{$errors->first()}}
         <script>
