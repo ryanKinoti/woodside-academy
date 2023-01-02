@@ -3,8 +3,9 @@
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\EmailingController;
 use App\Http\Controllers\MessagingController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ApplicationRegistrationController;
 use App\Http\Controllers\Routing;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,7 @@ Route::get('/', function () {
 
 // -- Login and Logout start ----
 Route::prefix("login")->group(function () {
-    Route::get('/', function () {
-        return view('login');
-    })->name('login-page');
+    Route::get('/', [Routing::class, 'loginRoute']);
     Route::post('/validation', [AuthController::class, 'login']);
 });
 Route::get('logout', [AuthController::class, 'logout']);
@@ -47,8 +46,7 @@ Route::prefix("applications")->group(function () {
         Route::get('staff', [AuthController::class, 'staffChoice']);
 
         //form data from user application; dependent on user choice
-        Route::post('submission', [AuthController::class, 'choiceApplication']);
-        Route::post('staff-submission', [AuthController::class, 'staff_choiceApplication']);
+        Route::post('submission', [ApplicationRegistrationController::class, 'choiceApplication']);
     });
 });
 // -- Applications and Registration end ----
@@ -56,30 +54,24 @@ Route::prefix("applications")->group(function () {
 // -- Student start ----
 Route::prefix("student")->group(function () {
     Route::get('/', [Routing::class, 'students']);
-    Route::get('register', function () {
-        return view('students.register');
-    });
-    Route::post('register', [RegistrationController::class, 'extractData']);
+    Route::get('register/{application_id}/{role}', [ApplicationRegistrationController::class, 'registrationPath']);
+    Route::post('register-user', [ApplicationRegistrationController::class, 'extractData']);
 });
 // -- Student end ----
 
 // -- Lecturer start ----
 Route::prefix("lecturer")->group(function () {
     Route::get('/', [Routing::class, 'lecturers']);
-    Route::get('register', function () {
-        return view('lecturers.register');
-    });
-    Route::post('register', [RegistrationController::class, 'extractData']);
+    Route::get('register/{application_id}/{role}', [ApplicationRegistrationController::class, 'registrationPath']);
+    Route::post('register-user', [ApplicationRegistrationController::class, 'extractData']);
 });
 // -- Lecturer end ----
 
 // -- Staff start ----
 Route::prefix("staff")->group(function () {
     Route::get('/', [Routing::class, 'staff']);
-    Route::get('register', function () {
-        return view('staff.register');
-    });
-    Route::post('register', [RegistrationController::class, 'extractData']);
+    Route::get('register/{application_id}/{role}', [ApplicationRegistrationController::class, 'registrationPath']);
+    Route::post('register-user', [ApplicationRegistrationController::class, 'extractData']);
 });
 // -- Staff end ----
 
@@ -92,10 +84,13 @@ Route::prefix("admin")->group(function () {
         Route::post('student-email', [ApplicationsController::class, 'studentApplications']);
         Route::post('lecturer-email', [ApplicationsController::class, 'lecturerApplications']);
         Route::post('staff-email', [ApplicationsController::class, 'staffApplications']);
+
+        Route::post('unit-register', [EmailingController::class, 'unitRegistration']);
     });
 
     //admin messaging
     Route::prefix('messages')->group(function () {
+        Route::post('department', [MessagingController::class, 'departmentMessage']);
         Route::post('faculty', [MessagingController::class, 'facultyMessage']);
         Route::post('course', [MessagingController::class, 'courseMessage']);
         Route::post('all-staff', [MessagingController::class, 'allStaffMessage']);

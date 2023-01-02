@@ -17,7 +17,7 @@ class ApplicationSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 0; $i < 24; $i++) {
+        for ($i = 0; $i < 15; $i++) {
             Application::factory()->create();
             $lastID = DB::getPdo()->lastInsertId();
             $application = DB::table('applications')->find($lastID);

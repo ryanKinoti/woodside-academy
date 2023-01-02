@@ -22,16 +22,17 @@ return new class extends Migration {
             $table->string('gender');
             $table->enum('roles', ['student', 'lecturer', 'staff']);
             $table->bigInteger('faculty_id')->unsigned()->nullable();
+            $table->bigInteger('department_id')->unsigned()->nullable();
             $table->bigInteger('course_id')->unsigned()->nullable();
 
             $table->timestamps();
 
             //relationships
             $table->foreign("faculty_id")->references("id")->on("faculties");
-            $table->foreign("course_id")->references("id")->on("courses");
+            $table->foreign("department_id")->references("id")->on("departments");
         });
 
-        DB::update("ALTER TABLE applications AUTO_INCREMENT=90001; ");
+        DB::update("ALTER TABLE applications AUTO_INCREMENT=701; ");
     }
 
     /**

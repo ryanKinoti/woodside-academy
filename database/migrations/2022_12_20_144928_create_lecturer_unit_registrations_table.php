@@ -12,18 +12,16 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('unit_registrations', function (Blueprint $table) {
+        Schema::create('lecturer_unit_registrations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('unit_id')->unsigned();
             $table->bigInteger('lecturer_id')->unsigned()->nullable();
-            $table->bigInteger('student_id')->unsigned()->nullable();
-            $table->enum('registration_status', ['completed', 'ongoing'])->default('ongoing');
+            $table->enum('teaching_status', ['ongoing', 'completed', 'cancelled'])->default('ongoing');
             $table->timestamps();
 
             //relationships
             $table->foreign('unit_id')->references('id')->on('units');
             $table->foreign('lecturer_id')->references('id')->on('users');
-            $table->foreign('student_id')->references('id')->on('users');
         });
     }
 
@@ -34,6 +32,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('unit_registrations');
+        Schema::dropIfExists('lecturer_unit_registration');
     }
 };

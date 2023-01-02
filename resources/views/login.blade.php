@@ -30,8 +30,8 @@
                         <h1 id='login__title'>Welcome to Woodside Academy</h1>
                     </div>
                     <div class="form-box">
-                        <input type="email" placeholder="Email" name="email">
-                        <input type="password" placeholder="Password" name="password">
+                        <input type="email" placeholder="Email" name="email" required>
+                        <input type="password" placeholder="Password" name="password" required>
                         <button id="login-btn" type="submit">Login</button>
                         <p id="reset-pass">Forgot Password? <a href="#">Reset Password</a></p>
                         <p id="reset-pass">Don't have an account?<a href="/"> Apply with us</a></p>

@@ -58,6 +58,12 @@
 
         <ul class="secondary__navigation">
             <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-0')"
+                   style="cursor: pointer">
+                    Message a Department
+                </a>
+            </li>
+            <li class="list__item">
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-3-1')"
                    style="cursor: pointer">
                     Message an Academy
@@ -109,6 +115,12 @@
                 <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4-2')"
                    style="cursor: pointer">
                     Unit Settings
+                </a>
+            </li>
+            <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4-3')"
+                   style="cursor: pointer">
+                    Notify Students to Apply for Units
                 </a>
             </li>
         </ul>

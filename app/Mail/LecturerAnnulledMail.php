@@ -9,27 +9,27 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class LecturerMail extends Mailable
+class LecturerAnnulledMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $firstname;
     public $lastname;
     public $course;
-    public $faculty;
+    public $department;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($firstName, $lastName, $course, $faculty)
+    public function __construct($firstName, $lastName, $course, $department)
     {
         //
         $this->firstname = $firstName;
         $this->lastname = $lastName;
         $this->course = $course;
-        $this->faculty = $faculty;
+        $this->department = $department;
     }
 
     /**
@@ -52,7 +52,7 @@ class LecturerMail extends Mailable
     public function content()
     {
         return new Content(
-            markdown: 'emails.lecturers',
+            markdown: 'emails.lecturer.annulled',
         );
     }
 

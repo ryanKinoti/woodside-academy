@@ -124,6 +124,12 @@
         <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
             UNIT SETTINGS
         </h1>
+
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Alert Settings"
+           onclick="switchcommon(event, 'main-4-3')"
+           style="cursor: pointer">
+            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
+        </a>
     </div>
 
     <div class="settings__container flex">
@@ -193,7 +199,9 @@
                         <label for="courses">Select Associated Course:</label>
                         <select name="course_id" id="courses">
                             @foreach($courses as $course)
-                                <option value="{{$course->id}}">{{$course->abbreviation}}</option>
+                                @if($course->course_status === "open")
+                                    <option value="{{$course->id}}">{{$course->abbreviation}}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -225,4 +233,87 @@
 
 </section>
 
+
+<section class="tabcontent mr-[1%] ml-[19%] my-space-0.3 w-v-w p-space-0.3 bg-green-op-2 rounded-xl" id="main-4-3">
+    <div class="title_card flex mb-space-0.3">
+        <a class="mx-space-0.2 p-space-0.1 bg-green-op-1 rounded-full tablinks" title="Course Settings"
+           onclick="switchcommon(event, 'main-4-2')"
+           style="cursor: pointer">
+            <i class="uil uil-arrow-left text-brown text-[30px]"></i>
+        </a>
+
+        <h1 class="mx-space-0.2 p-space-0.2 text-[20px] text-brown bg-green-op-1 rounded-xl">
+            ALERT NOTIFICATIONS
+        </h1>
+    </div>
+
+    <div class="settings__container flex">
+
+        <div class="settings__Listing">
+            <table>
+                <tr class="thead">
+                    <td><h1>Unit Id</h1></td>
+                    <td><h1>Unit Name</h1></td>
+                    <td><h1>Unit Year</h1></td>
+                    <td><h1>Unit Semester</h1></td>
+                    <td><h1>Unit Status</h1></td>
+                    <td><h1>Associated Course</h1></td>
+                </tr>
+                @foreach($units as $item)
+                    <tr class="tbody">
+                        @php
+                            $coursename = DB::table('courses')
+                            ->where('id',$item->course_id)->get('course_name')->first()->course_name;
+                        @endphp
+                        <td>#{{$item->id}}</td>
+                        <td>{{$item->unit_name}}</td>
+                        <td>{{$item->unit_year}}</td>
+                        <td>{{$item->unit_semester}} semester</td>
+                        @if($item->unit_status === "available")
+                            <td>
+                                <h2 class="bg-alert-green p-space-0.1">{{$item->unit_status}}</h2>
+                            </td>
+                        @else
+                            <td>
+                                <h2 class="bg-red p-space-0.1 text-[white]">{{$item->unit_status}}</h2>
+                            </td>
+                        @endif
+                        <td>{{$coursename}}</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+
+        <div class="settings__editing">
+            <div class="editing__header">
+                <h2>Alert Specific groups</h2>
+            </div>
+
+            <div class="editing__container">
+                @foreach ($openCourses as $item)
+
+                    <form action="/admin/emailing/unit-register" method="post" class="editing__form">
+                        @csrf
+                        <input type="hidden" name="course_id" value="{{$item->id}}">
+                        <button type="submit">
+                            Click to Notify all Students of:
+                            {{ $item->abbreviation }}
+                        </button>
+                        <div class="editing__form__inner">
+                            <h2>List of Available Units</h2>
+                            @foreach ($openUnits->where('course_id',$item->id) as $item_2)
+                                <div class="flex">
+                                    - <h3>{{ $item_2->unit_name }}</h3>
+                                </div>
+                            @endforeach
+                        </div>
+                    </form>
+
+                @endforeach
+            </div>
+        </div>
+
+    </div>
+
+</section>
 <style> @import "{{asset('css/tables.css')}}"; </style>

@@ -11,6 +11,29 @@ use Illuminate\Support\Facades\DB;
 class MessagingController extends Controller
 {
     //
+    public function departmentMessage(Request $request)
+    {
+        // Retrieve the form input data
+        $data = $request->all();
+        $adminMessage = new Message();
+
+        $adminMessage->from_user_id = $data['from_user_id'];
+        $adminMessage->to_department_id = $data['to_department_id'];
+        $adminMessage->title = $data['title'];
+        $adminMessage->message_content = $data['message_content'];
+
+        if ($adminMessage->save()) {
+            $logs = new MessageLogs();
+            $lastID = DB::getPdo()->lastInsertId();
+            $message_entry = DB::table('messages')->find($lastID);
+
+            $logs->message_id = $message_entry->id;
+
+            $logs->save();
+            return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+        }
+
+    }
     public function facultyMessage(Request $request)
     {
         // Retrieve the form input data
@@ -65,7 +88,7 @@ class MessagingController extends Controller
         $adminMessage = new Message();
 
         $adminMessage->from_user_id = $data['from_user_id'];
-        $adminMessage->to_faculty_id = $data['to_faculty_id'];
+        $adminMessage->to_department_id = $data['to_department_id'];
         $adminMessage->title = $data['title'];
         $adminMessage->message_content = $data['message_content'];
         $adminMessage->bulk_send = 'yes';
@@ -77,7 +100,7 @@ class MessagingController extends Controller
             foreach ($selectUsers as $user) {
                 DB::table('users')
                     ->where('id', $user->id)
-                    ->where('faculty_id', '=', $data['to_faculty_id'])
+                    ->where('department_id', '=', $data['to_department_id'])
                     ->update(['message_id' => $lastID]);
             }
 

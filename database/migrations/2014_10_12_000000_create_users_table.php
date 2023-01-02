@@ -18,8 +18,10 @@ return new class extends Migration {
             $table->id();
             $table->enum('user_role', ['admin', 'student', 'lecturer', 'staff'])->default('admin');
             $table->bigInteger('faculty_id')->unsigned()->nullable();
+            $table->bigInteger('department_id')->unsigned()->nullable();
             $table->bigInteger('course_id')->unsigned()->nullable();
-            $table->bigInteger('unit_id')->unsigned()->nullable();
+            $table->bigInteger('application_id')->unsigned()->nullable();
+            $table->string('current_year')->nullable();
             $table->string('firstName');
             $table->string('secondName');
             $table->string('lastName');
@@ -36,7 +38,7 @@ return new class extends Migration {
             $table->timestamps();
         });
 
-        DB::update("ALTER TABLE users AUTO_INCREMENT=1001; ");
+        DB::update("ALTER TABLE users AUTO_INCREMENT=11; ");
 
     }
 

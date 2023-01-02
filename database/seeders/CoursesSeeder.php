@@ -20,7 +20,7 @@ class CoursesSeeder extends Seeder
         DB::table('courses')
             ->insert([
                 [
-                    'faculty_id' => '10001',
+                    'faculty_id' => '101',
                     'course_name' => 'Bachelor of Informatics and Computer Science',
                     'abbreviation' => 'Bsc. I.C.S',
                     'course_years_duration' => '4',
@@ -29,7 +29,7 @@ class CoursesSeeder extends Seeder
                     'updated_at' => Carbon::now(),
                 ],
                 [
-                    'faculty_id' => '10001',
+                    'faculty_id' => '101',
                     'course_name' => 'Bachelor of Business and Information Technology',
                     'abbreviation' => 'Bsc. B.B.I.T',
                     'course_years_duration' => '4',
@@ -38,7 +38,7 @@ class CoursesSeeder extends Seeder
                     'updated_at' => Carbon::now(),
                 ],
                 [
-                    'faculty_id' => '10001',
+                    'faculty_id' => '101',
                     'course_name' => 'Bachelor of Electrical and Engineering Science',
                     'abbreviation' => 'Bsc. E.E.Sc',
                     'course_years_duration' => '4',
@@ -47,7 +47,7 @@ class CoursesSeeder extends Seeder
                     'updated_at' => Carbon::now(),
                 ],
                 [
-                    'faculty_id' => '10002',
+                    'faculty_id' => '102',
                     'course_name' => 'Bachelor of Laws',
                     'abbreviation' => 'Bsc. Laws',
                     'course_years_duration' => '4',
@@ -56,7 +56,7 @@ class CoursesSeeder extends Seeder
                     'updated_at' => Carbon::now(),
                 ],
                 [
-                    'faculty_id' => '10003',
+                    'faculty_id' => '103',
                     'course_name' => 'Bachelor of Business Science: Financial Engineering',
                     'abbreviation' => 'Bsc. B.S-F.E',
                     'course_years_duration' => '3',
@@ -65,8 +65,8 @@ class CoursesSeeder extends Seeder
                     'updated_at' => Carbon::now(),
                 ],
                 [
-                    'faculty_id' => '10003',
-                    'course_name' => 'Bachelor of Business Science: Acturial Science',
+                    'faculty_id' => '103',
+                    'course_name' => 'Bachelor of Business Science: Actuarial  Science',
                     'abbreviation' => 'Bsc. B.S-A.S',
                     'course_years_duration' => '5',
                     'number_of_semesters' => 2,
@@ -74,7 +74,7 @@ class CoursesSeeder extends Seeder
                     'updated_at' => Carbon::now(),
                 ],
                 [
-                    'faculty_id' => '10004',
+                    'faculty_id' => '104',
                     'course_name' => 'Bachelor of Pure Mathematics',
                     'abbreviation' => 'Bsc. Pure Math.',
                     'course_years_duration' => '5',

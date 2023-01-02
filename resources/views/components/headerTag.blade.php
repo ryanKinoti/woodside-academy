@@ -24,16 +24,18 @@
             colors: {
                 'blue': '#9BA59C',
                 'gray': '#BABDB2',
-                'gray-op': 'rgba(186,189,178,2)',
+                'orange': '#ff7720',
                 'brown': '#E7A164',
-                'brown-light-1': 'rgba(231,161,100,0.7)',
                 'green': '#084C61',
+                'red': '#EC0B43',
+                'white': '#fff',
+
+                'gray-op': 'rgba(186,189,178,2)',
+                'brown-light-1': 'rgba(231,161,100,0.7)',
                 'green-op': 'rgba(8,76,97,0.9)',
                 'green-op-1': 'rgba(8,76,97,2)',
                 'green-op-2': 'rgba(8,76,97,0.3)',
-                'red': '#EC0B43',
-                'alert-green' : 'rgba(37,186,37,2)',
-                'white': '#fff',
+                'alert-green': 'rgba(37,186,37,2)',
             },
             extend: {
                 spacing: {
