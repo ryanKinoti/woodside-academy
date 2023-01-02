@@ -40,8 +40,11 @@ class Routing extends Controller
             $courses = Course::all();
             $departments = Department::all();
             $units = Unit::all();
-            $messages = Message::latest()->take(10)->get();
+            $messages = Message::latest()->take(5)->get();
 
+            //sending alerts to students based on an open course and an open unit
+            $openCourses = Course::all()->where('course_status','=','open');
+            $openUnits = Unit::all()->where('unit_status','=','available');
 
             //obtaining user data to make it more personalized
             $userInfo = User::all()
@@ -59,6 +62,8 @@ class Routing extends Controller
                     'departments' => $departments,
                     'units' => $units,
                     'messages' => $messages,
+                    'openCourses' => $openCourses,
+                    'openUnits' => $openUnits,
                 ]);
         }
     }
@@ -103,6 +108,7 @@ class Routing extends Controller
         if ($user == null || $user->user_role != "student") {
             return redirect("/")->withErrors(['msg' => "unauthorized access denied"]);
         } else {
+            $courses = Course::all();
             //obtaining user data to make it more personalized
             $userInfo = User::all()
                 ->where('id', '=', session('userID'))->first();

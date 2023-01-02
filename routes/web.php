@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApplicationsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EducationController;
+use App\Http\Controllers\EmailingController;
 use App\Http\Controllers\MessagingController;
 use App\Http\Controllers\ApplicationRegistrationController;
 use App\Http\Controllers\Routing;
@@ -83,6 +84,8 @@ Route::prefix("admin")->group(function () {
         Route::post('student-email', [ApplicationsController::class, 'studentApplications']);
         Route::post('lecturer-email', [ApplicationsController::class, 'lecturerApplications']);
         Route::post('staff-email', [ApplicationsController::class, 'staffApplications']);
+
+        Route::post('unit-register', [EmailingController::class, 'unitRegistration']);
     });
 
     //admin messaging

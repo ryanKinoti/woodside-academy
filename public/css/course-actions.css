@@ -76,3 +76,29 @@
     justify-content: center;
     background-color: transparent;
 }
+.editing__form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.editing__form button{
+    padding: 10px;
+    background-color: rgba(8, 76, 97, 2);
+    color: #E7A164;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.editing__form .editing__form__inner{
+    background-color: rgba(155, 165, 156, 2);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.editing__form__inner h2{
+    background-color:#E7A164;
+    color: black;
+    width: fit-content;
+    padding: 5px;
+    margin: 10px;
+}

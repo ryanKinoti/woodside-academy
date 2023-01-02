@@ -55,7 +55,7 @@
                             </h1>
                         </div>
                         <div class="history__content">
-                            @foreach($messages->where('to_department_id', $item->id) as $item_2)
+                            @foreach($messages->where('to_department_id', $item->id)->where('bulk_send','no') as $item_2)
                                 @php
                                     $firstName = DB::table('users')
                                     ->where('id',$item_2->from_user_id)->get('firstName')->first()->firstName;
@@ -73,7 +73,6 @@
                                 </div>
                             @endforeach
                         </div>
-
                     </div>
 
                     <div class="message__input">
@@ -197,12 +196,12 @@
                                 <div class="form__inner">
                                     <div class="input__title">
                                         <label for="title">Message Title:</label>
-                                        <input type="text" name="title" id="title" required>
+                                        <input type="text" name="title" id="title" required autocomplete="off">
                                     </div>
                                     <div class="input__content">
                                         <label for="message_content">Your Content:</label>
                                         <textarea name="message_content" id="message_content" cols="0" rows="7"
-                                                  required>
+                                                  required autocomplete="off">
                                     </textarea>
                                     </div>
                                 </div>
@@ -304,18 +303,18 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/course" method="post" class="flex">
+                        <form action="/admin/messages/course" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">
                                     <div class="input__title">
                                         <label for="title">Message Title:</label>
-                                        <input type="text" name="title" id="title" required>
+                                        <input type="text" name="title" id="title" required autocomplete="off">
                                     </div>
                                     <div class="input__content">
                                         <label for="message_content">Your Content:</label>
                                         <textarea name="message_content" id="message_content" cols="0" rows="7"
-                                                  required>
+                                                  required autocomplete="off">
                                     </textarea>
                                     </div>
                                 </div>
@@ -390,31 +389,55 @@
             @foreach($departments as $item)
                 <div class="message__container" id="staff{{ $counter }}">
                     <div class="message__history my-space-0.3 p-space-0.2">
-                        <h1>
-                            Recent Messages to: Staff of <br> {{$item->department_name}}
-                        </h1>
+                        <div class="history__title">
+                            <h1>
+                                Recent Messages to Staff of {{$item->department_name}} department
+                            </h1>
+                        </div>
+                        <div class="history__content">
+                            @foreach($messages->where('to_department_id', $item->id)->where('bulk_send','yes') as $item_2)
+                                @php
+                                    $firstName = DB::table('users')
+                                    ->where('id',$item_2->from_user_id)->get('firstName')->first()->firstName;
+                                    $lastName = DB::table('users')
+                                    ->where('id',$item_2->from_user_id)->get('lastName')->first()->lastName;
+                                @endphp
+                                <div class="content__container">
+                                    <div class="history__from">
+                                        <h2>{{$firstName}} {{$lastName}} :</h2>
+                                    </div>
+                                    <div class="history__to">
+                                        {{$item_2->title}}
+                                        {{$item_2->message_content}}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/all-staff" method="post" class="flex">
+                        <form action="/admin/messages/all-staff" method="post">
                             @csrf
-                            <div class="form__inner">
-                                <div class="input__title">
-                                    <label for="title">Message Title:</label>
-                                    <input type="text" name="title" id="title" required>
-                                </div>
-                                <div class="input__content">
-                                    <label for="message_content">Your Content:</label>
-                                    <textarea name="message_content" id="message_content" cols="0" rows="7" required>
+                            <div class="form__inner__container">
+                                <div class="form__inner">
+                                    <div class="input__title">
+                                        <label for="title">Message Title:</label>
+                                        <input type="text" name="title" id="title" required autocomplete="off">
+                                    </div>
+                                    <div class="input__content">
+                                        <label for="message_content">Your Content:</label>
+                                        <textarea name="message_content" id="message_content" cols="0" rows="7" required
+                                                  autocomplete="off">
                                     </textarea>
+                                    </div>
                                 </div>
+                                <button type="submit" class="text-[20px]">
+                                    <input type="hidden" name="from_user_id" value="{{session('userID')}}">
+                                    <input type="hidden" name="to_department_id" value="{{$item->id}}">
+                                    Send Message
+                                    <i class="uil uil-message text-[20px]"></i>
+                                </button>
                             </div>
-                            <button type="submit" class="text-[20px]">
-                                <input type="hidden" name="from_user_id" value="{{session('userID')}}">
-                                <input type="hidden" name="to_department_id" value="{{$item->id}}">
-                                Send Message
-                                <i class="uil uil-message text-[20px]"></i>
-                            </button>
                         </form>
                     </div>
                 </div>
@@ -479,31 +502,56 @@
             @foreach($courses as $item)
                 <div class="message__container" id="lecturer{{ $counter }}">
                     <div class="message__history my-space-0.3 p-space-0.2">
-                        <h1>
-                            Recent Messages to: Lecturers of <br> {{$item->course_name}}
-                        </h1>
+
+                        <div class="history__title">
+                            <h1>
+                                Recent Messages to Lecturers of {{$item->course_name}} course
+                            </h1>
+                        </div>
+                        <div class="history__content">
+                            @foreach($messages->where('to_course_id', $item->id)->where('bulk_send','yes') as $item_2)
+                                @php
+                                    $firstName = DB::table('users')
+                                    ->where('id',$item_2->from_user_id)->get('firstName')->first()->firstName;
+                                    $lastName = DB::table('users')
+                                    ->where('id',$item_2->from_user_id)->get('lastName')->first()->lastName;
+                                @endphp
+                                <div class="content__container">
+                                    <div class="history__from">
+                                        <h2>{{$firstName}} {{$lastName}} :</h2>
+                                    </div>
+                                    <div class="history__to">
+                                        {{$item_2->title}}
+                                        {{$item_2->message_content}}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/all-lecturers" method="post" class="flex">
+                        <form action="/admin/messages/all-lecturers" method="post">
                             @csrf
-                            <div class="form__inner">
-                                <div class="input__title">
-                                    <label for="title">Message Title:</label>
-                                    <input type="text" name="title" id="title" required>
-                                </div>
-                                <div class="input__content">
-                                    <label for="message_content">Your Content:</label>
-                                    <textarea name="message_content" id="message_content" cols="0" rows="7" required>
+                            <div class="form__inner__container">
+                                <div class="form__inner">
+                                    <div class="input__title">
+                                        <label for="title">Message Title:</label>
+                                        <input type="text" name="title" id="title" required autocomplete="off">
+                                    </div>
+                                    <div class="input__content">
+                                        <label for="message_content">Your Content:</label>
+                                        <textarea name="message_content" id="message_content" cols="0" rows="7" required
+                                                  autocomplete="off">
                                     </textarea>
+                                    </div>
                                 </div>
+                                <button type="submit" class="text-[20px]">
+                                    <input type="hidden" name="from_user_id" value="{{session('userID')}}">
+                                    <input type="hidden" name="to_course_id" value="{{$item->id}}">
+                                    Send Message
+                                    <i class="uil uil-message text-[20px]"></i>
+                                </button>
                             </div>
-                            <button type="submit" class="text-[20px]">
-                                <input type="hidden" name="from_user_id" value="{{session('userID')}}">
-                                <input type="hidden" name="to_course_id" value="{{$item->id}}">
-                                Send Message
-                                <i class="uil uil-message text-[20px]"></i>
-                            </button>
                         </form>
                     </div>
                 </div>
@@ -562,31 +610,56 @@
             @foreach($courses as $item)
                 <div class="message__container" id="students{{ $counter }}">
                     <div class="message__history my-space-0.3 p-space-0.2">
-                        <h1>
-                            Recent Messages to: Students of <br> {{$item->course_name}}
-                        </h1>
+
+                        <div class="history__title">
+                            <h1>
+                                Recent Messages to Students of {{$item->course_name}} course
+                            </h1>
+                        </div>
+                        <div class="history__content">
+                            @foreach($messages->where('to_department_id', $item->id)->where('bulk_send','no') as $item_2)
+                                @php
+                                    $firstName = DB::table('users')
+                                    ->where('id',$item_2->from_user_id)->get('firstName')->first()->firstName;
+                                    $lastName = DB::table('users')
+                                    ->where('id',$item_2->from_user_id)->get('lastName')->first()->lastName;
+                                @endphp
+                                <div class="content__container">
+                                    <div class="history__from">
+                                        <h2>{{$firstName}} {{$lastName}} :</h2>
+                                    </div>
+                                    <div class="history__to">
+                                        {{$item_2->title}}
+                                        {{$item_2->message_content}}
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/all-students" method="post" class="flex">
+                        <form action="/admin/messages/all-students" method="post">
                             @csrf
-                            <div class="form__inner">
-                                <div class="input__title">
-                                    <label for="title">Message Title:</label>
-                                    <input type="text" name="title" id="title" required>
-                                </div>
-                                <div class="input__content">
-                                    <label for="message_content">Your Content:</label>
-                                    <textarea name="message_content" id="message_content" cols="0" rows="7" required>
+                            <div class="form__inner__container">
+                                <div class="form__inner">
+                                    <div class="input__title">
+                                        <label for="title">Message Title:</label>
+                                        <input type="text" name="title" id="title" required autocomplete="off">
+                                    </div>
+                                    <div class="input__content">
+                                        <label for="message_content">Your Content:</label>
+                                        <textarea name="message_content" id="message_content" cols="0" rows="7" required
+                                                  autocomplete="off">
                                     </textarea>
+                                    </div>
                                 </div>
+                                <button type="submit" class="text-[20px]">
+                                    <input type="hidden" name="from_user_id" value="{{session('userID')}}">
+                                    <input type="hidden" name="to_course_id" value="{{$item->id}}">
+                                    Send Message
+                                    <i class="uil uil-message text-[20px]"></i>
+                                </button>
                             </div>
-                            <button type="submit" class="text-[20px]">
-                                <input type="hidden" name="from_user_id" value="{{session('userID')}}">
-                                <input type="hidden" name="to_course_id" value="{{$item->id}}">
-                                Send Message
-                                <i class="uil uil-message text-[20px]"></i>
-                            </button>
                         </form>
                     </div>
                 </div>

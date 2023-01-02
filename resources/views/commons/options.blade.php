@@ -117,6 +117,12 @@
                     Unit Settings
                 </a>
             </li>
+            <li class="list__item">
+                <a class="p-space-0.1 tablinks" onclick="switchcommon(event, 'main-4-3')"
+                   style="cursor: pointer">
+                    Notify Students to Apply for Units
+                </a>
+            </li>
         </ul>
 
     </div>
