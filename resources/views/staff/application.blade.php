@@ -35,7 +35,7 @@
             </div>
         </form>
         <div class="staff-image">
-            <img src="{{asset('images/Brotherton Library.jfif')}}" alt="">
+            <img src="{{asset('images/download.jfif')}}" alt="">
         </div>
     </div>
 </section>
