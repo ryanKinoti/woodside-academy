@@ -90,7 +90,7 @@ Route::prefix("admin")->group(function () {
 
     //admin messaging
     Route::prefix('messages')->group(function () {
-        Route::post('department', [MessagingController::class, 'departmentMessage']);
+//        Route::post('department', [MessagingController::class, 'departmentMessage']);
         Route::post('faculty', [MessagingController::class, 'facultyMessage']);
         Route::post('course', [MessagingController::class, 'courseMessage']);
         Route::post('all-staff', [MessagingController::class, 'allStaffMessage']);

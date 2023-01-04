@@ -34,6 +34,7 @@ class MessagingController extends Controller
         }
 
     }
+
     public function facultyMessage(Request $request)
     {
         // Retrieve the form input data
@@ -181,6 +182,30 @@ class MessagingController extends Controller
 
             $logs->save();
             return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+        }
+    }
+
+    //API versions
+    public function departmentAPI(Request $request)
+    {
+        $data = $request->all();
+        $department = new Message();
+        $department->from_user_id = $data['from_user_id'];
+        $department->to_department_id = $data['to_department_id'];
+        $department->title = $data['title'];
+        $department->message_content = $data['message_content'];
+
+        if ($department->save()) {
+            $logs = new MessageLogs();
+            $lastID = DB::getPdo()->lastInsertId();
+            $message_entry = DB::table('messages')->find($lastID);
+
+            $logs->message_id = $message_entry->id;
+
+            $logs->save();
+//            return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+            return view('admin.dashboard', ['result' => 'message sent successfully'])
+                ->withErrors(['msg' => "message sent successfully"]);
         }
     }
 }
