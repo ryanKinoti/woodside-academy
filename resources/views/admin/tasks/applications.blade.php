@@ -15,8 +15,15 @@
         </a>
     </div>
 
+    <div class="checkbox__filter flex">
+        <label><input type="checkbox" value="pending" onchange="filterTable('staff')">Pending</label>
+        <label><input type="checkbox" value="annulled" onchange="filterTable('staff')">Annulled</label>
+        <label><input type="checkbox" value="registered" onchange="filterTable('staff')">Registered</label>
+        <label><input type="checkbox" value="accepted" onchange="filterTable('staff')">Accepted</label>
+    </div>
+
     <div class="content">
-        <table>
+        <table id="staff">
             <tr class="thead">
                 <td><h1>First Name</h1></td>
                 <td><h1>Last Name</h1></td>
@@ -98,7 +105,6 @@
                     </td>
                 </tr>
             @endforeach
-
         </table>
     </div>
 
@@ -123,8 +129,15 @@
         </a>
     </div>
 
+    <div class="checkbox__filter flex">
+        <label><input type="checkbox" value="pending" onchange="filterTable('lecturer')">Pending</label>
+        <label><input type="checkbox" value="annulled" onchange="filterTable('lecturer')">Annulled</label>
+        <label><input type="checkbox" value="registered" onchange="filterTable('lecturer')">Registered</label>
+        <label><input type="checkbox" value="accepted" onchange="filterTable('lecturer')">Accepted</label>
+    </div>
+
     <div class="content">
-        <table>
+        <table id="lecturer">
             <tr class="thead">
                 <td><h1>First Name</h1></td>
                 <td><h1>Last Name</h1></td>
@@ -223,16 +236,23 @@
         </h1>
     </div>
 
+    <div class="checkbox__filter flex">
+        <label><input type="checkbox" value="pending" onchange="filterTable('student')">Pending</label>
+        <label><input type="checkbox" value="annulled" onchange="filterTable('student')">Annulled</label>
+        <label><input type="checkbox" value="registered" onchange="filterTable('student')">Registered</label>
+        <label><input type="checkbox" value="accepted" onchange="filterTable('student')">Accepted</label>
+    </div>
+
     <div class="content">
-        <table>
+        <table id="student">
             <tr class="thead">
-                <td col-index="1"><h1>First Name</h1></td>
-                <td col-index="2"><h1>Last Name</h1></td>
-                <td col-index="3"><h1>Phone Number</h1></td>
-                <td col-index="4"><h1>Email</h1></td>
-                <td col-index="5"><h1>Gender</h1></td>
-                <td col-index="6"><h1>Course Applied</h1></td>
-                <td col-index="7"><h1>Application Status</h1></td>
+                <td><h1>First Name</h1></td>
+                <td><h1>Last Name</h1></td>
+                <td><h1>Phone Number</h1></td>
+                <td><h1>Email</h1></td>
+                <td><h1>Gender</h1></td>
+                <td><h1>Course Applied</h1></td>
+                <td><h1>Application Status</h1></td>
                 <td><h1>Action 1</h1></td>
                 <td><h1>Action 2</h1></td>
             </tr>

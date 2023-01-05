@@ -88,16 +88,6 @@ Route::prefix("admin")->group(function () {
         Route::post('unit-register', [EmailingController::class, 'unitRegistration']);
     });
 
-    //admin messaging
-    Route::prefix('messages')->group(function () {
-//        Route::post('department', [MessagingController::class, 'departmentMessage']);
-        Route::post('faculty', [MessagingController::class, 'facultyMessage']);
-        Route::post('course', [MessagingController::class, 'courseMessage']);
-        Route::post('all-staff', [MessagingController::class, 'allStaffMessage']);
-        Route::post('all-lecturers', [MessagingController::class, 'allLecturersMessage']);
-        Route::post('all-students', [MessagingController::class, 'allStudentsMessage']);
-    });
-
     //admin educative-actions
     Route::prefix('education')->group(function () {
         Route::post('add-unit', [EducationController::class, 'addUnit']);

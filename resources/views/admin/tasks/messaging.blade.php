@@ -66,9 +66,9 @@
                                     <div class="history__from">
                                         <h2>{{$firstName}} {{$lastName}} :</h2>
                                     </div>
-                                    <div class="history__to">
-                                        {{$item_2->title}}
-                                        {{$item_2->message_content}}
+                                    <div class="history__message">
+                                        <div class="message__title">{{$item_2->title}}:</div>
+                                        <div class="message__content">{{$item_2->message_content}}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -180,9 +180,9 @@
                                     <div class="history__from">
                                         <h2>{{$firstName}} {{$lastName}} :</h2>
                                     </div>
-                                    <div class="history__to">
-                                        {{$item_2->title}}
-                                        {{$item_2->message_content}}
+                                    <div class="history__message">
+                                        <div class="message__title">{{$item_2->title}}:</div>
+                                        <div class="message__content">{{$item_2->message_content}}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -190,7 +190,7 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/faculty" method="post">
+                        <form action="/api/admin/messages/faculty" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">
@@ -293,9 +293,9 @@
                                     <div class="history__from">
                                         <h2>{{$firstName}} {{$lastName}} :</h2>
                                     </div>
-                                    <div class="history__to">
-                                        {{$item_2->title}}
-                                        {{$item_2->message_content}}
+                                    <div class="history__message">
+                                        <div class="message__title">{{$item_2->title}}:</div>
+                                        <div class="message__content">{{$item_2->message_content}}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -303,7 +303,7 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/course" method="post">
+                        <form action="/api/admin/messages/course" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">
@@ -406,9 +406,9 @@
                                     <div class="history__from">
                                         <h2>{{$firstName}} {{$lastName}} :</h2>
                                     </div>
-                                    <div class="history__to">
-                                        {{$item_2->title}}
-                                        {{$item_2->message_content}}
+                                    <div class="history__message">
+                                        <div class="message__title">{{$item_2->title}}:</div>
+                                        <div class="message__content">{{$item_2->message_content}}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -416,7 +416,7 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/all-staff" method="post">
+                        <form action="/api/admin/messages/all-staff" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">
@@ -522,9 +522,9 @@
                                     <div class="history__from">
                                         <h2>{{$firstName}} {{$lastName}} :</h2>
                                     </div>
-                                    <div class="history__to">
-                                        {{$item_2->title}}
-                                        {{$item_2->message_content}}
+                                    <div class="history__message">
+                                        <div class="message__title">{{$item_2->title}}:</div>
+                                        <div class="message__content">{{$item_2->message_content}}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -532,7 +532,7 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/all-lecturers" method="post">
+                        <form action="/api/admin/messages/all-lecturers" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">
@@ -632,9 +632,9 @@
                                     <div class="history__from">
                                         <h2>{{$firstName}} {{$lastName}} :</h2>
                                     </div>
-                                    <div class="history__to">
-                                        {{$item_2->title}}
-                                        {{$item_2->message_content}}
+                                    <div class="history__message">
+                                        <div class="message__title">{{$item_2->title}}:</div>
+                                        <div class="message__content">{{$item_2->message_content}}</div>
                                     </div>
                                 </div>
                             @endforeach
@@ -642,7 +642,7 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/all-students" method="post">
+                        <form action="/api/admin/messages/all-students" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">

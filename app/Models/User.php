@@ -19,6 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'user_role',
+        'faculty_id',
+        'department_id',
+        'course_id',
+        'application_id',
+        'current_year',
         'firstName',
         'secondName',
         'lastName',
@@ -27,13 +32,10 @@ class User extends Authenticatable
         'email',
         'password',
         'gender',
+        'profile_photo',
         'country',
         'city',
-        'faculty_id',
-        'course_id',
-        'application_id',
-        'department_id',
-        'current_year',
+        'message_id',
     ];
 
     /**

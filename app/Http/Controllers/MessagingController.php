@@ -7,36 +7,46 @@ use App\Models\MessageLogs;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\MessageBag;
+use mysql_xdevapi\Result;
 
 class MessagingController extends Controller
 {
     //
-    public function departmentMessage(Request $request)
+    //API versions
+    public function departmentAPI(Request $request)
     {
-        // Retrieve the form input data
         $data = $request->all();
-        $adminMessage = new Message();
+        $department = new Message();
 
-        $adminMessage->from_user_id = $data['from_user_id'];
-        $adminMessage->to_department_id = $data['to_department_id'];
-        $adminMessage->title = $data['title'];
-        $adminMessage->message_content = $data['message_content'];
+        try {
+            $department->from_user_id = $data['from_user_id'];
+            $department->to_department_id = $data['to_department_id'];
+            $department->title = $data['title'];
+            $department->message_content = $data['message_content'];
 
-        if ($adminMessage->save()) {
-            $logs = new MessageLogs();
-            $lastID = DB::getPdo()->lastInsertId();
-            $message_entry = DB::table('messages')->find($lastID);
+            if ($department->save()) {
+                $logs = new MessageLogs();
+                $lastID = DB::getPdo()->lastInsertId();
+                $message_entry = DB::table('messages')->find($lastID);
 
-            $logs->message_id = $message_entry->id;
+                $logs->message_id = $message_entry->id;
 
-            $logs->save();
-            return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
+                $logs->save();
+                //redirect to named route here
+                return redirect('/admin')->withErrors(['msg' => "message sent successfully"]);
+            }
+        } catch (\Exception $exception) {
+
+            // Return an error response
+            $errors = new MessageBag(['error' => 'Error creating resource']);
+            return redirect('/admin')->withErrors($errors);
         }
-
     }
 
-    public function facultyMessage(Request $request)
+    public function facultyAPI(Request $request)
     {
+
         // Retrieve the form input data
         $data = $request->all();
         $adminMessage = new Message();
@@ -59,7 +69,7 @@ class MessagingController extends Controller
 
     }
 
-    public function courseMessage(Request $request)
+    public function courseAPI(Request $request)
     {
         // Retrieve the form input data
         $data = $request->all();
@@ -82,7 +92,7 @@ class MessagingController extends Controller
         }
     }
 
-    public function allStaffMessage(Request $request)
+    public function allStaffAPI(Request $request)
     {
         // Retrieve the form input data
         $data = $request->all();
@@ -117,7 +127,7 @@ class MessagingController extends Controller
 
     }
 
-    public function allLecturersMessage(Request $request)
+    public function allLecturersAPI(Request $request)
     {
         // Retrieve the form input data
         $data = $request->all();
@@ -151,7 +161,7 @@ class MessagingController extends Controller
         }
     }
 
-    public function allStudentsMessage(Request $request)
+    public function allStudentsAPI(Request $request)
     {
         // Retrieve the form input data
         $data = $request->all();
@@ -182,30 +192,6 @@ class MessagingController extends Controller
 
             $logs->save();
             return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
-        }
-    }
-
-    //API versions
-    public function departmentAPI(Request $request)
-    {
-        $data = $request->all();
-        $department = new Message();
-        $department->from_user_id = $data['from_user_id'];
-        $department->to_department_id = $data['to_department_id'];
-        $department->title = $data['title'];
-        $department->message_content = $data['message_content'];
-
-        if ($department->save()) {
-            $logs = new MessageLogs();
-            $lastID = DB::getPdo()->lastInsertId();
-            $message_entry = DB::table('messages')->find($lastID);
-
-            $logs->message_id = $message_entry->id;
-
-            $logs->save();
-//            return redirect("/admin")->withErrors(['msg' => "message sent successfully"]);
-            return view('admin.dashboard', ['result' => 'message sent successfully'])
-                ->withErrors(['msg' => "message sent successfully"]);
         }
     }
 }
