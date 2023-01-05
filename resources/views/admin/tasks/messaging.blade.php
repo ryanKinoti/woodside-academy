@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="message__input">
-                        <form action="/admin/messages/department" method="post">
+                        <form action="/api/admin/messages/department" method="post">
                             @csrf
                             <div class="form__inner__container">
                                 <div class="form__inner">

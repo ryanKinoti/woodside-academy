@@ -30,6 +30,17 @@ Route::prefix('learning')->group(function () {
 });
 
 Route::prefix('admin')->group(function () {
+
+    Route::prefix('messages')->group(function () {
+
+        Route::post('department', [MessagingController::class, 'departmentAPI']);
+//        Route::post('faculty', [MessagingController::class, 'facultyMessage']);
+//        Route::post('course', [MessagingController::class, 'courseMessage']);
+//        Route::post('all-staff', [MessagingController::class, 'allStaffMessage']);
+//        Route::post('all-lecturers', [MessagingController::class, 'allLecturersMessage']);
+//        Route::post('all-students', [MessagingController::class, 'allStudentsMessage']);
+    });
+
 });
 
 Route::prefix('user')->group(function () {
