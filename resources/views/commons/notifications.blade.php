@@ -25,9 +25,9 @@
                         <div class="history__from">
                             <h2>{{$firstName}} {{$lastName}} :</h2>
                         </div>
-                        <div class="history__to">
-                            {{$item_2->title}}
-                            {{$item_2->message_content}}
+                        <div class="history__message">
+                            <div class="message__title">{{$item_2->title}}:</div>
+                            <div class="message__content">{{$item_2->message_content}}</div>
                         </div>
                     </div>
                 @endforeach
@@ -60,9 +60,9 @@
                         <div class="history__from">
                             <h2>{{$firstName}} {{$lastName}} :</h2>
                         </div>
-                        <div class="history__to">
-                            {{$item_2->title}}
-                            {{$item_2->message_content}}
+                        <div class="history__message">
+                            <div class="message__title">{{$item_2->title}}:</div>
+                            <div class="message__content">{{$item_2->message_content}}</div>
                         </div>
                     </div>
                 @endforeach
@@ -95,9 +95,9 @@
                         <div class="history__from">
                             <h2>{{$firstName}} {{$lastName}} :</h2>
                         </div>
-                        <div class="history__to">
-                            {{$item_2->title}}
-                            {{$item_2->message_content}}
+                        <div class="history__message">
+                            <div class="message__title">{{$item_2->title}}:</div>
+                            <div class="message__content">{{$item_2->message_content}}</div>
                         </div>
                     </div>
                 @endforeach
