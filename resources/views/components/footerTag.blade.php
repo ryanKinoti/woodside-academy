@@ -76,3 +76,34 @@
         });
     });
 </script>
+
+{{--table script to filter among pending and annulled--}}
+<script>
+    function filterTable(id) {
+        // Get the checkbox values
+        var pending = document.querySelector('input[value="pending"]:checked');
+        var annulled = document.querySelector('input[value="annulled"]:checked');
+        var registered = document.querySelector('input[value="registered"]:checked');
+        var accepted = document.querySelector('input[value="accepted"]:checked');
+        // Get the table with the id "table1"
+        var table = document.querySelector("#" + id);
+        // Get the table rows with the .tbody class
+        var rows = table.querySelectorAll("tr.tbody");
+        // Loop through the rows
+        for (var i = 0; i < rows.length; i++) {
+            // Get the value of the "Application Status" column
+            var status = rows[i].cells[7].querySelector("h2").textContent;
+            // If the value of the "Application Status" column matches a checked checkbox value, show the row
+            if ((pending && status === "pending") ||
+                (annulled && status === "annulled") ||
+                (registered && status === "registered") ||
+                (accepted && status === "accepted")) {
+                rows[i].style.display = "table-row";
+            }
+            // If the value of the "Application Status" column does not match a checked checkbox value, hide the row
+            else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+</script>

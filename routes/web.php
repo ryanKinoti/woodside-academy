@@ -88,7 +88,6 @@ Route::prefix("admin")->group(function () {
         Route::post('unit-register', [EmailingController::class, 'unitRegistration']);
     });
 
-
     //admin educative-actions
     Route::prefix('education')->group(function () {
         Route::post('add-unit', [EducationController::class, 'addUnit']);
